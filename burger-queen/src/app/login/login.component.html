@@ -1,17 +1,36 @@
+<head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+</head>
 <main>
-
-  <h1>Welcome to Burger Queen</h1>
-  <section class="section" >
-    <article >
-      <img src="assets/burger.png" alt="Burger-logo">
+  <section class="container-login" >
+    <article class="welcome">
+      <h1>Welcome to Burger Queen</h1>
     </article>
-    <article>
-    <form action="">
-      <label for="email-input">Email </label>
-      <input type="email" name="email" id="email-input" placeholder="example@gmail.com" required>
-      <label for="password-input">Password</label>
-      <input type="password" name="password" id="password-input" placeholder="Password" required>
-      <button type="submit">Start</button>
+    <article class="login">
+    <figure class="figure-login">
+      <img src="assets/burger.png" alt="Burger-logo">
+    </figure>
+    <form action="" class="form-login color-login">
+      <h2 class="center">Let's start</h2>
+      <div class="input-container">
+        <input type="email" name="email" id="email-input"  required>
+        <label for="email-input">Email </label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="password" name="password" id="password-input" required>
+        <label for="password-input">Password</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <select name="rol-login">
+          <option>Waiter</option>
+          <option>Chef</option>
+          <option>Manager</option>
+          </select>
+      </div>
+      <div class="button-container"><button type="submit">START</button></div>
     </form>
   </article>
 </section>
