@@ -11,20 +11,20 @@
     <figure class="figure-login">
       <img src="assets/burger.png" alt="Burger-logo">
     </figure>
-    <form action="" class="form-login color-login">
+    <form (submit)="login(email, password, rol)" class="form-login color-login" >
       <h2 class="center">Let's start</h2>
       <div class="input-container">
-        <input type="email" name="email" id="email-input"  required>
+        <input type="email" name="email" #email required>
         <label class="email-input">Email </label>
         <div class="bar"></div>
       </div>
       <div class="input-container">
-        <input type="password" name="password" id="password-input" required>
+        <input type="password" name="password" #password required>
         <label class="password-input">Password</label>
         <div class="bar"></div>
       </div>
       <div class="input-container-element">
-        <select name="rol-login">
+        <select name="rol-login" #rol>
           <option>Waiter</option>
           <option>Chef</option>
           <option>Manager</option>
