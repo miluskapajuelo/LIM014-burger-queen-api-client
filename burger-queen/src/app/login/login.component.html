@@ -1,37 +1,32 @@
 <head>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
 </head>
 <main>
-  <section class="container-login" >
+  <section class="container-login">
     <article class="welcome">
       <h1>WELCOME TO BURGER QUEEN</h1>
     </article>
     <article class="login">
-    <figure class="figure-login">
-      <img src="assets/burger.png" alt="Burger-logo">
-    </figure>
-    <form (submit)="login(email, password, rol)" class="form-login color-login" >
-      <h2 class="center">Let's start</h2>
-      <div class="input-container">
-        <input type="email" name="email" #email required>
-        <label class="email-input">Email </label>
-        <div class="bar"></div>
-      </div>
-      <div class="input-container">
-        <input type="password" name="password" #password required>
-        <label class="password-input">Password</label>
-        <div class="bar"></div>
-      </div>
-      <div class="input-container-element">
-        <select name="rol-login" #rol>
-          <option>Waiter</option>
-          <option>Chef</option>
-          <option>Manager</option>
-          </select>
-      </div>
-      <div class="input-container-element"><button type="submit">Start</button></div>
-    </form>
-  </article>
-</section>
+      <figure class="figure-login">
+        <img src="assets/burger.png" alt="Burger-logo">
+      </figure>
+      <section class="form-login color-login">
+        <h2 class="center">Let's start</h2>
+        <div class="input-container">
+          <input type="email" name="email" #email required>
+          <label class="email-input">Email </label>
+          <div class="bar"></div>
+        </div>
+        <div class="input-container">
+          <input type="password" name="password" #password required>
+          <label class="password-input">Password</label>
+          <div class="bar"></div>
+        </div>
+        <div class="input-container-element">
+          <button (click)="login(email, password)">Start</button>
+        </div>
+      </section>
+    </article>
+  </section>
 </main>
