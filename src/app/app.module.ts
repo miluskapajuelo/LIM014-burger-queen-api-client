@@ -10,7 +10,7 @@ import { ChefComponent } from './chef/chef.component';
 import { LoginComponent } from './login/login.component';
 
 //services
-import { DataApiService } from './services/data-api.service';
+import { AuthApiService } from './services/auth-api.service';
 
 
 // services
@@ -27,7 +27,7 @@ import { DataApiService } from './services/data-api.service';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [DataApiService],
+  providers: [AuthApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
