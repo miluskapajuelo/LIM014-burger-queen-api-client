@@ -1,14 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import { environment } from '../../environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class DataApiService {
+export class AuthApiService {
+
+  private domain: string;
+  private endpoint: string;
 
   constructor(private httpClient: HttpClient) {
-    console.log('is working http')
+    console.log('is working http');
+    this.domain = environment.domain;
+    this.endpoint = '/users';
   }
 
   getAll(url: any, hash: any) {
