@@ -12,11 +12,6 @@ export class LoginComponent implements OnInit {
   constructor(private authApiService: AuthApiService) { }
 
   ngOnInit() {
-    this.getlist();
-  }
-
-  getlist() {
-    this.authApiService.getById('http://localhost:3200/', 'users/', '001').subscribe(data => console.log(data));
   }
 
   login(email: any, password: any) {
@@ -25,11 +20,13 @@ export class LoginComponent implements OnInit {
       password: password.value
     }
 
-    this.authApiService.loginAuth('http://localhost:3200/', 'auth', body)
+    this.authApiService.loginAuth(body)
       .subscribe((data: any) => {
+        window.localStorage.setItem('token', data.resp.token);
+        const token = localStorage.getItem('token');
+        console.log('objeto decode', jwt_decode(data.resp.token));
+        console.log('token',token)
 
-        console.log(jwt_decode(data.resp.token));
-        const rol = data.resp.token.rol;
       });
 
   }
