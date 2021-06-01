@@ -11,6 +11,8 @@ import { LoginComponent } from './components/login/login.component';
 
 //services
 import { AuthApiService } from './services/auth-api.service';
+import { CardComponent } from './components/card/card.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 // services
@@ -20,12 +22,14 @@ import { AuthApiService } from './services/auth-api.service';
     WaiterComponent,
     AdminComponent,
     ChefComponent,
-    LoginComponent
+    LoginComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [AuthApiService],
   bootstrap: [AppComponent]
