@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { WaiterComponent } from './waiter/waiter.component';
-import { AdminComponent } from './admin/admin.component';
-import { ChefComponent } from './chef/chef.component';
+import { LoginComponent } from './components/login/login.component';
+import { WaiterComponent } from './components/waiter/waiter.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { ChefComponent } from './components/chef/chef.component';
 
 const routes: Routes = [
   {
