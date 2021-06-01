@@ -1,0 +1,34 @@
+import { Component, OnInit } from '@angular/core';
+import { AuthApiService } from 'src/app/services/auth-api.service';
+import jwt_decode from "jwt-decode";
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.sass']
+})
+export class LoginComponent implements OnInit {
+
+  constructor(private authApiService: AuthApiService) { }
+
+  ngOnInit() {
+  }
+
+  login(email: any, password: any) {
+    const body = {
+      email: email.value,
+      password: password.value
+    }
+
+    this.authApiService.loginAuth(body)
+      .subscribe((data: any) => {
+        window.localStorage.setItem('token', data.resp.token);
+        const token = localStorage.getItem('token');
+        console.log('objeto decode', jwt_decode(data.resp.token));
+        console.log('token',token)
+
+      });
+
+  }
+
+}
