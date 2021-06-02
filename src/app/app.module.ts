@@ -9,6 +9,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { ChefComponent } from './components/chef/chef.component';
 import { LoginComponent } from './components/login/login.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { DishesComponent } from './components/dishes/dishes.component'
 
 //services
 import { AuthApiService } from './services/auth-api.service';
@@ -23,7 +24,8 @@ import { AuthApiService } from './services/auth-api.service';
     AdminComponent,
     ChefComponent,
     LoginComponent,
-    MenuComponent
+    MenuComponent,
+    DishesComponent
   ],
   imports: [
     BrowserModule,
