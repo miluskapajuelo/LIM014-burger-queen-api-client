@@ -20,9 +20,11 @@ export class OrderMenuComponent implements OnInit {
   showProducts() {
     this.productsApiService.getAllProducts()
       .subscribe((data: any) => {
-        const token = window.localStorage.getItem('token');
+        console.log(data)
+
+        /* const token = window.localStorage.getItem('token');
         console.log('objeto decode', jwt_decode(data.resp.token));
-        console.log('token',token)
+        console.log('token',token) */
 
       });
 

@@ -15,7 +15,7 @@ export class ProductsApiService {
     this.endpoint = '/products';
   }
   getAllProducts() {
-    const headers = new HttpHeaders().append('Authorization', 'token');
+    const headers = new HttpHeaders().append('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21icmUiOiJBZG1pbiBlc3BlcmFuY2l0byIsInJvbCI6IkFkbWluIiwiaWQiOiIwMDEifQ.fqOvfxye5JG-gfsE9jpbrbdyIggLQISN2VoiIVlyVuE');
     return this.httpClient.get(`${this.domain}${this.endpoint}`, {
       headers
     });
