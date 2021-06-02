@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http';
+
+
+//Angular material
 import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table'
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +19,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthApiService } from './services/auth-api.service';
 import { CardComponent } from './components/card/card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { OrderMenuComponent } from './components/order-menu/order-menu.component';
 
 
 // services
@@ -24,17 +30,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AdminComponent,
     ChefComponent,
     LoginComponent,
-    CardComponent
+    CardComponent,
+    OrderMenuComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule
+
   ],
   exports:[
-    MatCardModule
+    MatCardModule,
+    MatTableModule
   ],
   providers: [AuthApiService],
   bootstrap: [AppComponent]
