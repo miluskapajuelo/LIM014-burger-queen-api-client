@@ -23,10 +23,10 @@ export class LoginComponent implements OnInit {
 
     this.authApiService.loginAuth(body)
       .subscribe((data: any) => {
+        console.log(data)
         window.localStorage.setItem('token', data.resp.token);
         const token = localStorage.getItem('token');
         console.log('objeto decode', jwt_decode(data.resp.token));
-        console.log('token', token)
         this.router.navigate(['admin']);
 
       });

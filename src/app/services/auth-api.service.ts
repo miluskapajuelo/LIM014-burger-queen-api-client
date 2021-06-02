@@ -12,7 +12,6 @@ export class AuthApiService {
   private endpoint: string;
 
   constructor(private httpClient: HttpClient) {
-    console.log('is working http');
     this.domain = environment.domain;
     this.endpoint = '/auth';
   }
@@ -21,4 +20,5 @@ export class AuthApiService {
   loginAuth(body: any) {
     return this.httpClient.post(`${this.domain}${this.endpoint}`, body)
   }
+
 }
