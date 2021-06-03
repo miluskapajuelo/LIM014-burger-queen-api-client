@@ -4,10 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --output-path docs --base-href /LIM014-burger-queen-api-client/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "gh-pages -d src"
+    "deploy": "gh-pages -d docs"
   },
   "private": true,
   "dependencies": {

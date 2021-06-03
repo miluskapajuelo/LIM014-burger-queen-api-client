@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsApiService } from 'src/app/services/products-api.service';
 
-
 @Component({
   selector: 'app-dishes',
   templateUrl: './dishes.component.html',

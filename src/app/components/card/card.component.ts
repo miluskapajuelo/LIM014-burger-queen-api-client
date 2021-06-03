@@ -23,10 +23,11 @@ export class CardComponent implements OnInit {
   showCategories() {
     this.productsApiService.getAllProducts()
       .subscribe((data: any) => {
-
         this.dataDishes =  data.products
-        console.log("hola", this.dataDishes);
-
       });}
+  showByCategory(hola:any){
+    console.log(hola.name)
+
+  }
 
 }

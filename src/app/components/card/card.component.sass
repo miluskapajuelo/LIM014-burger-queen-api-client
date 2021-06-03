@@ -20,12 +20,22 @@ $font-size: 25px
 .example-header-image
   background-size: cover
 
+.example-card
+  &:hover
+    img
+        transform: scale(1.2,1.2)
+        transition-duration: 500ms
+        transition-timing-function: ease-out
+        height: 250px
+        opacity: .7
+
 .image
   width: 90%
-  margin: -30px
+  margin: -20px
+
 
 p
-  margin: 10px
+  margin: 8px
   font-weight: 500
   align-self: center
   justify-content: center
@@ -50,6 +60,7 @@ p
 
 .cuantity-button
   display: flex
+  margin-top: -12px
 
 .category-cards
   display: flex

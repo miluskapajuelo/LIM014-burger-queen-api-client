@@ -7,20 +7,30 @@ import { ChefComponent } from './components/chef/chef.component';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
     path: 'login',
     component: LoginComponent,
-},
-{
-  path: 'admin',
-  component: AdminComponent,
-},
-{
-  path: 'waiter',
-  component: WaiterComponent,
-},{
-  path: 'chef',
-  component: ChefComponent,
-},
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
+  },
+  {
+    path: 'waiter',
+    component: WaiterComponent,
+  }, {
+    path: 'chef',
+    component: ChefComponent,
+  },
+  {
+    path: '**',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
