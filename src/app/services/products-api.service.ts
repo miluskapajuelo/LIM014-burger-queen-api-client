@@ -15,18 +15,18 @@ export class ProductsApiService {
     this.endpoint = '/products';
   }
   getAllProducts() {
-    return this.httpClient.get<IProductsModel>(`${this.domain}${this.endpoint}`);
+    return this.httpClient.get<Array<IProductsModel>>(`${this.domain}${this.endpoint}`);
   }
   getProductsById(uid: any) {
-    return this.httpClient.get(`${this.domain}${this.endpoint}${uid}`);
+    return this.httpClient.get<IProductsModel>(`${this.domain}${this.endpoint}${uid}`);
   }
   deleteProducts(uid: any,) {
-    return this.httpClient.delete(`${this.domain}${this.endpoint}${uid}`)
+    return this.httpClient.delete<IProductsModel>(`${this.domain}${this.endpoint}${uid}`)
   }
   updateProducts(uid: any, body: any) {
-    return this.httpClient.put(`${this.domain}${this.endpoint}${uid}`, body)
+    return this.httpClient.put<IProductsModel>(`${this.domain}${this.endpoint}${uid}`, body)
   }
   createProducts(body: any) {
-    return this.httpClient.post(`${this.domain}${this.endpoint}`, body)
+    return this.httpClient.post<IProductsModel>(`${this.domain}${this.endpoint}`, body)
   }
 }
