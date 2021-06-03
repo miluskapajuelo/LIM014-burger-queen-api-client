@@ -2,13 +2,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
 </head>
-<mat-card class="example-card">
+<section  class="category-cards">
+<mat-card *ngFor="let a of dataDishes" class="example-card">
   <mat-card-header>
-    <mat-card-title>Burger A</mat-card-title>
+    <mat-card-title>{{a.name}}</mat-card-title>
   </mat-card-header>
   <img class="image" src='../assets/images/burger.png' alt="Burger">
     <p class="card-price">
-      s/. 4.00
+      {{a.price}}
     </p>
   <div class="cuantity-button">
     <button class="boton"><a href="#">+</a></button>
@@ -16,4 +17,5 @@
     <button class="boton"><a href="#">-</a></button>
   </div>
 </mat-card>
+</section>
 
