@@ -8,11 +8,12 @@ import { WaiterComponent } from './components/waiter/waiter.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { ChefComponent } from './components/chef/chef.component';
 import { LoginComponent } from './components/login/login.component';
-import { MenuComponent } from './components/menu/menu.component';
+import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { DishesComponent } from './components/dishes/dishes.component'
 
 //services
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { OrderDishComponent } from './components/order-dish/order-dish.component';
 
 
 
@@ -24,8 +25,9 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     AdminComponent,
     ChefComponent,
     LoginComponent,
-    MenuComponent,
-    DishesComponent
+    SideNavComponent,
+    DishesComponent,
+    OrderDishComponent
   ],
   imports: [
     BrowserModule,
