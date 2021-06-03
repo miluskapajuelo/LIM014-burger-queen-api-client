@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsApiService } from 'src/app/services/products-api.service';
-import { ProductsInterface } from '../../models/products-interface'
-
 
 @Component({
   selector: 'app-dishes',
