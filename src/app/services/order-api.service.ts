@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { environment } from '../../environments/environment';
+import { IOrderModel } from '../models/orders-model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,25 +15,18 @@ export class OrderApiService {
     this.endpoint = '/orders';
   }
   getAllOrders() {
-    const headers = new HttpHeaders().append('Authorization', 'token');
-    return this.httpClient.get(`${this.domain}${this.endpoint}`, {
-      headers
-    });
+    return this.httpClient.get<Array<IOrderModel>>(`${this.domain}${this.endpoint}`);
   }
   getOrderById(uid: any) {
-    const headers = new HttpHeaders().append('Authorization', 'token');
-    return this.httpClient.get(`${this.domain}${this.endpoint}${uid}`, { headers });
+    return this.httpClient.get<IOrderModel>(`${this.domain}${this.endpoint}${uid}`);
   }
   deleteOrder(uid: any,) {
-    const headers = new HttpHeaders().append('Authorization', 'token');
-    return this.httpClient.delete(`${this.domain}${this.endpoint}${uid}`, { headers })
+    return this.httpClient.delete<IOrderModel>(`${this.domain}${this.endpoint}${uid}`)
   }
   updateOrder(uid: any, body: any) {
-    const headers = new HttpHeaders().append('Authorization', 'token');
-    return this.httpClient.put(`${this.domain}${this.endpoint}${uid}`, body, { headers })
+    return this.httpClient.put<IOrderModel>(`${this.domain}${this.endpoint}${uid}`, body)
   }
   createOrder(body: any) {
-    const headers = new HttpHeaders().append('Authorization', 'token');
-    return this.httpClient.post(`${this.domain}${this.endpoint}`, body, { headers })
+    return this.httpClient.post<IOrderModel>(`${this.domain}${this.endpoint}`, body,)
   }
 }
