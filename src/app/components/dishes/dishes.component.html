@@ -3,9 +3,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
 </head>
 <section  class="category-cards">
-  <div *ngFor="let a of dishCategories" class="example-card">
-    <p>{{a}}</p>
-  <img class="image" src='../assets/images/burger.png' alt="Burger">
+  <div *ngFor="let dishCateg of dishCategories" class="example-card">
+    <a #p
+    routerLink="/waiter/"
+    [queryParams]="{category:dishCateg}">
+    {{dishCateg}}
+  </a>
+  <img class="image" src='../assets/images/burger.png' (click)='hola(p)' alt="Burger">
 </div>
 </section>
+
+<section  class="category-cards">
+<mat-card *ngFor="let a of filterProducts" class="example-card">
+  <mat-card-header>
+    <p>{{a.name}}</p>
+  </mat-card-header>
+  <img class="imageC" src='../assets/images/burger.png'alt="Burger">
+    <p class="card-price">
+
+    </p>
+  <div class="cuantity-button">
+    <button class="boton"><a href="#">+</a></button>
+    <p class="cuantity">hola</p>
+    <button class="boton"><a href="#">-</a></button>
+  </div>
+</mat-card>
+</section>
+
 

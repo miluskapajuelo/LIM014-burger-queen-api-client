@@ -24,6 +24,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TokenInterceptor } from './interceptors/token.interceptor';
 
+//pipes
+import { FilterPipe } from './pipe/filter.pipe';
+
 
 
 // services
@@ -36,7 +39,8 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     LoginComponent,
     MenuComponent,
     DishesComponent,
-    CardComponent
+    CardComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

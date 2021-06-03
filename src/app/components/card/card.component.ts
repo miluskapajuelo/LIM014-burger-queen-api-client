@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { pipe } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { ProductsApiService } from 'src/app/services/products-api.service';
 
 
@@ -16,18 +18,16 @@ export class CardComponent implements OnInit {
 
   constructor(private productsApiService: ProductsApiService) { }
 
-  ngOnInit(): void {
-    this.showCategories();
-  }
-
   showCategories() {
     this.productsApiService.getAllProducts()
       .subscribe((data: any) => {
         this.dataDishes =  data.products
+        return this.dataDishes
       });}
-  showByCategory(hola:any){
-    console.log(hola.name)
+
+  ngOnInit(): void {
+    this.showCategories();
+    }
 
   }
 
-}

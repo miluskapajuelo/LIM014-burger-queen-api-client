@@ -9,6 +9,7 @@ $unit: 8px
 $font-family: roboto
 $font-size: 15px
 
+
 .category-cards
   display: flex
 
@@ -21,17 +22,70 @@ $font-size: 15px
   margin: 15px
 
 
-.example-header-image
-  background-size: cover
-
 .image
   width: 110%
   margin-top: -10px
 
-p
+a
   font-size: 11px
   display: block
   font-size: 24x
   font-weight: 500
   margin: 1px
   padding: 5px
+  text-decoration: none
+  color: $terciary-color
+
+.example-cardC
+  width: 150px
+  height: 180px
+  display: flex
+  flex-direction: column
+  align-items: center
+  margin: 15px
+
+.example-header-image
+  background-size: cover
+
+.example-cardC
+  &:hover
+    img
+        transform: scale(1.2,1.2)
+        transition-duration: 500ms
+        transition-timing-function: ease-out
+        height: 250px
+        opacity: .7
+
+.imageC
+  width: 90%
+  margin: -20px
+
+
+p
+  margin: 8px
+  font-weight: 500
+  align-self: center
+  justify-content: center
+
+.boton
+  width: 30px
+  height: 30px
+  background-color: $primary-color
+  margin: 4px
+  border-radius: 50px
+  border-color: $primary-color
+
+
+  &:hover
+    background-color: #e45947
+
+  a
+   color: $secondary-color
+   text-decoration: none
+   font-weight: bold
+   font-size: 20px
+
+.cuantity-button
+  display: flex
+  margin-top: -12px
+
