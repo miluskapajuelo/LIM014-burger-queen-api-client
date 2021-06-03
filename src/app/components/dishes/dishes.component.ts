@@ -1,31 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsApiService } from 'src/app/services/products-api.service';
-import jwt_decode from "jwt-decode";
+import { ProductsInterface } from '../../models/products-interface'
+
 
 @Component({
-  selector: 'app-order-menu',
-  templateUrl: './order-menu.component.html',
-  styleUrls: ['./order-menu.component.sass']
+  selector: 'app-dishes',
+  templateUrl: './dishes.component.html',
+  styleUrls: ['./dishes.component.sass']
 })
+export class DishesComponent implements OnInit {
 
-
-export class OrderMenuComponent implements OnInit {
+  dataDishes: any;
 
   constructor(private productsApiService: ProductsApiService) { }
 
   ngOnInit() {
-    this.showProducts();
+    this.showCategories();
+
   }
 
-  showProducts() {
+  showCategories() {
     this.productsApiService.getAllProducts()
       .subscribe((data: any) => {
-        console.log(data)
+
+        this.dataDishes =  data.products
+        console.log("hola", this.dataDishes)
 
         /* const token = window.localStorage.getItem('token');
         console.log('objeto decode', jwt_decode(data.resp.token));
         console.log('token',token) */
 
-      });
+      });}
 
-  }}
+}

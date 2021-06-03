@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthApiService } from 'src/app/services/auth-api.service';
 import jwt_decode from "jwt-decode";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import jwt_decode from "jwt-decode";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authApiService: AuthApiService) { }
+  constructor(private authApiService: AuthApiService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -22,10 +23,11 @@ export class LoginComponent implements OnInit {
 
     this.authApiService.loginAuth(body)
       .subscribe((data: any) => {
+        console.log(data)
         window.localStorage.setItem('token', data.resp.token);
         const token = localStorage.getItem('token');
         console.log('objeto decode', jwt_decode(data.resp.token));
-        console.log('token',token)
+        this.router.navigate(['admin']);
 
       });
 

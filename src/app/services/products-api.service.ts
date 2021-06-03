@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { environment } from '../../environments/environment';
+import { ProductsInterface } from '../models/products-interface'
 
 
 @Injectable({
@@ -9,16 +10,16 @@ import { environment } from '../../environments/environment';
 export class ProductsApiService {
   private domain: string;
   private endpoint: string;
-
   constructor(private httpClient: HttpClient) {
     this.domain = environment.domain;
     this.endpoint = '/products';
   }
   getAllProducts() {
     const headers = new HttpHeaders().append('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21icmUiOiJBZG1pbiBlc3BlcmFuY2l0byIsInJvbCI6IkFkbWluIiwiaWQiOiIwMDEifQ.fqOvfxye5JG-gfsE9jpbrbdyIggLQISN2VoiIVlyVuE');
-    return this.httpClient.get(`${this.domain}${this.endpoint}`, {
+    return this.httpClient.get<ProductsInterface>(`${this.domain}${this.endpoint}`, {
       headers
     });
+
   }
   getProductsById(uid: any) {
     const headers = new HttpHeaders().append('Authorization', 'token');
