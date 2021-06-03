@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -13,26 +13,19 @@ export class UserApiService {
     this.domain = environment.domain;
     this.endpoint = '/users';
   }
-    getAllUsers() {
-    const headers = new HttpHeaders().append('Authorization', 'token');
-    return this.httpClient.get(`${this.domain}${this.endpoint}`, {
-      headers
-    });
+  getAllUsers() {
+    return this.httpClient.get(`${this.domain}${this.endpoint}`);
   }
   getUserById(uid: any) {
-    const headers = new HttpHeaders().append('Authorization', 'token');
-    return this.httpClient.get(`${this.domain}${this.endpoint}${uid}`, { headers });
+    return this.httpClient.get(`${this.domain}${this.endpoint}${uid}`);
   }
   deleteUser(uid: any,) {
-    const headers = new HttpHeaders().append('Authorization', 'token');
-    return this.httpClient.delete(`${this.domain}${this.endpoint}${uid}`, { headers })
+    return this.httpClient.delete(`${this.domain}${this.endpoint}${uid}`)
   }
   updateUser(uid: any, body: any) {
-    const headers = new HttpHeaders().append('Authorization', 'token');
-    return this.httpClient.put(`${this.domain}${this.endpoint}${uid}`, body, { headers })
+    return this.httpClient.put(`${this.domain}${this.endpoint}${uid}`, body)
   }
   createUser(body: any) {
-    const headers = new HttpHeaders().append('Authorization', 'token');
-    return this.httpClient.post(`${this.domain}${this.endpoint}`, body, { headers })
+    return this.httpClient.post(`${this.domain}${this.endpoint}`, body)
   }
 }
