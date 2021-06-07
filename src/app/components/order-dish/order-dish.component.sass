@@ -1,7 +1,72 @@
-section
-  width: 30vw
-  height:100vh
+$primary-color: #CA3A28
+$secondary-color: #ffff
+$terciary-color:#212121
 
-article
+
+$box-shadow: 0 2px 10px 0 rgba(0,0,0,0.6)
+$limit: 10
+$unit: 8px
+
+$font-family: roboto
+$font-size: 15px article
+
+//Quantity boton
+.cuantity-button
   display: flex
-  flex-direction: column
+p
+  margin: 8px
+  font-size: 13px
+  font-weight: 500
+  align-self: center
+  justify-content: center
+
+
+.boton
+  width: 30px
+  height: 30px
+  background-color: $primary-color
+  margin: 4px
+  border-radius: 50px
+  border-color: $primary-color
+
+
+  &:hover
+    background-color: #e45947
+
+  a
+   color: $secondary-color
+   text-decoration: none
+   font-weight: bold
+   font-size: 20px
+
+//table order menu
+
+#customers
+  font-family: Arial, Helvetica, sans-serif
+  border-collapse: collapse
+  width: 100%
+  text-align: center
+  align-items: center
+
+#customers
+  td, th
+  padding: 8px
+
+#customers
+  tr
+    &:nth-child(even)
+      background-color: $secondary-color
+      border: ridge
+
+#customers
+  tr
+    &:hover
+      background-color: #ece9e9
+
+
+#customers
+  th
+    padding-top: 12px
+    padding-bottom: 12px
+    background-color: $secondary-color
+    color: $terciary-color
