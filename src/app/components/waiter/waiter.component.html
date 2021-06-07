@@ -3,6 +3,7 @@
     <app-side-nav></app-side-nav>
   </div>
   <app-dishes
+    [items]="items"
     (getProduct)="getProduct($event)"></app-dishes>
   <div class="order">
   <app-order-dish [selectProduct]="selectProduct"></app-order-dish>

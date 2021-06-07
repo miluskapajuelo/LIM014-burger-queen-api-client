@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IProductsModel, ProductDetailModel } from 'src/app/models/products-model';
 
 @Component({
@@ -8,12 +8,16 @@ import { IProductsModel, ProductDetailModel } from 'src/app/models/products-mode
 })
 export class OrderDishComponent implements OnInit {
 
+
   @Input()selectProduct:Array<ProductDetailModel>=[];
+
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.selectProduct)
   }
 
+  deleteItem(item:ProductDetailModel){
+    this.selectProduct = this.selectProduct.filter(x=>x._id !== item._id )
+  }
 
 }

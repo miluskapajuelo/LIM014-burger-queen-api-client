@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IProductsModel, ProductDetailModel } from 'src/app/models/products-model';
 import { ProductsApiService } from 'src/app/services/products-api.service';
@@ -10,6 +10,7 @@ import { ProductsApiService } from 'src/app/services/products-api.service';
 })
 export class DishesComponent implements OnInit {
 
+  @Input()items:IProductsModel[]=[]
   @Output() getProduct: EventEmitter<ProductDetailModel> = new EventEmitter()
 
   dataDishes: any;
@@ -23,6 +24,7 @@ export class DishesComponent implements OnInit {
 
   ngOnInit(): void {
     this.showCategories()
+    console.log(this.items)
   }
 
   constructor(private productsApiService: ProductsApiService, private route: ActivatedRoute) {
@@ -54,6 +56,7 @@ export class DishesComponent implements OnInit {
 
   GetProduct(item:ProductDetailModel){
     this.getProduct.emit(item)
+
   }
 
 

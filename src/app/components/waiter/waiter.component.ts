@@ -17,9 +17,7 @@ export class WaiterComponent implements OnInit {
   ngOnInit(): void {
     this.productsApiService.getAllProducts().subscribe(data =>{
       this.items = data
-
-
-  })
+ })
 
   }
 
@@ -31,6 +29,4 @@ export class WaiterComponent implements OnInit {
     console.log(this.selectProduct)
     //this.itemService.deleteItem(item).subscribe()
   }
-
-
-}
+  }
