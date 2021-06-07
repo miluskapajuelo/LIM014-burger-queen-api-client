@@ -4,23 +4,22 @@
 </head>
 <section  class="category-cards">
   <div *ngFor="let dishCateg of dishCategories" class="example-card">
-    <a #p
-    routerLink="/waiter/"
-    [queryParams]="{category:dishCateg}">
-    {{dishCateg}}
-  </a>
   <img class="image" src='../assets/images/burger.png' (click)='hola(p)' alt="Burger">
+  <a #p
+  routerLink="/waiter"
+  [queryParams]="{category:dishCateg}">
+  {{dishCateg}}
+</a>
 </div>
 </section>
-
 <section  class="category-cards">
-<mat-card *ngFor="let a of filterProducts" class="example-card">
-  <mat-card-header>
+<mat-card *ngFor="let a of filterProducts" class="example-cardC">
+  <div>
     <p>{{a.name}}</p>
-  </mat-card-header>
+  </div>
   <img class="imageC" src='../assets/images/burger.png'alt="Burger">
     <p class="card-price">
-
+      {{a.price}}
     </p>
   <div class="cuantity-button">
     <button class="boton"><a href="#">+</a></button>

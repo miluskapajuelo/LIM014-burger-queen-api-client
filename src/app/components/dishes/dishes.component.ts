@@ -15,26 +15,25 @@ export class DishesComponent implements OnInit {
   dishes:any
   categoryValue:any
   filterProducts: any[]= []
-  products:any[]=[]
+  data:any[]=[]
   category:any
 
-
-  constructor(private productsApiService: ProductsApiService, private route: ActivatedRoute) {
-       this.productsApiService.getAllProducts()
-        .subscribe((products: any) => {
-          this.products = products.products
-          //read value of query params
-          this.route.queryParamMap.subscribe(params => {
-            this.category = params.get('category');
-            this.filterProducts = (this.category) ?
-            this.products.filter(p=> p.type=== this.category) : this.products;
-          })
-        });
-   }
-
-  ngOnInit() {
+  ngOnInit(): void {
     this.showCategories()
   }
+
+  constructor(private productsApiService: ProductsApiService, private route: ActivatedRoute) {
+    this.productsApiService.getAllProducts()
+    .subscribe((products: any) => {
+      this.data = products.products
+      //read value of query params
+      this.route.queryParamMap.subscribe(params => {
+        this.category = params.get('category');
+        this.filterProducts = (this.category) ? this.data.filter(p=> p.type=== this.category) : this.data;
+      })
+    });
+}
+
 
   filter(dataDishes:any) {
     dataDishes.forEach((element:any) => {
