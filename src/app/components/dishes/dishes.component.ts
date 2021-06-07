@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { IProductsModel, ProductDetailModel } from 'src/app/models/products-model';
 import { ProductsApiService } from 'src/app/services/products-api.service';
 
 @Component({
@@ -8,6 +9,8 @@ import { ProductsApiService } from 'src/app/services/products-api.service';
   styleUrls: ['./dishes.component.sass']
 })
 export class DishesComponent implements OnInit {
+
+  @Output() getProduct: EventEmitter<ProductDetailModel> = new EventEmitter()
 
   dataDishes: any;
   dataAllDishes: any;
@@ -49,8 +52,8 @@ export class DishesComponent implements OnInit {
         this.filter(this.dataDishes)
       });}
 
-  addItem(product:any){
-
+  GetProduct(item:ProductDetailModel){
+    this.getProduct.emit(item)
   }
 
 

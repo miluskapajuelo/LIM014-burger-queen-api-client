@@ -19,7 +19,6 @@ import { DishesComponent } from './components/dishes/dishes.component'
 
 //services
 import { AuthApiService } from './services/auth-api.service';
-import { CardComponent } from './components/card/card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TokenInterceptor } from './interceptors/token.interceptor';
@@ -39,7 +38,6 @@ import { FilterPipe } from './pipe/filter.pipe';
     ChefComponent,
     LoginComponent,
     DishesComponent,
-    CardComponent,
     FilterPipe,
     SideNavComponent,
     DishesComponent,

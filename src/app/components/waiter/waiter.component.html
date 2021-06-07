@@ -2,9 +2,10 @@
   <div class="order">
     <app-side-nav></app-side-nav>
   </div>
-  <app-dishes></app-dishes>
+  <app-dishes
+    (getProduct)="getProduct($event)"></app-dishes>
   <div class="order">
-  <app-order-dish></app-order-dish>
+  <app-order-dish [selectProduct]="selectProduct"></app-order-dish>
   </div>
 </section>
 

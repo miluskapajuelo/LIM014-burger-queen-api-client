@@ -1,5 +1,5 @@
 export interface IProductsModel {
-  products?: ProductDetailModel
+  products?: Array<ProductDetailModel>
 }
 export interface ProductDetailModel {
   _id?: string;

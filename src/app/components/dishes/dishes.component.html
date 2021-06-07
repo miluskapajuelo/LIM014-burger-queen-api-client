@@ -13,11 +13,11 @@
 </div>
 </section>
 <section  class="option-cards">
-<mat-card *ngFor="let product of filterProducts" class="example-cardC">
+<mat-card *ngFor="let product of filterProducts" class="example-cardC" (click)="GetProduct(product)">
   <div>
     <p>{{product.name}}</p>
   </div>
-  <img class="imageC" src='../assets/images/burger.png'alt="Burger">
+  <img class="imageC" src='../assets/images/burger.png'alt="Burger" >
     <p class="card-price">
       {{product.price}}
     </p>

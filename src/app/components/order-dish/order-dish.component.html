@@ -20,13 +20,13 @@
     <th>Quantity</th>
     <th>Monto</th>
   </tr>
-  <tr>
-    <td>burger1</td>
-    <td>3</td>
+  <tr *ngFor="let i of selectProduct">
+    <td>{{i.name}}</td>
+    <td>{{i.price}}</td>
     <td>
       <div class="cuantity-button">
       <button class="boton"><a href="#">+</a></button>
-      <p class="cuantity">hola</p>
+      <p class="cuantity">2</p>
       <button class="boton"><a href="#">-</a></button>
     </div>
     </td>
