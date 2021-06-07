@@ -14,7 +14,7 @@ import { WaiterComponent } from './components/waiter/waiter.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { ChefComponent } from './components/chef/chef.component';
 import { LoginComponent } from './components/login/login.component';
-import { MenuComponent } from './components/menu/menu.component';
+import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { DishesComponent } from './components/dishes/dishes.component'
 
 //services
@@ -23,6 +23,7 @@ import { CardComponent } from './components/card/card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { OrderDishComponent } from './components/order-dish/order-dish.component';
 
 //pipes
 import { FilterPipe } from './pipe/filter.pipe';
@@ -37,10 +38,12 @@ import { FilterPipe } from './pipe/filter.pipe';
     AdminComponent,
     ChefComponent,
     LoginComponent,
-    MenuComponent,
     DishesComponent,
     CardComponent,
-    FilterPipe
+    FilterPipe,
+    SideNavComponent,
+    DishesComponent,
+    OrderDishComponent
   ],
   imports: [
     BrowserModule,

@@ -49,10 +49,14 @@ export class DishesComponent implements OnInit {
         this.filter(this.dataDishes)
       });}
 
+  addItem(product:any){
+
+  }
 
 
 
-  hola(category:any){
+
+  /* hola(category:any){
       this.categoryValue = category.innerHTML
       if(this.categoryValue ==='burger' ){
         console.log('burger')
@@ -63,6 +67,6 @@ export class DishesComponent implements OnInit {
       else{
         console.log('side dishes')
       }
-      }
+      } */
 
 }

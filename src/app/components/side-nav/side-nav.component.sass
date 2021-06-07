@@ -25,14 +25,27 @@ div
   padding: 3px
   height: 30%
   width: 100%
+  cursor: pointer
+  transition: all 500ms ease
+  &:hover
+    transform: scale(1.1)
+    background-color: $primary-color
+    color: #ffff
+    border-color: $primary-color
 
 img
   height: 12%
   width: 100%
+  cursor: pointer
+  transition: all 500ms ease
+  &:hover
+    transform: scale(1.2)
+  &:active
+    transform: scale(1.4)
 
 @media (min-width: 768px) and (max-width: 1022px)
   section
-    width: 12%
+    width: 12vw
   div
     font-size: 14px
     height: 25%
