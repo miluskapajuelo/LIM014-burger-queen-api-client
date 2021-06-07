@@ -1,6 +1,16 @@
 <section class="menu">
-  <app-side-nav></app-side-nav>
-  <app-order-dish></app-order-dish>
+  <div class="order">
+    <app-side-nav></app-side-nav>
+  </div>
+  <app-dishes
+    (getProduct)="getProduct($event)"></app-dishes>
+  <div class="order">
+  <app-order-dish [selectProduct]="selectProduct"></app-order-dish>
+  </div>
 </section>
 
 <p>waiter works!</p>
+
+
+
+

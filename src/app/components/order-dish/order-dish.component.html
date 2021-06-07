@@ -12,3 +12,25 @@
       <input type="radio" name="TypeOrder" value="Table">Table</label>
   </article>
 </section>
+<section>
+<table id="customers">
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Monto</th>
+  </tr>
+  <tr *ngFor="let i of selectProduct">
+    <td>{{i.name}}</td>
+    <td>{{i.price}}</td>
+    <td>
+      <div class="cuantity-button">
+      <button class="boton"><a href="#">+</a></button>
+      <p class="cuantity">2</p>
+      <button class="boton"><a href="#">-</a></button>
+    </div>
+    </td>
+    <td>20</td>
+  </tr>
+  </table>
+  </section>
