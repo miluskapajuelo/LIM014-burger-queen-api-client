@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChefComponent } from './chef.component';
+import { StatusOrdersComponent } from './statusOrders.component';
 
-describe('ChefComponent', () => {
-  let component: ChefComponent;
-  let fixture: ComponentFixture<ChefComponent>;
+describe('StatusOrdersComponentt', () => {
+  let component: StatusOrdersComponent;
+  let fixture: ComponentFixture<StatusOrdersComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChefComponent ]
+      declarations: [ StatusOrdersComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ChefComponent);
+    fixture = TestBed.createComponent(StatusOrdersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
