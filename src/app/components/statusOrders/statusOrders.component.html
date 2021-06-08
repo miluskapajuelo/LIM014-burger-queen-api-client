@@ -4,8 +4,8 @@
     <section class="header-orders">
       <h1>Orders</h1>
       <ul>
-        <li ngClass="clicked" (click)="changeTrue()" >Pending</li>
-        <li  ngClass="!clicked" (click)="changeFalse()">Ready</li>
+        <li [ngClass]="{ 'clicked': clicked }" (click)="changeTrue()" >Pending</li>
+        <li  [ngClass]="{ 'clicked': !clicked }" (click)="changeFalse()">Ready</li>
       </ul>
 
     </section>
