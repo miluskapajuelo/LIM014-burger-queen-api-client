@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { WaiterComponent } from './components/waiter/waiter.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { ChefComponent } from './components/chef/chef.component';
+import { StatusOrdersComponent } from './components/statusOrders/statusOrders.component';
 
 const routes: Routes = [
   {
@@ -23,8 +23,8 @@ const routes: Routes = [
     path: 'waiter',
     component: WaiterComponent,
   }, {
-    path: 'chef',
-    component: ChefComponent,
+    path: 'statusOrders',
+    component: StatusOrdersComponent,
   },
   {
     path: '**',
