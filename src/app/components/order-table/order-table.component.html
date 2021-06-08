@@ -1,0 +1,16 @@
+<section>
+  <h3>Client : {{item.client}}</h3>
+  <h3> Order Type : delivery </h3>
+  <table>
+    <tr>
+      <th>Product</th>
+      <th>Qty</th>
+    </tr>
+    <tr *ngFor="let produc of item.products">
+      <td>{{produc.product?.name}}</td>
+      <td>{{produc.qty}}</td>
+    </tr>
+
+  </table>
+  <button>{{item.status === 'pending'? 'Finished': 'Delivered'}}</button>
+</section>
