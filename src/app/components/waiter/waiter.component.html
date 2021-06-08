@@ -6,7 +6,9 @@
     [items]="items"
     (getProduct)="getProduct($event)"></app-dishes>
   <div class="order">
-  <app-order-dish [selectProduct]="selectProduct"></app-order-dish>
+  <app-order-dish
+  [selectProduct]="selectProduct"
+  (deleteItem)="deleteItem($event)"></app-order-dish>
   </div>
 </section>
 

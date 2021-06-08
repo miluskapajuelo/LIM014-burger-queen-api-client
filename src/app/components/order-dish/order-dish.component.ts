@@ -10,14 +10,16 @@ export class OrderDishComponent implements OnInit {
 
 
   @Input()selectProduct:Array<ProductDetailModel>=[];
+  @Output() deleteItem: EventEmitter<ProductDetailModel> = new EventEmitter()
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  deleteItem(item:ProductDetailModel){
-    this.selectProduct = this.selectProduct.filter(x=>x._id !== item._id )
+  deleteProduct(item:ProductDetailModel){
+    this.deleteItem.emit(item)
+
   }
 
 }

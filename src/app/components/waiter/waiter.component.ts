@@ -11,6 +11,7 @@ export class WaiterComponent implements OnInit {
 
   items: IProductsModel[]=[]
   selectProduct: Array<ProductDetailModel>=[]
+  index:number=0
 
   constructor(private productsApiService:ProductsApiService) { }
 
@@ -22,11 +23,11 @@ export class WaiterComponent implements OnInit {
   }
 
   getProduct(item:any){
-    //if(item._id) validar si está incluido en el array
     this.selectProduct.push(item)
-    /* this.items = this.items.filter(x=>x !== item ) */
+  }
 
-    console.log(this.selectProduct)
-    //this.itemService.deleteItem(item).subscribe()
+  deleteItem(item:ProductDetailModel){
+    this.selectProduct = this.selectProduct.filter(x=>x._id !== item._id)
+    console.log('hola')
   }
   }

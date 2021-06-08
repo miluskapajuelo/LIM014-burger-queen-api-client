@@ -39,6 +39,9 @@ export class DishesComponent implements OnInit {
     });
 }
 
+  changeView(){
+
+  }
 
   filter(dataDishes:any) {
     dataDishes.forEach((element:any) => {
@@ -59,20 +62,5 @@ export class DishesComponent implements OnInit {
 
   }
 
-
-
-
-  /* hola(category:any){
-      this.categoryValue = category.innerHTML
-      if(this.categoryValue ==='burger' ){
-        console.log('burger')
-      }
-      else if(this.categoryValue ==='drink' ){
-        console.log('drink')
-      }
-      else{
-        console.log('side dishes')
-      }
-      } */
 
 }
