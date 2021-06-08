@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IProductsModel, ProductDetailModel } from 'src/app/models/products-model';
+import { ProductDetailModel } from 'src/app/models/products-model';
 
 @Component({
   selector: 'app-order-dish',
