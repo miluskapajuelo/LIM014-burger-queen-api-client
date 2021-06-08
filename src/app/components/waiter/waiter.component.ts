@@ -11,15 +11,17 @@ export class WaiterComponent implements OnInit {
 
   items: IProductsModel[]=[]
   selectProduct: Array<ProductDetailModel>=[]
+  uniqueItem:Array<ProductDetailModel>=[]
   index:number=0
-
+  dishCategories=new Set()
+  uid:[]=[]
   constructor(private productsApiService:ProductsApiService) { }
 
   ngOnInit(): void {
-    this.productsApiService.getAllProducts().subscribe(data =>{
-      this.items = data
+    this.productsApiService.getAllProducts()
+    .subscribe((products:any) => {
+      this.items = products.products
  })
-
   }
 
   getProduct(item:any){
@@ -28,6 +30,7 @@ export class WaiterComponent implements OnInit {
 
   deleteItem(item:ProductDetailModel){
     this.selectProduct = this.selectProduct.filter(x=>x._id !== item._id)
-    console.log('hola')
   }
+
+
   }

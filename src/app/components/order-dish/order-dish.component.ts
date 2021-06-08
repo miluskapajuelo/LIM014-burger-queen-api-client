@@ -8,18 +8,34 @@ import { IProductsModel, ProductDetailModel } from 'src/app/models/products-mode
 })
 export class OrderDishComponent implements OnInit {
 
+  productitem: Array<ProductDetailModel>=[]
+  index:number
+  producSelected: any
 
   @Input()selectProduct:Array<ProductDetailModel>=[];
   @Output() deleteItem: EventEmitter<ProductDetailModel> = new EventEmitter()
 
-  constructor() { }
+  constructor() {
+    this.index=0
+  }
 
   ngOnInit(): void {
+
   }
 
   deleteProduct(item:ProductDetailModel){
     this.deleteItem.emit(item)
+  }
 
+  addItem(item:any){
+    this.productitem.push(item._id)
+
+    /* this.productitem.forEach(element => {element._id == item._id}) */
+  }
+
+  removeItem(item:any){
+    this.index=this.productitem.indexOf(item)
+    this.productitem.splice(this.index,1)
   }
 
 }
