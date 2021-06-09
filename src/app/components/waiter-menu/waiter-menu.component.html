@@ -1,0 +1,10 @@
+<section class="menu">
+  <div class="order">
+    <app-side-nav></app-side-nav>
+  </div>
+  <app-dishes [items]="items" [dishCategories]="dishCategories" (getProduct)="getProduct($event)"></app-dishes>
+  <div class="order">
+    <app-order-dish [productitem]="productitem" (deleteItem)="deleteItem($event)" (addItem)="addItem($event)"
+      (removeItem)="removeItem($event)"></app-order-dish>
+  </div>
+</section>

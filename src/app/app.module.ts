@@ -11,7 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { WaiterComponent } from './components/waiter/waiter.component';
+import { WaiterMenuComponent } from './components/waiter-menu/waiter-menu.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { StatusOrdersComponent } from './components/statusOrders/statusOrders.component';
 import { LoginComponent } from './components/login/login.component';
@@ -22,8 +22,6 @@ import { DishesComponent } from './components/dishes/dishes.component'
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { OrderDishComponent } from './components/order-dish/order-dish.component';
 
-//pipes
-import { FilterPipe } from './pipe/filter.pipe';
 import { OrderTableComponent } from './components/order-table/order-table.component';
 
 
@@ -32,12 +30,11 @@ import { OrderTableComponent } from './components/order-table/order-table.compon
 @NgModule({
   declarations: [
     AppComponent,
-    WaiterComponent,
+    WaiterMenuComponent,
     AdminComponent,
     StatusOrdersComponent,
     LoginComponent,
     DishesComponent,
-    FilterPipe,
     SideNavComponent,
     DishesComponent,
     OrderDishComponent,
