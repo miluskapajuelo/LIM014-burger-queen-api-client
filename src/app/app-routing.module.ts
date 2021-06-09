@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
-import { WaiterComponent } from './components/waiter/waiter.component';
+import { WaiterMenuComponent } from './components/waiter-menu/waiter-menu.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { StatusOrdersComponent } from './components/statusOrders/statusOrders.component';
 
@@ -21,7 +21,7 @@ const routes: Routes = [
   },
   {
     path: 'waiter',
-    component: WaiterComponent,
+    component: WaiterMenuComponent,
   }, {
     path: 'statusOrders',
     component: StatusOrdersComponent,
