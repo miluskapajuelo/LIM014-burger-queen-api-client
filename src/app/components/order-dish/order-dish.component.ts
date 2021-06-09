@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { IProductsModel, ProductDetailModel } from 'src/app/models/products-model';
+import { ProductDetailModel } from 'src/app/models/products-model';
+import { IOrderModel } from 'src/app/models/orders-model';
 
 @Component({
   selector: 'app-order-dish',
@@ -8,19 +9,21 @@ import { IProductsModel, ProductDetailModel } from 'src/app/models/products-mode
 })
 export class OrderDishComponent implements OnInit {
 
-  productitem: Array<ProductDetailModel>=[]
+
   index:number
   producSelected: any
 
   @Input()selectProduct:Array<ProductDetailModel>=[];
+  @Input()productitem:Array<IOrderModel>
+  @Input() objet:any
   @Output() deleteItem: EventEmitter<ProductDetailModel> = new EventEmitter()
 
   constructor() {
     this.index=0
+    this.productitem=[]
   }
 
   ngOnInit(): void {
-
   }
 
   deleteProduct(item:ProductDetailModel){
@@ -28,7 +31,11 @@ export class OrderDishComponent implements OnInit {
   }
 
   addItem(item:any){
-    this.productitem.push(item._id)
+
+    this.objet.quantity += 1
+
+   /*  this.productitem.push(this.objet)
+    console.log('arrayobje',this.objet) */
 
     /* this.productitem.forEach(element => {element._id == item._id}) */
   }

@@ -1,3 +1,6 @@
+export interface IAllOrderModel{
+  orders:Array<IOrderModel>
+}
 export interface IOrderModel {
   _id?: string;
   userId?: string;
@@ -9,12 +12,12 @@ export interface IOrderModel {
 }
 
 export interface OrderProductModel {
-  qty?: number;
-  product?: OrderDetailProductModel;
+  qty: number;
+  product: OrderDetailProductModel;
 }
 
 export interface OrderDetailProductModel {
-  name?: string;
-  id?: string;
+  name: string;
+  id: string;
 }
 
