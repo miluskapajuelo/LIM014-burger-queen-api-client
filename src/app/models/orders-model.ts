@@ -12,8 +12,8 @@ export interface IOrderModel {
 }
 
 export interface OrderProductModel {
-  qty?: number;
-  product?: OrderDetailProductModel;
+  qty: number;
+  product: OrderDetailProductModel;
 }
 
 export interface OrderDetailProductModel {

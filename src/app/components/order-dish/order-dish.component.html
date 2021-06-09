@@ -20,17 +20,18 @@
     <th>Quantity</th>
     <th>Monto</th>
   </tr>
-  <tr *ngFor="let i of selectProduct">
-    <td>{{i.name}}</td>
-    <td>{{i.price}}</td>
+  <tr *ngFor="let object of productitem">
+    <td>{{object.products}}</td>
+    <td>3</td>
     <td>
       <div class="cuantity-button">
-      <button class="boton"><a href="#">+</a></button>
-      <p class="cuantity">2</p>
-      <button class="boton"><a href="#">-</a></button>
+      <button class="boton" (click)="addItem(object)"><a>+</a></button>
+      <p class="cuantity">20</p>
+      <button class="boton" (click)="removeItem(object)"><a>-</a></button>
     </div>
     </td>
     <td>20</td>
+    <td><button class="" >eliminar</button></td> <!-- (click)="deleteProduct()" -->
   </tr>
   </table>
   </section>

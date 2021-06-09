@@ -8,5 +8,4 @@ export interface ProductDetailModel {
   image?: URL;
   type: string;
   dateEntry: Date;
-
 }
