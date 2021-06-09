@@ -10,44 +10,30 @@ import { ProductsApiService } from 'src/app/services/products-api.service';
 })
 export class DishesComponent implements OnInit {
 
-  @Input()items:IProductsModel[]=[]
-
+  products: Array<ProductDetailModel>
+  @Input() items: Array<ProductDetailModel>
+  @Input() dishCategories = new Set()
   @Output() getProduct: EventEmitter<ProductDetailModel> = new EventEmitter()
-/*   @Output() showCategoriesProduct: EventEmitter<ProductDetailModel> = new EventEmitter() */
-  dataDishes: Array<ProductDetailModel>=[];
-  dataAllDishes: any;
-  dishCategories=new Set()
-  filterProducts: any[]= []
-  data:any[]=[]
-  category:any
-  products:Array<ProductDetailModel>=[];
+  /*   @Output() showCategoriesProduct: EventEmitter<ProductDetailModel> = new EventEmitter() */
+
 
   ngOnInit(): void {
-
-    this.productsApiService.getAllProducts()
-    .subscribe((products:any) => {
-      console.log('products',products)
-      this.data = products.products
-      this.route.queryParamMap.subscribe(params => {
-        this.category = params.get('category');
-        this.filterProducts = (this.category) ? this.data.filter(p=> p.type=== this.category) : this.data;
-      })
-      this.filter()
-    });
-
+    this.products = []
+    this.items = []
   }
 
   constructor(private productsApiService: ProductsApiService, private route: ActivatedRoute) {
-}
-
-  filter() {
-    this.dataDishes = this.data
-    this.dataDishes.forEach((element:ProductDetailModel) => {this.dishCategories.add(element.type)});
-    }
-
-  GetProduct(item:ProductDetailModel){
-    this.getProduct.emit(item)
   }
 
+
+  GetProduct(item: ProductDetailModel) {
+    this.getProduct.emit(item)
+  }
+  filterType(category: any) {
+    this.products = this.items.filter((elem: ProductDetailModel) => {
+      return elem.type === category;
+    })
+    console.log(this.products)
+  }
 
 }

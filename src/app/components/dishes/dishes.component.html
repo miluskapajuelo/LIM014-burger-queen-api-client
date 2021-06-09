@@ -2,26 +2,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
 </head>
-<section  class="category-cards">
-  <div *ngFor="let dishCateg of dishCategories" class="example-card">
-  <img class="image" src='../assets/images/burger.png' alt="Burger">
-  <a #p
-  routerLink="/waiter"
-  [queryParams]="{category:dishCateg}">
-  {{dishCateg}}
-</a>
-</div>
-</section>
-<section  class="option-cards">
-<mat-card *ngFor="let product of filterProducts" class="example-cardC" (click)="GetProduct(product)">
-  <div>
-    <p>{{product.name}}</p>
+<section class="category-cards">
+  <div *ngFor="let category of dishCategories"  (click)="filterType(category)" class="example-card">
+    <img class="image" src='../assets/images/burger.png' alt="Burger">
+    <h2>{{category}}</h2>
   </div>
-  <img class="imageC" src='../assets/images/burger.png'alt="Burger" >
+</section>
+<section class="option-cards">
+  <mat-card class="example-cardC"  *ngFor="let product of products"
+  (click)="GetProduct(product)">
+    <div>
+      <p>{{product.name}}</p>
+    </div>
+    <img class="imageC" src='../assets/images/burger.png' alt="Burger">
     <p class="card-price">
       {{product.price}}
     </p>
-</mat-card>
+  </mat-card>
 </section>
-
-
