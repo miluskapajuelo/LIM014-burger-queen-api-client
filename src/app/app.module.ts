@@ -23,6 +23,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { OrderDishComponent } from './components/order-dish/order-dish.component';
 
 import { OrderTableComponent } from './components/order-table/order-table.component';
+import { TotalComponent } from './components/total/total.component';
 
 
 
@@ -38,7 +39,8 @@ import { OrderTableComponent } from './components/order-table/order-table.compon
     SideNavComponent,
     DishesComponent,
     OrderDishComponent,
-    OrderTableComponent
+    OrderTableComponent,
+    TotalComponent
   ],
   imports: [
     BrowserModule,

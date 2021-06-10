@@ -15,7 +15,8 @@ export class WaiterMenuComponent implements OnInit {
   productitem: Array<OrderProductModel>
   dishCategories = new Set()
   products: Array<ProductDetailModel>
-
+  total: number = 0
+/*   array:number[] */
 
 
 
@@ -23,6 +24,7 @@ export class WaiterMenuComponent implements OnInit {
     this.productitem = []
     this.items=[]
     this.products = []
+ /*    this.array=[] */
   }
 
   ngOnInit(): void {
@@ -33,7 +35,7 @@ export class WaiterMenuComponent implements OnInit {
         this.filterType('burger')
 
       })
-
+      this.getTotal()
   }
 
   //3 categories
@@ -53,6 +55,7 @@ export class WaiterMenuComponent implements OnInit {
         id: item._id
       }
     }
+    /* let price ={'price': item.price} */
     if(this.productitem){
       let item2 = this.productitem.find(productoPedido => {
         return item._id === productoPedido.product.id})
@@ -61,6 +64,7 @@ export class WaiterMenuComponent implements OnInit {
         model.qty++
       }
       else{
+        /* this.array.push(item.price) */
         this.productitem.push(model)
       }
     }
@@ -68,6 +72,7 @@ export class WaiterMenuComponent implements OnInit {
       console.log('hola')
 
   }
+  this.getTotal()
 
   }
 
@@ -90,6 +95,7 @@ export class WaiterMenuComponent implements OnInit {
       return elem;
     }
     )
+    this.getTotal()
   }
 
  //add +1 in quantity product
@@ -102,13 +108,21 @@ export class WaiterMenuComponent implements OnInit {
         this.productitem.splice(index, 1)
       }
     })
+    this.getTotal()
   }
 
   //delete product in order menu
   deleteItem(item: OrderProductModel) {
     let index = this.productitem.indexOf(item)
     this.productitem.splice(index, 1)
+    this.getTotal()
   }
+
+  getTotal(){
+    this.total = this.productitem
+    .map(item => item.qty*10)
+    .reduce((acc, item)=>acc+= item, 0)
+}
 
 
 }
