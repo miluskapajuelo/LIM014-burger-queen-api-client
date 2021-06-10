@@ -2,7 +2,12 @@
   <div class="order">
     <app-side-nav></app-side-nav>
   </div>
-  <app-dishes [items]="items" [dishCategories]="dishCategories" (getProduct)="getProduct($event)"></app-dishes>
+  <app-dishes
+  [items]="items"
+  [products]="products"
+  [dishCategories]="dishCategories"
+  (getProduct)="getProduct($event)"
+  (filterType)="filterType($event)"></app-dishes>
   <div class="order">
     <app-order-dish [productitem]="productitem" (deleteItem)="deleteItem($event)" (addItem)="addItem($event)"
       (removeItem)="removeItem($event)"></app-order-dish>
