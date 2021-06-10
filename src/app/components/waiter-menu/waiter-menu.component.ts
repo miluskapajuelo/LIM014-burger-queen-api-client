@@ -46,6 +46,7 @@ export class WaiterMenuComponent implements OnInit {
 
   }
 
+
   //get object to menu order
   getProduct(item: ProductDetailModel): void {
     let model:OrderProductModel = {
@@ -55,17 +56,13 @@ export class WaiterMenuComponent implements OnInit {
         id: item._id
       }
     }
-    /* let price ={'price': item.price} */
+
     if(this.productitem){
       let item2 = this.productitem.find(productoPedido => {
         return item._id === productoPedido.product.id})
-      if(item2 !== undefined){
-
-        model.qty++
-      }
-      else{
-        /* this.array.push(item.price) */
+      if(item2 === undefined){
         this.productitem.push(model)
+        /* model.qty++ */
       }
     }
     else{
@@ -75,7 +72,6 @@ export class WaiterMenuComponent implements OnInit {
   this.getTotal()
 
   }
-
 
 
 
