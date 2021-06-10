@@ -15,11 +15,14 @@ export class OrderDishComponent implements OnInit {
   @Output() addItem: EventEmitter<OrderProductModel> = new EventEmitter()
   @Output() removeItem: EventEmitter<OrderProductModel> = new EventEmitter()
 
+
+
   constructor() {
     this.productitem = []
   }
 
   ngOnInit(): void {
+
   }
 
   deleteProduct(item: OrderProductModel) {

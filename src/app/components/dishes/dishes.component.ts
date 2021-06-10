@@ -1,7 +1,6 @@
 import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { IProductsModel, ProductDetailModel } from 'src/app/models/products-model';
-import { ProductsApiService } from 'src/app/services/products-api.service';
+import { ProductDetailModel } from 'src/app/models/products-model';
+
 
 @Component({
   selector: 'app-dishes',
@@ -21,7 +20,7 @@ export class DishesComponent implements OnInit {
     this.items = []
   }
 
-  constructor(private productsApiService: ProductsApiService, private route: ActivatedRoute) {
+  constructor() {
 
   }
 
