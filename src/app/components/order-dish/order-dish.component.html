@@ -32,7 +32,7 @@
   </tr>
   <tr *ngFor="let product of productitem">
     <td>{{product.product.name}}</td>
-    <td>10</td>
+    <td>{{product.product.price}}</td>
     <td>
       <div class="cuantity-button">
       <button class="boton" (click)="addProduct(product)"><a>+</a></button>

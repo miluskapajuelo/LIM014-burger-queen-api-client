@@ -16,7 +16,7 @@
       (removeItem)="removeItem($event)"></app-order-dish>
       <app-total [total]= "total"></app-total>
       <div class="info">
-        <button class="buttonSend">SEND ORDER</button>
+        <button class="buttonSend" (click)="createOrder()">SEND ORDER</button>
       </div>
   </div>
 </section>
