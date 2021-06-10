@@ -1,8 +1,16 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <section>
-  <article>
-    <h1>Order Menu</h1>
-    <label for="name">Client Name</label>
-    <input type="text" #nameClient>
+  <form class="additionalInfo">
+    <h1 >Order Menu</h1>
+    <div class="info">
+    <label for="name" >°N Order </label>
+    <input type="text" #Id>
+  </div>
+  <div class="info">
+    <label for="name" >Client Name</label>
+    <input type="text" #client>
+  </div>
+  <div class="info">
     <h3>Type Order</h3>
     <label for="TypeOrder">
       <input type="radio" name="TypeOrder" value="Delivery">
@@ -10,9 +18,11 @@
     </label>
     <label for="TypeOrder">
       <input type="radio" name="TypeOrder" value="Table">Table</label>
-  </article>
+    </div>
+  </form>
 </section>
-<section>
+<section class="info">
+<div class="div1">
 <table id="customers">
   <tr>
     <th>Name</th>
@@ -31,7 +41,11 @@
     </div>
     </td>
     <td>20</td>
-    <td><button (click)="deleteProduct(product)" >eliminar</button></td>
+    <td><i class="fa fa-trash botonDelete" (click)="deleteProduct(product)"></i></td>
   </tr>
   </table>
+</div>
+<div class="info">
+  <button class="buttonSend">SEND ORDER</button>
+</div>
   </section>

@@ -1,7 +1,7 @@
 <section>
   <img src="assets/images/burger.png" alt="burguerlogo" (click)="select()">
   <article *ngIf="isSelect">
-    <div *ngFor="let option of options" (click)="redirect(option)">
+    <div class="div1" *ngFor="let option of options" (click)="redirect(option)">
       <h3>
         {{option}}
       </h3>
