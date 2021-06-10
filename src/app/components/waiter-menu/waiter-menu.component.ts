@@ -11,31 +11,32 @@ import { ProductsApiService } from 'src/app/services/products-api.service';
 })
 export class WaiterMenuComponent implements OnInit {
 
-  items:Array<ProductDetailModel>
+  items: Array<ProductDetailModel>
   productitem: Array<OrderProductModel>
   dishCategories = new Set()
   products: Array<ProductDetailModel>
-  total: number = 0
-/*   array:number[] */
+  total: number;
+  /*   array:number[] */
 
 
 
   constructor(private productsApiService: ProductsApiService) {
     this.productitem = []
-    this.items=[]
+    this.items = []
     this.products = []
- /*    this.array=[] */
+    this.total = 0;
+    /*    this.array=[] */
   }
 
   ngOnInit(): void {
     this.productsApiService.getAllProducts()
       .subscribe((products: any) => {
-        this.items=products.products
+        this.items = products.products
         this.filter(this.items)
         this.filterType('burger')
 
       })
-      this.getTotal()
+    this.getTotal()
   }
 
   //3 categories
@@ -49,27 +50,24 @@ export class WaiterMenuComponent implements OnInit {
 
   //get object to menu order
   getProduct(item: ProductDetailModel): void {
-    let model:OrderProductModel = {
+    let model = {
       qty: 1,
       product: {
         name: item.name,
-        id: item._id
+        id: item._id,
+        price: item.price
       }
     }
-
-    if(this.productitem){
+    if (this.productitem) {
       let item2 = this.productitem.find(productoPedido => {
-        return item._id === productoPedido.product.id})
-      if(item2 === undefined){
+        return item._id === productoPedido.product.id
+      })
+      if (item2 === undefined) {
         this.productitem.push(model)
         /* model.qty++ */
       }
     }
-    else{
-      console.log('hola')
-
-  }
-  this.getTotal()
+    this.getTotal()
 
   }
 
@@ -94,7 +92,7 @@ export class WaiterMenuComponent implements OnInit {
     this.getTotal()
   }
 
- //add +1 in quantity product
+  //add +1 in quantity product
   removeItem(item: OrderProductModel) {
     this.productitem.forEach((elem) => {
       if (elem.product.id === item.product.id && elem.qty > 1) {
@@ -114,11 +112,21 @@ export class WaiterMenuComponent implements OnInit {
     this.getTotal()
   }
 
-  getTotal(){
+  getTotal() {
     this.total = this.productitem
-    .map(item => item.qty*10)
-    .reduce((acc, item)=>acc+= item, 0)
-}
-
-
+      .map(item => item.qty * 10)
+      .reduce((acc, item) => acc += item, 0)
+  }
+  createOrder() {
+    let order: IOrderModel = {
+      _id: '001',
+      userId: 'mesero x',
+      client: 'nombre cliente',
+      products: this.productitem,
+      status: 'pending',
+      dateEntry: '5/5/2021',
+      dateProcesed: 'string'
+    }
+    console.log(order)
+  }
 }
