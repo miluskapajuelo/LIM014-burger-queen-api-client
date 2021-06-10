@@ -10,30 +10,28 @@ import { ProductsApiService } from 'src/app/services/products-api.service';
 })
 export class DishesComponent implements OnInit {
 
-  products: Array<ProductDetailModel>
+
   @Input() items: Array<ProductDetailModel>
+  @Input() products: Array<ProductDetailModel>
   @Input() dishCategories = new Set()
   @Output() getProduct: EventEmitter<ProductDetailModel> = new EventEmitter()
-  /*   @Output() showCategoriesProduct: EventEmitter<ProductDetailModel> = new EventEmitter() */
-
+  @Output() filterType: EventEmitter<ProductDetailModel> = new EventEmitter()
 
   ngOnInit(): void {
-    this.products = []
     this.items = []
   }
 
   constructor(private productsApiService: ProductsApiService, private route: ActivatedRoute) {
-  }
 
+  }
 
   GetProduct(item: ProductDetailModel) {
     this.getProduct.emit(item)
   }
-  filterType(category: any) {
-    this.products = this.items.filter((elem: ProductDetailModel) => {
-      return elem.type === category;
-    })
-    console.log(this.products)
+
+  filterbyCateg(Category:any){
+    this.filterType.emit(Category)
   }
+
 
 }
