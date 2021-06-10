@@ -10,6 +10,16 @@ $unit: 8px
 $font-family: roboto
 $font-size: 15px article
 
+.subtitle
+  margin: 20px
+
+.additionalInfo
+  display: flex
+  flex-direction: column
+
+.info
+  margin: 7px
+
 //Quantity boton
 .cuantity-button
   display: flex
@@ -70,3 +80,37 @@ p
     padding-bottom: 12px
     background-color: $secondary-color
     color: $terciary-color
+
+// div Table
+
+.div1
+  overflow: scroll
+  height:350px
+
+#div1 table
+  width:500px
+
+//button
+
+.buttonSend
+  outline: 0
+  cursor: pointer
+  position: relative
+  display: inline-block
+  width: 100%
+  background: $secondary-color
+  border: 2px solid $primary-color
+  padding: 20px 0
+  font-size: 20px
+  font-weight: 600
+  line-height: 1
+  overflow: hidden
+  transition: 0.3s ease
+  color: $primary-color
+  border-radius: 3px
+
+.buttonSend
+  &:hover
+    background: $primary-color
+    color: $secondary-color
+
