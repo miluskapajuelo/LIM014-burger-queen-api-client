@@ -10,10 +10,14 @@ import { OrderProductModel } from 'src/app/models/orders-model';
 export class OrderDishComponent implements OnInit {
 
 
-  @Input() productitem: Array<OrderProductModel>
+  @Input() productitem:any
   @Output() deleteItem: EventEmitter<OrderProductModel> = new EventEmitter()
   @Output() addItem: EventEmitter<OrderProductModel> = new EventEmitter()
   @Output() removeItem: EventEmitter<OrderProductModel> = new EventEmitter()
+  @Output() getPrices: EventEmitter<string> = new EventEmitter()
+
+
+
 
 
 
@@ -34,5 +38,4 @@ export class OrderDishComponent implements OnInit {
   removeProduct(item: OrderProductModel) {
     this.removeItem.emit(item)
   }
-
 }

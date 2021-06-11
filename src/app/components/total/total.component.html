@@ -1,8 +1,26 @@
 <div class="container">
+  <div class="row">
+    <span>
+      Subtotal:
+    </span>
+    <h3>
+      {{total | currency}}
+    </h3>
+  </div>
+  <div class="row">
   <span>
-    Total a pagar:
+    Tax:
+  </span>
+  <h3>
+    {{total *0.18 | currency}}
+  </h3>
+</div>
+<div class="row">
+  <span>
+    Total:
   </span>
   <h2>
-    {{total | currency}}
+    {{total + total*0.18 | currency}}
   </h2>
+</div>
 </div>

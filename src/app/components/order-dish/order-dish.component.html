@@ -2,23 +2,10 @@
 <section>
   <form class="additionalInfo">
     <h1 >Order Menu</h1>
-    <div class="info">
-    <label for="name" >°N Order </label>
-    <input type="text" #Id>
-  </div>
   <div class="info">
     <label for="name" >Client Name</label>
     <input type="text" #client>
   </div>
-  <div class="info">
-    <h3>Type Order</h3>
-    <label for="TypeOrder">
-      <input type="radio" name="TypeOrder" value="Delivery">
-      Delivery
-    </label>
-    <label for="TypeOrder">
-      <input type="radio" name="TypeOrder" value="Table">Table</label>
-    </div>
   </form>
 </section>
 <section class="info">
@@ -32,7 +19,7 @@
   </tr>
   <tr *ngFor="let product of productitem">
     <td>{{product.product.name}}</td>
-    <td>10</td>
+    <td>{{product.product.price}}</td>
     <td>
       <div class="cuantity-button">
       <button class="boton" (click)="addProduct(product)"><a>+</a></button>
@@ -40,7 +27,7 @@
       <button class="boton" (click)="removeProduct(product)"><a>-</a></button>
     </div>
     </td>
-    <td>20</td>
+    <td>{{product.qty*product.product.price}}</td>
     <td><i class="fa fa-trash botonDelete" (click)="deleteProduct(product)"></i></td>
   </tr>
   </table>
