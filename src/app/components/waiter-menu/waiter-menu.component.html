@@ -12,11 +12,13 @@
   (filterType)="filterType($event)"></app-dishes>
 </div>
   <div class="order">
-    <app-order-dish [productitem]="productitem" (deleteItem)="deleteItem($event)" (addItem)="addItem($event)"
-      (removeItem)="removeItem($event)" (newOrder)="newOrder()"></app-order-dish>
-      <app-total [total]="total"></app-total>
-      <div class="info">
-      </div>
+    <app-order-dish
+    [productitem]="productitem"
+    [total]="total"
+    (deleteItem)="deleteItem($event)"
+    (addItem)="addItem($event)"
+    (removeItem)="removeItem($event)"
+    (newOrder)="newOrder()"></app-order-dish>
   </div>
 </section>
 

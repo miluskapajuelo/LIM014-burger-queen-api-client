@@ -33,4 +33,32 @@
   </table>
 </div>
   </section>
-  <button class="buttonSend" (click)="newOrderProduct(productitem)">SEND ORDER</button>
+  <div class="container">
+    <div class="row">
+      <span>
+        Subtotal:
+      </span>
+      <h3>
+        {{total | currency}}
+      </h3>
+    </div>
+    <div class="row">
+    <span>
+      Tax:
+    </span>
+    <h3>
+      {{total *0.18 | currency}}
+    </h3>
+  </div>
+  <div class="row">
+    <span>
+      Total:
+    </span>
+    <h2>
+      {{total + total*0.18 | currency}}
+    </h2>
+  </div>
+  </div>
+  <div class="info">
+    <button class="buttonSend" (click)="newOrderProduct(productitem)">SEND ORDER</button>
+  </div>

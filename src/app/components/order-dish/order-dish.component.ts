@@ -9,7 +9,7 @@ import { OrderProductModel } from 'src/app/models/orders-model';
 })
 export class OrderDishComponent implements OnInit {
 
-
+  @Input() total:number = 0;
   @Input() productitem:any
   @Output() deleteItem: EventEmitter<OrderProductModel> = new EventEmitter()
   @Output() addItem: EventEmitter<OrderProductModel> = new EventEmitter()
