@@ -116,6 +116,7 @@ export class WaiterMenuComponent implements OnInit {
       .reduce((acc, item) => acc += item, 0)
   }
   newOrder() {
+    console.log('entrando')
     const date = new Date().toLocaleDateString('es-Es');
     const time = new Date().toLocaleTimeString('es-Es');
     const token = localStorage.getItem('token')
