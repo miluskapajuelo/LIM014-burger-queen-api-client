@@ -18,6 +18,7 @@ export class WaiterMenuComponent implements OnInit {
   dishCategories = new Set()
   products: Array<ProductDetailModel>
   total: number;
+  name: string;
 
 
   constructor(private productsApiService: ProductsApiService, private orderApiService: OrderApiService) {
@@ -109,7 +110,10 @@ export class WaiterMenuComponent implements OnInit {
     this.productitem.splice(index, 1)
     this.getTotal()
   }
-
+  getName(hi:any){
+    console.log('entrando')
+    this.name = hi.value
+  }
   getTotal() {
     this.total = this.productitem
       .map(item => item.qty * item.product.price)
@@ -117,6 +121,7 @@ export class WaiterMenuComponent implements OnInit {
   }
   newOrder() {
     console.log('entrando')
+
     const date = new Date().toLocaleDateString('es-Es');
     const time = new Date().toLocaleTimeString('es-Es');
     const token = localStorage.getItem('token')
@@ -126,12 +131,13 @@ export class WaiterMenuComponent implements OnInit {
       let order: IOrderModel = {
         _id: '001',
         userId: user.id,
-        client: 'name',
+        client: this.name,
         products: this.productitem,
         status: 'pending',
         dateEntry: `${date} ${time}`,
         dateProcesed: 'string'
       }
+      console.log('order',order)
       this.orderApiService.createOrder(order).pipe(
         catchError((error) => {
           console.log('error', error);

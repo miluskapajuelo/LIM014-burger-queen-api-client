@@ -16,9 +16,7 @@ export class OrderDishComponent implements OnInit {
   @Output() removeItem: EventEmitter<OrderProductModel> = new EventEmitter()
   @Output() getPrices: EventEmitter<string> = new EventEmitter()
   @Output() newOrder: EventEmitter<any> = new EventEmitter()
-
-
-
+  @Output() getName: EventEmitter<any> = new EventEmitter()
 
 
 
@@ -42,5 +40,8 @@ export class OrderDishComponent implements OnInit {
   newOrderProduct(item: any){
     this.newOrder.emit(item)
 
+  }
+  getNameClient(user:any){
+    this.getName.emit(user)
   }
 }

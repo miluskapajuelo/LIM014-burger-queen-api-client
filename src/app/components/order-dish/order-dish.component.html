@@ -4,7 +4,7 @@
     <h1 >Order Menu</h1>
   <div class="info">
     <label for="name" >Client Name</label>
-    <input type="text" #client>
+    <input type="text" #client (input)=getNameClient(client)>
   </div>
   </form>
 </section>
