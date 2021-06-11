@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ProductDetailModel, IProductsModel } from 'src/app/models/products-model';
 import { IOrderModel, OrderProductModel } from 'src/app/models/orders-model';
 import { ProductsApiService } from 'src/app/services/products-api.service';
-
-
+import { OrderApiService } from 'src/app/services/order-api.service';
+import jwt_decode from 'jwt-decode';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 @Component({
   selector: 'app-waiterMenu',
   templateUrl: './waiter-menu.component.html',
@@ -16,11 +18,9 @@ export class WaiterMenuComponent implements OnInit {
   dishCategories = new Set()
   products: Array<ProductDetailModel>
   total: number;
-  /*   array:number[] */
 
 
-
-  constructor(private productsApiService: ProductsApiService) {
+  constructor(private productsApiService: ProductsApiService, private orderApiService: OrderApiService) {
     this.productitem = []
     this.items = []
     this.products = []
@@ -47,7 +47,6 @@ export class WaiterMenuComponent implements OnInit {
 
   }
 
-
   //get object to menu order
   getProduct(item: ProductDetailModel): void {
     let model = {
@@ -59,12 +58,11 @@ export class WaiterMenuComponent implements OnInit {
       }
     }
     if (this.productitem) {
-      let item2 = this.productitem.find(productoPedido => {
-        return item._id === productoPedido.product.id
+      let item2 = this.productitem.find(product => {
+        return item._id === product.product.id
       })
       if (item2 === undefined) {
         this.productitem.push(model)
-        /* model.qty++ */
       }
     }
     this.getTotal()
@@ -114,19 +112,35 @@ export class WaiterMenuComponent implements OnInit {
 
   getTotal() {
     this.total = this.productitem
-      .map(item => item.qty * 10)
+      .map(item => item.qty * item.product.price)
       .reduce((acc, item) => acc += item, 0)
   }
-  createOrder() {
-    let order: IOrderModel = {
-      _id: '001',
-      userId: 'mesero x',
-      client: 'nombre cliente',
-      products: this.productitem,
-      status: 'pending',
-      dateEntry: '5/5/2021',
-      dateProcesed: 'string'
+  newOrder() {
+    const date = new Date().toLocaleDateString('es-Es');
+    const time = new Date().toLocaleTimeString('es-Es');
+    const token = localStorage.getItem('token')
+    const user: any = jwt_decode(token);
+    console.log(user)
+    const client = 'client';
+      let order: IOrderModel = {
+        _id: '001',
+        userId: user.id,
+        client: 'name',
+        products: this.productitem,
+        status: 'pending',
+        dateEntry: `${date} ${time}`,
+        dateProcesed: 'string'
+      }
+      this.orderApiService.createOrder(order).pipe(
+        catchError((error) => {
+          console.log('error', error);
+          if (error.status === 400) {
+            console.log('error de credenciales');
+          }
+          return throwError(error);
+        })
+      ).subscribe((data: any) => console.log(data))
     }
-    console.log(order)
+
   }
-}
+

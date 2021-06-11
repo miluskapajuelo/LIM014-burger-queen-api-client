@@ -14,9 +14,9 @@
   <div class="order">
     <app-order-dish [productitem]="productitem" (deleteItem)="deleteItem($event)" (addItem)="addItem($event)"
       (removeItem)="removeItem($event)"></app-order-dish>
-      <app-total [total]= "total"></app-total>
+      <app-total [total]="total"></app-total>
       <div class="info">
-        <button class="buttonSend" (click)="createOrder()">SEND ORDER</button>
+        <button class="buttonSend" (click)="newOrder()">SEND ORDER</button>
       </div>
   </div>
 </section>
