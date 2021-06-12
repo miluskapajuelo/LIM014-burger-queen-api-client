@@ -1,10 +1,26 @@
 <section class="menu">
-  <div class="order">
+  <div class="nav">
     <app-side-nav></app-side-nav>
   </div>
-  <app-dishes [items]="items" [dishCategories]="dishCategories" (getProduct)="getProduct($event)"></app-dishes>
+  <div class="dishes">
+    <h1 class="subtitle">CHOOSE MENU</h1>
+  <app-dishes
+  [items]="items"
+  [products]="products"
+  [dishCategories]="dishCategories"
+  (getProduct)="getProduct($event)"
+  (filterType)="filterType($event)"></app-dishes>
+</div>
   <div class="order">
-    <app-order-dish [productitem]="productitem" (deleteItem)="deleteItem($event)" (addItem)="addItem($event)"
-      (removeItem)="removeItem($event)"></app-order-dish>
+    <app-order-dish
+    [productitem]="productitem"
+    [total]="total"
+    [able]="able"
+    (deleteItem)="deleteItem($event)"
+    (addItem)="addItem($event)"
+    (removeItem)="removeItem($event)"
+    (newOrder)="newOrder()"
+    (getName)="getName($event)"></app-order-dish>
   </div>
 </section>
+

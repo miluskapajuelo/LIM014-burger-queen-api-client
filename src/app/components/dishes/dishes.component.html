@@ -3,11 +3,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
 </head>
 <section class="category-cards">
-  <div *ngFor="let category of dishCategories"  (click)="filterType(category)" class="example-card">
-    <img class="image" src='../assets/images/burger.png' alt="Burger">
+  <div *ngFor="let category of dishCategories"  (click)="filterbyCateg(category)" class="example-card">
     <h2>{{category}}</h2>
   </div>
 </section>
+<h2 class="subtitle">OPTIONS</h2>
 <section class="option-cards">
   <mat-card class="example-cardC"  *ngFor="let product of products"
   (click)="GetProduct(product)">

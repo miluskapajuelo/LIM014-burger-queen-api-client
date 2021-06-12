@@ -9,71 +9,60 @@ $unit: 8px
 $font-family: roboto
 $font-size: 15px
 
-
 .category-cards
   display: flex
-  width: 650px
-  align-items: center
-  margin-left: 140px
-  margin-top: 30px
+  margin: 20px
+
+
+.subtitle
+  margin: 20px
 
 .option-cards
   display: flex
   flex-wrap: wrap
-  width: 800px
-  align-items: center
-  justify-content: center
+
 
 .example-card
-  width: 80px
-  height: 100px
   display: flex
-  flex-direction: column
   align-items: center
-  margin: 15px
-
-.example-card
-  a
-    font-size: 11px
-    display: block
-    font-size: 24x
-    font-weight: 500
-    text-decoration: none
+  margin: 8px
+  cursor: pointer
+  h2
+    font-size: 13px
     color: #212121
+    text-transform: uppercase
+    padding: 8px
+    border-radius:3px
 
-.image
-  width: 110%
-  margin-top: -10px
-
-h2
-  font-size: 11px
-  display: block
-  font-size: 24x
-  font-weight: 500
-  text-decoration: none
-  color: #212121
-  text-transform: uppercase
+    &:hover
+      background-color: #ca3a28c7
+      color: #ffff
+      box-shadow: 2px 1px 12px 1px #b0b0b066
 
 .example-cardC
   width: 120px
-  height: 150px
+  height: 144px
   display: flex
   flex-direction: column
   align-items: center
-  margin: 15px
+  margin: 3px
+  cursor: pointer
+  transition: .4s ease-out
 
 .example-header-image
   background-size: cover
 
 .example-cardC
+  transition: .4s ease-out
   &:hover
     img
-        transform: scale(1.2,1.2)
+        transform: scale(1.4,1.4)
         transition-duration: 500ms
         transition-timing-function: ease-out
         height: 250px
         opacity: .7
-
+  &:hover
+    Box-shadow: 2px 1px 12px 1px #bebdbd
 .imageC
   width: 90%
   margin: -20px

@@ -9,17 +9,24 @@ import { OrderProductModel } from 'src/app/models/orders-model';
 })
 export class OrderDishComponent implements OnInit {
 
-
-  @Input() productitem: Array<OrderProductModel>
+  @Input() total:number = 0;
+  @Input() productitem:any
+  @Input() able:boolean
   @Output() deleteItem: EventEmitter<OrderProductModel> = new EventEmitter()
   @Output() addItem: EventEmitter<OrderProductModel> = new EventEmitter()
   @Output() removeItem: EventEmitter<OrderProductModel> = new EventEmitter()
+  @Output() getPrices: EventEmitter<string> = new EventEmitter()
+  @Output() newOrder: EventEmitter<any> = new EventEmitter()
+  @Output() getName: EventEmitter<any> = new EventEmitter()
+
+
 
   constructor() {
     this.productitem = []
   }
 
   ngOnInit(): void {
+
   }
 
   deleteProduct(item: OrderProductModel) {
@@ -31,5 +38,14 @@ export class OrderDishComponent implements OnInit {
   removeProduct(item: OrderProductModel) {
     this.removeItem.emit(item)
   }
+  newOrderProduct(item: any){
+    this.newOrder.emit(item)
 
+  }
+  getNameClient(user:any){
+    this.getName.emit(user)
+  }
+  changeStyle(button:any){
+    button.style.background= 'red'
+  }
 }

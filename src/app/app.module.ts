@@ -38,7 +38,7 @@ import { OrderTableComponent } from './components/order-table/order-table.compon
     SideNavComponent,
     DishesComponent,
     OrderDishComponent,
-    OrderTableComponent
+    OrderTableComponent,
   ],
   imports: [
     BrowserModule,

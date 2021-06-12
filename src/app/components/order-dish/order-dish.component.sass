@@ -10,6 +10,24 @@ $unit: 8px
 $font-family: roboto
 $font-size: 15px article
 
+
+.additionalInfo
+  display: flex
+  flex-direction: column
+label
+  margin-right: 4%
+.inputName
+  width: 100%
+  padding: 12px 20px
+  margin: 8px 0
+  display: inline-block
+  border: 1px solid #ccc
+  border-radius: 4px
+  box-sizing: border-box
+
+.infoProduct
+  margin-top: 16px
+
 //Quantity boton
 .cuantity-button
   display: flex
@@ -43,14 +61,9 @@ p
 
 #customers
   font-family: Arial, Helvetica, sans-serif
-  border-collapse: collapse
   width: 100%
   text-align: center
   align-items: center
-
-#customers
-  td, th
-  padding: 8px
 
 #customers
   tr
@@ -70,3 +83,52 @@ p
     padding-bottom: 12px
     background-color: $secondary-color
     color: $terciary-color
+
+// div Table
+
+.div1
+  overflow-y: auto
+  height:280px
+
+#div1 table
+  width:100%
+
+.buttonSend
+  outline: 0
+  cursor: pointer
+  position: relative
+  display: inline-block
+  width: 100%
+  background: $secondary-color
+  border: 2px solid $primary-color
+  padding: 20px 0
+  font-size: 20px
+  font-weight: 600
+  line-height: 1
+  overflow: hidden
+  transition: 0.3s ease
+  color: $primary-color
+  border-radius: 3px
+
+.buttonSend
+  &:hover
+    background: $primary-color
+    color: $secondary-color
+
+.container
+  display: flex
+  text-align: center
+  padding: 10px 0
+  flex-direction: column
+
+h2
+  margin: 0
+
+.row
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+.active
+  background: $primary-color
+  color: $secondary-color

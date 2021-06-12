@@ -1,19 +1,16 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <section>
-  <article>
-    <h1>Order Menu</h1>
-    <label for="name">Client Name</label>
-    <input type="text" #nameClient>
-    <h3>Type Order</h3>
-    <label for="TypeOrder">
-      <input type="radio" name="TypeOrder" value="Delivery">
-      Delivery
-    </label>
-    <label for="TypeOrder">
-      <input type="radio" name="TypeOrder" value="Table">Table</label>
-  </article>
+  <form class="additionalInfo">
+    <h1 >Order Menu</h1>
+  <div>
+    <label for="name" >Client Name</label>
+    <input type="text" #client (input)="getNameClient(client)"  class="inputName">
+  </div>
+  </form>
 </section>
-<section>
-<table id="customers">
+<section class="infoProduct">
+<div class="div1">
+<table id="customers" >
   <tr>
     <th>Name</th>
     <th>Price</th>
@@ -22,7 +19,7 @@
   </tr>
   <tr *ngFor="let product of productitem">
     <td>{{product.product.name}}</td>
-    <td>10</td>
+    <td>{{product.product.price}}</td>
     <td>
       <div class="cuantity-button">
       <button class="boton" (click)="addProduct(product)"><a>+</a></button>
@@ -30,8 +27,38 @@
       <button class="boton" (click)="removeProduct(product)"><a>-</a></button>
     </div>
     </td>
-    <td>20</td>
-    <td><button (click)="deleteProduct(product)" >eliminar</button></td>
+    <td>{{product.qty*product.product.price}}</td>
+    <td><i class="fa fa-trash botonDelete" (click)="deleteProduct(product)"></i></td>
   </tr>
   </table>
+</div>
   </section>
+  <div class="container">
+    <div class="row">
+      <span>
+        Subtotal:
+      </span>
+      <h3>
+        {{total | currency}}
+      </h3>
+    </div>
+    <div class="row">
+    <span>
+      Tax:
+    </span>
+    <h3>
+      {{total *0.18 | currency}}
+    </h3>
+  </div>
+  <div class="row">
+    <span>
+      Total:
+    </span>
+    <h2>
+      {{total + total*0.18 | currency}}
+    </h2>
+  </div>
+  </div>
+  <div class="info">
+    <button class="buttonSend"   (click)="client.value=='' || !total  || newOrderProduct(productitem)" [ngClass]="{active: able}">SEND ORDER</button>
+  </div>
