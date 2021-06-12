@@ -1,0 +1,134 @@
+$primary-color: #CA3A28
+$secondary-color: #ffff
+$terciary-color:#212121
+
+
+$box-shadow: 0 2px 10px 0 rgba(0,0,0,0.6)
+$limit: 10
+$unit: 8px
+
+$font-family: roboto
+$font-size: 15px article
+
+
+.additionalInfo
+  display: flex
+  flex-direction: column
+label
+  margin-right: 4%
+.inputName
+  width: 100%
+  padding: 12px 20px
+  margin: 8px 0
+  display: inline-block
+  border: 1px solid #ccc
+  border-radius: 4px
+  box-sizing: border-box
+
+.infoProduct
+  margin-top: 16px
+
+//Quantity boton
+.cuantity-button
+  display: flex
+p
+  margin: 8px
+  font-size: 13px
+  font-weight: 500
+  align-self: center
+  justify-content: center
+
+
+.boton
+  width: 30px
+  height: 30px
+  background-color: $primary-color
+  margin: 4px
+  border-radius: 50px
+  border-color: $primary-color
+
+
+  &:hover
+    background-color: #e45947
+
+  a
+   color: $secondary-color
+   text-decoration: none
+   font-weight: bold
+   font-size: 20px
+
+//table order menu
+
+#customers
+  font-family: Arial, Helvetica, sans-serif
+  width: 100%
+  text-align: center
+  align-items: center
+
+#customers
+  tr
+    &:nth-child(even)
+      background-color: $secondary-color
+      border: ridge
+
+#customers
+  tr
+    &:hover
+      background-color: #ece9e9
+
+
+#customers
+  th
+    padding-top: 12px
+    padding-bottom: 12px
+    background-color: $secondary-color
+    color: $terciary-color
+
+// div Table
+
+.div1
+  overflow-y: auto
+  height:280px
+
+#div1 table
+  width:100%
+
+.buttonSend
+  outline: 0
+  cursor: pointer
+  position: relative
+  display: inline-block
+  width: 100%
+  background: $secondary-color
+  border: 2px solid $primary-color
+  padding: 20px 0
+  font-size: 20px
+  font-weight: 600
+  line-height: 1
+  overflow: hidden
+  transition: 0.3s ease
+  color: $primary-color
+  border-radius: 3px
+
+.buttonSend
+  &:hover
+    background: $primary-color
+    color: $secondary-color
+
+.container
+  display: flex
+  text-align: center
+  padding: 10px 0
+  flex-direction: column
+
+h2
+  margin: 0
+
+.row
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+.active
+  background: $primary-color
+  color: $secondary-color

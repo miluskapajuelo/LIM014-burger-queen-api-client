@@ -1,0 +1,83 @@
+$primary-color: #CA3A28
+$secondary-color: #ffff
+$terciary-color:#212121
+
+$box-shadow: 0 2px 10px 0 rgba(0,0,0,0.6)
+$limit: 10
+$unit: 8px
+
+$font-family: roboto
+$font-size: 15px
+
+.category-cards
+  display: flex
+  margin: 20px
+
+
+.subtitle
+  margin: 20px
+
+.option-cards
+  display: flex
+  flex-wrap: wrap
+
+
+.example-card
+  display: flex
+  align-items: center
+  margin: 8px
+  cursor: pointer
+  h2
+    font-size: 13px
+    color: #212121
+    text-transform: uppercase
+    padding: 8px
+    border-radius:3px
+
+    &:hover
+      background-color: #ca3a28c7
+      color: #ffff
+      box-shadow: 2px 1px 12px 1px #b0b0b066
+
+.example-cardC
+  width: 120px
+  height: 144px
+  display: flex
+  flex-direction: column
+  align-items: center
+  margin: 3px
+  cursor: pointer
+  transition: .4s ease-out
+
+.example-header-image
+  background-size: cover
+
+.example-cardC
+  transition: .4s ease-out
+  &:hover
+    img
+        transform: scale(1.4,1.4)
+        transition-duration: 500ms
+        transition-timing-function: ease-out
+        height: 250px
+        opacity: .7
+  &:hover
+    Box-shadow: 2px 1px 12px 1px #bebdbd
+.imageC
+  width: 90%
+  margin: -20px
+
+
+p
+  margin: 8px
+  font-size: 10px
+  font-weight: 500
+  align-self: center
+  justify-content: center
+
+
+
+.cuantity-button
+  display: flex
+  margin-top: -12px
+

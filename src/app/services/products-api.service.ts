@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { environment } from '../../environments/environment';
+import { IProductsModel } from '../models/products-model'
 
 
 @Injectable({
@@ -9,31 +10,23 @@ import { environment } from '../../environments/environment';
 export class ProductsApiService {
   private domain: string;
   private endpoint: string;
-
   constructor(private httpClient: HttpClient) {
     this.domain = environment.domain;
     this.endpoint = '/products';
   }
   getAllProducts() {
-    const headers = new HttpHeaders().append('Authorization', 'token');
-    return this.httpClient.get(`${this.domain}${this.endpoint}`, {
-      headers
-    });
+    return this.httpClient.get<Array<IProductsModel>>(`${this.domain}${this.endpoint}`);
   }
   getProductsById(uid: any) {
-    const headers = new HttpHeaders().append('Authorization', 'token');
-    return this.httpClient.get(`${this.domain}${this.endpoint}${uid}`, { headers });
+    return this.httpClient.get<IProductsModel>(`${this.domain}${this.endpoint}${uid}`);
   }
   deleteProducts(uid: any,) {
-    const headers = new HttpHeaders().append('Authorization', 'token');
-    return this.httpClient.delete(`${this.domain}${this.endpoint}${uid}`, { headers })
+    return this.httpClient.delete<IProductsModel>(`${this.domain}${this.endpoint}${uid}`)
   }
   updateProducts(uid: any, body: any) {
-    const headers = new HttpHeaders().append('Authorization', 'token');
-    return this.httpClient.put(`${this.domain}${this.endpoint}${uid}`, body, { headers })
+    return this.httpClient.put<IProductsModel>(`${this.domain}${this.endpoint}${uid}`, body)
   }
   createProducts(body: any) {
-    const headers = new HttpHeaders().append('Authorization', 'token');
-    return this.httpClient.post(`${this.domain}${this.endpoint}`, body, { headers })
+    return this.httpClient.post<IProductsModel>(`${this.domain}${this.endpoint}`, body)
   }
 }
