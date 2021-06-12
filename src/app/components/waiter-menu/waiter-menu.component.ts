@@ -19,6 +19,7 @@ export class WaiterMenuComponent implements OnInit {
   products: Array<ProductDetailModel>
   total: number;
   name: string;
+  able:boolean;
 
 
   constructor(private productsApiService: ProductsApiService, private orderApiService: OrderApiService) {
@@ -26,6 +27,7 @@ export class WaiterMenuComponent implements OnInit {
     this.items = []
     this.products = []
     this.total = 0;
+    this.able=false
     /*    this.array=[] */
   }
 
@@ -89,6 +91,7 @@ export class WaiterMenuComponent implements OnInit {
     }
     )
     this.getTotal()
+
   }
 
   //add +1 in quantity product
@@ -110,23 +113,29 @@ export class WaiterMenuComponent implements OnInit {
     this.productitem.splice(index, 1)
     this.getTotal()
   }
-  getName(hi:any){
-    console.log('entrando')
-    this.name = hi.value
+  getName(nameClient:any){
+    this.name = nameClient.value
+    console.log('antes', this.able)
+    if(nameClient.value>1){
+
+    }
+
   }
   getTotal() {
     this.total = this.productitem
       .map(item => item.qty * item.product.price)
       .reduce((acc, item) => acc += item, 0)
+      if(this.total>0){
+        this.able=true}
+      else{
+        this.able=false
+      }
   }
   newOrder() {
-    console.log('entrando')
-
     const date = new Date().toLocaleDateString('es-Es');
     const time = new Date().toLocaleTimeString('es-Es');
     const token = localStorage.getItem('token')
     const user: any = jwt_decode(token);
-    console.log(user)
     const client = 'client';
       let order: IOrderModel = {
         _id: '001',
@@ -138,7 +147,8 @@ export class WaiterMenuComponent implements OnInit {
         dateProcesed: 'string'
       }
       console.log('order',order)
-      this.orderApiService.createOrder(order).pipe(
+      this.orderApiService.createOrder(order)
+      .pipe(
         catchError((error) => {
           console.log('error', error);
           if (error.status === 400) {
@@ -146,7 +156,10 @@ export class WaiterMenuComponent implements OnInit {
           }
           return throwError(error);
         })
-      ).subscribe((data: any) => console.log(data))
+      ).subscribe((data: any) => {
+        console.log(data)
+         }
+      )
     }
 
   }

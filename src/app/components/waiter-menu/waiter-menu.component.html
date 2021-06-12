@@ -3,7 +3,7 @@
     <app-side-nav></app-side-nav>
   </div>
   <div class="dishes">
-    <h1 class="subtitle">CHOOSE ME</h1>
+    <h1 class="subtitle">CHOOSE MENU</h1>
   <app-dishes
   [items]="items"
   [products]="products"
@@ -15,6 +15,7 @@
     <app-order-dish
     [productitem]="productitem"
     [total]="total"
+    [able]="able"
     (deleteItem)="deleteItem($event)"
     (addItem)="addItem($event)"
     (removeItem)="removeItem($event)"

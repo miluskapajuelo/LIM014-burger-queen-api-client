@@ -11,6 +11,7 @@ export class OrderDishComponent implements OnInit {
 
   @Input() total:number = 0;
   @Input() productitem:any
+  @Input() able:boolean
   @Output() deleteItem: EventEmitter<OrderProductModel> = new EventEmitter()
   @Output() addItem: EventEmitter<OrderProductModel> = new EventEmitter()
   @Output() removeItem: EventEmitter<OrderProductModel> = new EventEmitter()
@@ -43,5 +44,8 @@ export class OrderDishComponent implements OnInit {
   }
   getNameClient(user:any){
     this.getName.emit(user)
+  }
+  changeStyle(button:any){
+    button.style.background= 'red'
   }
 }

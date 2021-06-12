@@ -13,6 +13,7 @@ $font-size: 15px
   display: flex
   margin: 20px
 
+
 .subtitle
   margin: 20px
 
@@ -26,17 +27,17 @@ $font-size: 15px
   align-items: center
   margin: 8px
   cursor: pointer
-
   h2
     font-size: 13px
-    font-size: 24x
-    font-weight: 500
     color: #212121
     text-transform: uppercase
     padding: 8px
+    border-radius:3px
+
     &:hover
-      background-color: $primary-color
+      background-color: #ca3a28c7
       color: #ffff
+      box-shadow: 2px 1px 12px 1px #b0b0b066
 
 .example-cardC
   width: 120px
@@ -52,14 +53,16 @@ $font-size: 15px
   background-size: cover
 
 .example-cardC
+  transition: .4s ease-out
   &:hover
     img
-        transform: scale(1.2,1.2)
+        transform: scale(1.4,1.4)
         transition-duration: 500ms
         transition-timing-function: ease-out
         height: 250px
         opacity: .7
-
+  &:hover
+    Box-shadow: 2px 1px 12px 1px #bebdbd
 .imageC
   width: 90%
   margin: -20px

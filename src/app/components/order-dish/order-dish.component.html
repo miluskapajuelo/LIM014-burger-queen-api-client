@@ -2,15 +2,15 @@
 <section>
   <form class="additionalInfo">
     <h1 >Order Menu</h1>
-  <div class="info">
+  <div>
     <label for="name" >Client Name</label>
-    <input type="text" #client (input)=getNameClient(client)>
+    <input type="text" #client (input)="getNameClient(client)"  class="inputName">
   </div>
   </form>
 </section>
-<section class="info">
+<section class="infoProduct">
 <div class="div1">
-<table id="customers">
+<table id="customers" >
   <tr>
     <th>Name</th>
     <th>Price</th>
@@ -60,5 +60,5 @@
   </div>
   </div>
   <div class="info">
-    <button class="buttonSend" (click)="newOrderProduct(productitem)">SEND ORDER</button>
+    <button class="buttonSend"   (click)="client.value=='' || !total  || newOrderProduct(productitem)" [ngClass]="{active: able}">SEND ORDER</button>
   </div>
