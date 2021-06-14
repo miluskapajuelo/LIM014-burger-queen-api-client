@@ -1,6 +1,6 @@
 <section>
-  <h3>Client : {{item.client}}</h3>
-  <h3> Order Type : delivery </h3>
+  <h3>Client: {{item.client}}</h3>
+  <h3 >{{item.status!=='pending'? 'Time: '+calculateTime(item.dateEntry, item.dateProcesed): ''}}</h3>
   <table>
     <tr>
       <th>Product</th>
@@ -12,5 +12,5 @@
     </tr>
 
   </table>
-  <button>{{item.status === 'pending'? 'Finished': 'Delivered'}}</button>
+  <button (click)="update(item)">{{item.status === 'pending'? 'Finished': 'Delivered'}}</button>
 </section>
