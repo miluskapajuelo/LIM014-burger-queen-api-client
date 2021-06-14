@@ -146,7 +146,6 @@ export class WaiterMenuComponent implements OnInit {
       status: 'pending',
       dateEntry: OrderdateEntry,
     }
-    console.log(order)
     this.orderApiService.createOrder(order).pipe(
       catchError((error) => {
         console.log('error', error);
@@ -155,7 +154,7 @@ export class WaiterMenuComponent implements OnInit {
         }
         return throwError(error);
       })
-    ).subscribe((data: any) => console.log(data))
+    ).subscribe((data: any) => console.log(data, order))
   }
 
 }
