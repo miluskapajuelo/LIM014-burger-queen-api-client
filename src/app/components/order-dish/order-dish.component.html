@@ -15,11 +15,10 @@
     <th>Name</th>
     <th>Price</th>
     <th>Quantity</th>
-    <th>Monto</th>
   </tr>
   <tr *ngFor="let product of productitem">
-    <td>{{product.product.name}}</td>
-    <td>{{product.product.price}}</td>
+    <td class="widthMax">{{product.product.name}}</td>
+    <td class="width">{{product.product.price | currency}}</td>
     <td>
       <div class="cuantity-button">
       <button class="boton" (click)="addProduct(product)"><a>+</a></button>
@@ -27,8 +26,7 @@
       <button class="boton" (click)="removeProduct(product)"><a>-</a></button>
     </div>
     </td>
-    <td>{{product.qty*product.product.price}}</td>
-    <td><i class="fa fa-trash botonDelete" (click)="deleteProduct(product)"></i></td>
+    <td class="width"><i class="fa fa-trash"  aria-hidden="true" (click)="deleteProduct(product)"></i></td>
   </tr>
   </table>
 </div>
@@ -39,7 +37,7 @@
         Subtotal:
       </span>
       <h3>
-        {{total | currency}}
+        {{total - total *0.18 | currency}}
       </h3>
     </div>
     <div class="row">
@@ -55,10 +53,12 @@
       Total:
     </span>
     <h2>
-      {{total + total*0.18 | currency}}
+      {{total | currency}}
     </h2>
   </div>
   </div>
+  <section>
   <div class="info">
-    <button class="buttonSend"   (click)="client.value=='' || !total  || newOrderProduct(productitem)" [ngClass]="{active: able}">SEND ORDER</button>
+    <button class="buttonSend"   (click)="client.value ==='' || !total  || newOrderProduct(productitem)" [ngClass]="{active: able}">SEND ORDER</button>
   </div>
+</section>
