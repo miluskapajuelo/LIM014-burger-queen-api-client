@@ -67,7 +67,8 @@ export class OrderTableComponent implements OnInit {
     const dateOld = dayjs(dateEntry)
     const dateNow = dayjs(dateProcesed)
     const minutes = dateNow.diff(dateOld, 'm')
-    return `${minutes}min`
+    const hours = dateNow.diff(dateOld, 'h')
+    return `${hours >= 1 ? `${hours}:${minutes-60} min`: `${minutes} min`}`
 
   }
 }
