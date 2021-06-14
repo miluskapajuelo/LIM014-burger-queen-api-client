@@ -7,6 +7,7 @@ import {
 import { OrderApiService } from '../../services/order-api.service'
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import dayjs from 'dayjs';
 
 
 @Component({
@@ -22,13 +23,12 @@ export class OrderTableComponent implements OnInit {
   ngOnInit(): void { }
 
   update(item: any) {
-    const date = new Date().toLocaleDateString('es-Es');
-    const time = new Date().toLocaleTimeString('es-Es');
+    const dateProcesed = dayjs();
     if (item.status === 'pending') {
       const order: IOrderModel = {
         ...item,
         status: 'delivering',
-        dateprocesed: `${date} ${time}`
+        dateProcesed: dateProcesed.format('YYYY-MM-DD HH:mm:ss')
       }
       console.log(order)
       this.orderApiService.updateOrder(item._id, order).pipe(
@@ -45,11 +45,10 @@ export class OrderTableComponent implements OnInit {
     }
     else if (item.status === 'delivering') {
       const order: IOrderModel = {
-      ...item,
+        ...item,
         status: 'ready',
-        dateprocesed: `${date} ${time}`
+        dateProcesed: dateProcesed.format('YYYY-MM-DD HH:mm:ss')
       }
-      console.log(order)
       this.orderApiService.updateOrder(item._id, order).pipe(
         catchError((error) => {
           console.log('error', error);
@@ -62,6 +61,13 @@ export class OrderTableComponent implements OnInit {
         console.log('delivering', data)
       })
     }
+
+  }
+  calculateTime(dateEntry: string, dateProcesed: string) {
+    const dateOld = dayjs(dateEntry)
+    const dateNow = dayjs(dateProcesed)
+    const minutes = dateNow.diff(dateOld, 'm')
+    return `${minutes}min`
 
   }
 }

@@ -1,6 +1,6 @@
 <section>
-  <h3>Client : {{item.client}}</h3>
-  <h3> {{item.status}} </h3>
+  <h3>Client: {{item.client}}</h3>
+  <h3 >{{item.status!=='pending'? calculateTime(item.dateEntry, item.dateProcesed): ''}}</h3>
   <table>
     <tr>
       <th>Product</th>
