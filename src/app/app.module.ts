@@ -24,6 +24,7 @@ import { OrderDishComponent } from './components/order-dish/order-dish.component
 
 import { OrderTableComponent } from './components/order-table/order-table.component';
 import { ManageUsersTableComponent } from './components/manageUsers-table/manageUsers-table.component';
+import { ManageProductsTableComponent } from './components/manage-products-table/manage-products-table.component';
 
 
 
@@ -41,6 +42,7 @@ import { ManageUsersTableComponent } from './components/manageUsers-table/manage
     OrderDishComponent,
     OrderTableComponent,
     ManageUsersTableComponent,
+    ManageProductsTableComponent,
   ],
   imports: [
     BrowserModule,

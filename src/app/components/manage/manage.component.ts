@@ -5,11 +5,20 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './manage.component.html',
   styleUrls: ['./manage.component.sass']
 })
-export class ManageComponent implements OnInit {
 
-  constructor() { }
+
+export class ManageComponent implements OnInit {
+  clicked: boolean;
+  constructor() {
+    this.clicked = true;
+  }
 
   ngOnInit(): void {
   }
-
+  changeFalse() {
+    this.clicked = false
+  }
+  changeTrue() {
+    this.clicked = true
+  }
 }
