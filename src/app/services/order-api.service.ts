@@ -18,13 +18,13 @@ export class OrderApiService {
     return this.httpClient.get<IAllOrderModel>(`${this.domain}${this.endpoint}`);
   }
   getOrderById(uid: any) {
-    return this.httpClient.get<IOrderModel>(`${this.domain}${this.endpoint}${uid}`);
+    return this.httpClient.get<IOrderModel>(`${this.domain}${this.endpoint}/${uid}`);
   }
   deleteOrder(uid: any,) {
-    return this.httpClient.delete<IOrderModel>(`${this.domain}${this.endpoint}${uid}`)
+    return this.httpClient.delete<IOrderModel>(`${this.domain}${this.endpoint}/${uid}`)
   }
   updateOrder(uid: any, body: any) {
-    return this.httpClient.put<IOrderModel>(`${this.domain}${this.endpoint}${uid}`, body)
+    return this.httpClient.put<IOrderModel>(`${this.domain}${this.endpoint}/${uid}`, body)
   }
   createOrder(body: any) {
     return this.httpClient.post<IOrderModel>(`${this.domain}${this.endpoint}`, body,)
