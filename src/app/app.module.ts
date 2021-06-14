@@ -23,6 +23,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { OrderDishComponent } from './components/order-dish/order-dish.component';
 
 import { OrderTableComponent } from './components/order-table/order-table.component';
+import { ManageUsersTableComponent } from './components/manageUsers-table/manageUsers-table.component';
 
 
 
@@ -39,6 +40,7 @@ import { OrderTableComponent } from './components/order-table/order-table.compon
     DishesComponent,
     OrderDishComponent,
     OrderTableComponent,
+    ManageUsersTableComponent,
   ],
   imports: [
     BrowserModule,
