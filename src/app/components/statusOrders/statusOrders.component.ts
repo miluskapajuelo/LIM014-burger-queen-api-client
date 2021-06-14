@@ -1,6 +1,7 @@
 import {
   Component, OnInit
 } from '@angular/core';
+import dayjs from 'dayjs';
 import {
   IOrderModel
 } from 'src/app/models/orders-model';
@@ -32,8 +33,17 @@ export class StatusOrdersComponent implements OnInit {
       this.items = data.orders
       this.itemPending = data.orders.filter((elem) => elem.status === 'pending')
       this.itemDelivering = data.orders.filter((elem) => elem.status === 'delivering')
-      console.log('pending', this.itemPending)
-      console.log('delivey', this.itemDelivering)
+      console.log('pending ordered', this.itemPending.sort((a:IOrderModel, b:IOrderModel) => {
+        let formatA:any = dayjs(a.dateEntry).format('HHmmss')
+        let formatB:any = dayjs(b.dateEntry).format('HHmmss')
+        return formatA - formatB;
+    }))
+    console.log('delivering ordered', this.itemDelivering.sort((a:IOrderModel, b:IOrderModel) => {
+      let formatA:any = dayjs(a.dateEntry).format('HHmmss')
+      let formatB:any = dayjs(b.dateEntry).format('HHmmss')
+      return formatB - formatA;
+
+  }))
     });
   }
   changeFalse() {
