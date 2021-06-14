@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductDetailModel, IProductsModel } from 'src/app/models/products-model';
+import { ProductDetailModel } from 'src/app/models/products-model';
 import { IOrderModel, OrderProductModel } from 'src/app/models/orders-model';
 import { ProductsApiService } from 'src/app/services/products-api.service';
 import { OrderApiService } from 'src/app/services/order-api.service';
 import jwt_decode from 'jwt-decode';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import dayjs from 'dayjs';
+
 @Component({
   selector: 'app-waiterMenu',
   templateUrl: './waiter-menu.component.html',
@@ -52,7 +54,7 @@ export class WaiterMenuComponent implements OnInit {
 
   //get object to menu order
   getProduct(item: ProductDetailModel): void {
-    let model = {
+    let modelProduct = {
       qty: 1,
       product: {
         name: item.name,
@@ -61,11 +63,11 @@ export class WaiterMenuComponent implements OnInit {
       }
     }
     if (this.productitem) {
-      let item2 = this.productitem.find(product => {
+      let productSelec = this.productitem.find(product => {
         return item._id === product.product.id
       })
-      if (item2 === undefined) {
-        this.productitem.push(model)
+      if (productSelec === undefined) {
+        this.productitem.push(modelProduct)
       }
     }
     this.getTotal()
@@ -94,7 +96,6 @@ export class WaiterMenuComponent implements OnInit {
 
   }
 
-  //add +1 in quantity product
   removeItem(item: OrderProductModel) {
     this.productitem.forEach((elem) => {
       if (elem.product.id === item.product.id && elem.qty > 1) {
@@ -132,35 +133,30 @@ export class WaiterMenuComponent implements OnInit {
       }
   }
   newOrder() {
-    const date = new Date().toLocaleDateString('es-Es');
-    const time = new Date().toLocaleTimeString('es-Es');
+    console.log('hola')
+    const OrderdateEntry=dayjs().format('YYYY-MM-DD HH:mm:ss');
     const token = localStorage.getItem('token')
     const user: any = jwt_decode(token);
-    const client = 'client';
-      let order: IOrderModel = {
-        _id: '001',
-        userId: user.id,
-        client: this.name,
-        products: this.productitem,
-        status: 'pending',
-        dateEntry: `${date} ${time}`,
-        dateProcesed: 'string'
-      }
-      console.log('order',order)
-      this.orderApiService.createOrder(order)
-      .pipe(
-        catchError((error) => {
-          console.log('error', error);
-          if (error.status === 400) {
-            console.log('error de credenciales');
-          }
-          return throwError(error);
-        })
-      ).subscribe((data: any) => {
-        console.log(data)
-         }
-      )
+    console.log(user)
+    let order: IOrderModel = {
+      _id: '001',
+      userId: user.id,
+      client: this.name,
+      products: this.productitem,
+      status: 'pending',
+      dateEntry: OrderdateEntry,
     }
-
+    console.log(order)
+    this.orderApiService.createOrder(order).pipe(
+      catchError((error) => {
+        console.log('error', error);
+        if (error.status === 400) {
+          console.log('error de credenciales');
+        }
+        return throwError(error);
+      })
+    ).subscribe((data: any) => console.log(data))
   }
+
+}
 
