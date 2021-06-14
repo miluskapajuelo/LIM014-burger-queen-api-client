@@ -12,7 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WaiterMenuComponent } from './components/waiter-menu/waiter-menu.component';
-import { AdminComponent } from './components/admin/admin.component';
+import { ManageComponent } from './components/manage/manage.component';
 import { StatusOrdersComponent } from './components/statusOrders/statusOrders.component';
 import { LoginComponent } from './components/login/login.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
@@ -31,7 +31,7 @@ import { OrderTableComponent } from './components/order-table/order-table.compon
   declarations: [
     AppComponent,
     WaiterMenuComponent,
-    AdminComponent,
+    ManageComponent,
     StatusOrdersComponent,
     LoginComponent,
     DishesComponent,

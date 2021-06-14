@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { WaiterMenuComponent } from './components/waiter-menu/waiter-menu.component';
-import { AdminComponent } from './components/admin/admin.component';
+import { ManageComponent } from './components/manage/manage.component';
 import { StatusOrdersComponent } from './components/statusOrders/statusOrders.component';
 
 const routes: Routes = [
@@ -16,8 +16,8 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'admin',
-    component: AdminComponent,
+    path: 'manage',
+    component: ManageComponent,
   },
   {
     path: 'waiter',
