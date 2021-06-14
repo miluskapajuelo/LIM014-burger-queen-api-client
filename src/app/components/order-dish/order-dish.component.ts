@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ProductDetailModel } from 'src/app/models/products-model';
-import { OrderProductModel } from 'src/app/models/orders-model';
+import { OrderProductModel, IOrderModel } from 'src/app/models/orders-model';
 
 @Component({
   selector: 'app-order-dish',
@@ -16,7 +16,7 @@ export class OrderDishComponent implements OnInit {
   @Output() addItem: EventEmitter<OrderProductModel> = new EventEmitter()
   @Output() removeItem: EventEmitter<OrderProductModel> = new EventEmitter()
   @Output() getPrices: EventEmitter<string> = new EventEmitter()
-  @Output() newOrder: EventEmitter<any> = new EventEmitter()
+  @Output() newOrder: EventEmitter<IOrderModel> = new EventEmitter()
   @Output() getName: EventEmitter<any> = new EventEmitter()
 
 
@@ -38,7 +38,7 @@ export class OrderDishComponent implements OnInit {
   removeProduct(item: OrderProductModel) {
     this.removeItem.emit(item)
   }
-  newOrderProduct(item: any){
+  newOrderProduct(item: IOrderModel){
     this.newOrder.emit(item)
 
   }
