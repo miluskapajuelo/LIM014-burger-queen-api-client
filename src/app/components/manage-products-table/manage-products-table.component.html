@@ -12,24 +12,10 @@
       <th>Update</th>
       <th>Delete</th>
     </tr>
-    <tr>
-      <td>agua</td>
-      <td>$7</td>
-      <td>drink</td>
-      <td><i class="fa fa-edit"></i></td>
-      <td><i class="fa fa-trash"></i></td>
-    </tr>
-    <tr>
-      <td>Burger</td>
-      <td>$15</td>
-      <td>brunch</td>
-      <td><i class="fa fa-edit"></i></td>
-      <td><i class="fa fa-trash"></i></td>
-    </tr>
-    <tr>
-      <td>chips</td>
-      <td>$5</td>
-      <td>:)</td>
+    <tr *ngFor="let product of products">
+      <td>{{product.name}}</td>
+      <td>${{product.price}}</td>
+      <td>{{product.type}}</td>
       <td><i class="fa fa-edit"></i></td>
       <td><i class="fa fa-trash"></i></td>
     </tr>
