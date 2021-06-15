@@ -40,7 +40,7 @@ export class OrderTableComponent implements OnInit {
           return throwError(error);
         })
       ).subscribe((data: any) => {
-        console.log('pending', data)
+        console.log('pending')
       })
     }
     else if (item.status === 'delivering') {
@@ -58,7 +58,7 @@ export class OrderTableComponent implements OnInit {
           return throwError(error);
         })
       ).subscribe((data: any) => {
-        console.log('delivering', data)
+        console.log('delivering')
       })
     }
 
@@ -68,7 +68,6 @@ export class OrderTableComponent implements OnInit {
     const dateNow = dayjs(dateProcesed)
     const minutes = dateNow.diff(dateOld, 'm')
     const hours = dateNow.diff(dateOld, 'h')
-    return `${hours >= 1 ? `${hours}:${minutes-60} min`: `${minutes} min`}`
-
+    return `${hours >= 1 ? `${hours}:${minutes-60*hours} min`: `${minutes} min`}`
   }
 }

@@ -1,0 +1,20 @@
+<section>
+  <div class="nav">
+    <app-side-nav></app-side-nav>
+  </div>
+  <section class="container">
+    <article class="container-header">
+      <h1>MANAGE</h1>
+      <ul>
+        <li [ngClass]="{ 'clicked': clicked }" (click)="changeTrue()">Users</li>
+        <li [ngClass]="{ 'clicked': !clicked }" (click)="changeFalse()">Products</li>
+      </ul>
+    </article>
+    <article *ngIf="clicked">
+      <app-manageUsers-table [users]="users"></app-manageUsers-table>
+    </article>
+    <article *ngIf="!clicked">
+      <app-manage-products-table [products]="products"></app-manage-products-table>
+    </article>
+  </section>
+</section>

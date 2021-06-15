@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<section>
+  <article>
+    <button>Create</button>
+    <input type="text" placeholder="Search Product">
+  </article>
+  <table>
+    <tr>
+      <th>Product </th>
+      <th>Price</th>
+      <th>Type</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let product of products">
+      <td>{{product.name}}</td>
+      <td>${{product.price}}</td>
+      <td>{{product.type}}</td>
+      <td><i class="fa fa-edit"></i></td>
+      <td><i class="fa fa-trash"></i></td>
+    </tr>
+  </table>
+</section>

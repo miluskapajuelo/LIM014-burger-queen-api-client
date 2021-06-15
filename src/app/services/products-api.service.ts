@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { environment } from '../../environments/environment';
-import { IProductsModel } from '../models/products-model'
+import { IProductsModel, ProductDetailModel } from '../models/products-model'
 
 
 @Injectable({
@@ -15,18 +15,18 @@ export class ProductsApiService {
     this.endpoint = '/products';
   }
   getAllProducts() {
-    return this.httpClient.get<Array<IProductsModel>>(`${this.domain}${this.endpoint}`);
+    return this.httpClient.get<IProductsModel>(`${this.domain}${this.endpoint}`);
   }
   getProductsById(uid: any) {
-    return this.httpClient.get<IProductsModel>(`${this.domain}${this.endpoint}${uid}`);
+    return this.httpClient.get<ProductDetailModel>(`${this.domain}${this.endpoint}/${uid}`);
   }
   deleteProducts(uid: any,) {
-    return this.httpClient.delete<IProductsModel>(`${this.domain}${this.endpoint}${uid}`)
+    return this.httpClient.delete<ProductDetailModel>(`${this.domain}${this.endpoint}/${uid}`)
   }
   updateProducts(uid: any, body: any) {
-    return this.httpClient.put<IProductsModel>(`${this.domain}${this.endpoint}${uid}`, body)
+    return this.httpClient.put<ProductDetailModel>(`${this.domain}${this.endpoint}/${uid}`, body)
   }
   createProducts(body: any) {
-    return this.httpClient.post<IProductsModel>(`${this.domain}${this.endpoint}`, body)
+    return this.httpClient.post<ProductDetailModel>(`${this.domain}${this.endpoint}`, body)
   }
 }
