@@ -30,7 +30,6 @@ export class WaiterMenuComponent implements OnInit {
     this.products = []
     this.total = 0;
     this.able=false
-    /*    this.array=[] */
   }
 
   ngOnInit(): void {
@@ -114,25 +113,16 @@ export class WaiterMenuComponent implements OnInit {
     this.productitem.splice(index, 1)
     this.getTotal()
   }
-  getName(nameClient:any){
-    this.name = nameClient.value
-    console.log('antes', this.able)
-    if(nameClient.value>1){
 
-    }
-
-  }
   getTotal() {
     this.total = this.productitem
-      .map(item => item.qty * item.product.price)
-      .reduce((acc, item) => acc += item, 0)
-      if(this.total>0){
-        this.able=true}
-      else{
-        this.able=false
-      }
+    .map(item => item.qty * item.product.price)
+    .reduce((acc, item) => acc += item, 0)
+    this.able = this.total > 0 ? true : false
+    console.log('total', this.able, this.total)
   }
-  newOrder() {
+
+  newOrder(client: any) {
     console.log('hola')
     const OrderdateEntry=dayjs().format('YYYY-MM-DD HH:mm:ss');
     const token = localStorage.getItem('token')
@@ -141,11 +131,12 @@ export class WaiterMenuComponent implements OnInit {
     let order: IOrderModel = {
       _id: '001',
       userId: user.id,
-      client: this.name,
+      client: client.value,
       products: this.productitem,
       status: 'pending',
       dateEntry: OrderdateEntry,
     }
+
     this.orderApiService.createOrder(order).pipe(
       catchError((error) => {
         console.log('error', error);
@@ -154,7 +145,12 @@ export class WaiterMenuComponent implements OnInit {
         }
         return throwError(error);
       })
-    ).subscribe((data: any) => console.log(data, order))
+    ).subscribe((data: any) => {
+      this.productitem=[];
+      client.value = '';
+      this.getTotal()
+    }
+    )
   }
 
 }
