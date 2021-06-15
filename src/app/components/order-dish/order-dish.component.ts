@@ -38,13 +38,13 @@ export class OrderDishComponent implements OnInit {
   removeProduct(item: OrderProductModel) {
     this.removeItem.emit(item)
   }
-  newOrderProduct(item: IOrderModel){
-    this.newOrder.emit(item)
+  newOrderProduct(user:any){
+    this.newOrder.emit(user)
 
   }
-  getNameClient(user:any){
+/*   getNameClient(user:any){
     this.getName.emit(user)
-  }
+  } */
   changeStyle(button:any){
     button.style.background= 'red'
   }
