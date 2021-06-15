@@ -12,7 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WaiterMenuComponent } from './components/waiter-menu/waiter-menu.component';
-import { AdminComponent } from './components/admin/admin.component';
+import { ManageComponent } from './components/manage/manage.component';
 import { StatusOrdersComponent } from './components/statusOrders/statusOrders.component';
 import { LoginComponent } from './components/login/login.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
@@ -23,6 +23,8 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { OrderDishComponent } from './components/order-dish/order-dish.component';
 
 import { OrderTableComponent } from './components/order-table/order-table.component';
+import { ManageUsersTableComponent } from './components/manageUsers-table/manageUsers-table.component';
+import { ManageProductsTableComponent } from './components/manage-products-table/manage-products-table.component';
 
 
 
@@ -31,7 +33,7 @@ import { OrderTableComponent } from './components/order-table/order-table.compon
   declarations: [
     AppComponent,
     WaiterMenuComponent,
-    AdminComponent,
+    ManageComponent,
     StatusOrdersComponent,
     LoginComponent,
     DishesComponent,
@@ -39,6 +41,8 @@ import { OrderTableComponent } from './components/order-table/order-table.compon
     DishesComponent,
     OrderDishComponent,
     OrderTableComponent,
+    ManageUsersTableComponent,
+    ManageProductsTableComponent,
   ],
   imports: [
     BrowserModule,
