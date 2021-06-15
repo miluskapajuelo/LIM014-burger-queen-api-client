@@ -6,30 +6,14 @@
   </article>
   <table>
     <tr>
-    <th>Rol</th>
+    <th>Admin</th>
     <th>User Email</th>
-    <th>User Name</th>
     <th>Update</th>
     <th>Delete</th>
   </tr>
-    <tr>
-      <td>user.rol</td>
-      <td>user.email</td>
-      <td>user.name</td>
-      <td><i class="fa fa-edit"></i></td>
-      <td><i class="fa fa-trash"></i></td>
-    </tr>
-    <tr>
-      <td>user.rol</td>
-      <td>user.email</td>
-      <td>user.name</td>
-      <td><i class="fa fa-edit"></i></td>
-      <td><i class="fa fa-trash"></i></td>
-    </tr>
-    <tr>
-      <td>user.rol</td>
-      <td>user.email</td>
-      <td>user.name</td>
+    <tr *ngFor="let user of users">
+      <td>{{user.roles.admin}}</td>
+      <td>{{user.email}}</td>
       <td><i class="fa fa-edit"></i></td>
       <td><i class="fa fa-trash"></i></td>
     </tr>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { UserDetailModel } from 'src/app/models/user-model';
 
 @Component({
   selector: 'app-manageUsers-table',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manageUsers-table.component.sass']
 })
 export class ManageUsersTableComponent implements OnInit {
-
+@Input() users: Array<UserDetailModel>=[]
   constructor() { }
 
   ngOnInit(): void {
