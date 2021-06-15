@@ -1,5 +1,5 @@
 export interface IUserModel {
-  user?: UserDetailModel;
+  user?: Array<UserDetailModel>;
 }
 export interface UserDetailModel {
   _id?: string;
