@@ -11,10 +11,10 @@
       </ul>
     </article>
     <article *ngIf="clicked">
-      <app-manageUsers-table></app-manageUsers-table>
+      <app-manageUsers-table [users]="users"></app-manageUsers-table>
     </article>
     <article *ngIf="!clicked">
-      <app-manage-products-table></app-manage-products-table>
+      <app-manage-products-table [products]="products"></app-manage-products-table>
     </article>
   </section>
 </section>
