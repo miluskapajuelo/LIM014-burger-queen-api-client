@@ -10,6 +10,8 @@ import { ProductPopComponent } from '../product-pop/product-pop.component';
 })
 export class ManageProductsTableComponent implements OnInit {
 
+  filterValue = ''
+
   @Input() products: Array<ProductDetailModel> = []
   @Output() deleteProductById: EventEmitter<any> = new EventEmitter()
   @Output() updatePorductById: EventEmitter<any> = new EventEmitter()
@@ -31,5 +33,9 @@ export class ManageProductsTableComponent implements OnInit {
     dialogConfig.width= "60%";
     this.dialog.open(ProductPopComponent, dialogConfig)
   }
+  handleSearch(value:string){
+    this.filterValue= value
+  }
+
 
 }

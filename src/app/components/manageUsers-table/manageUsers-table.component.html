@@ -2,7 +2,7 @@
 <section>
   <article>
     <button (click)="createUser()">Create</button>
-    <input type="text" placeholder="Search User">
+    <input #input type="text" placeholder="Search User" (input)="handleSearch(input.value)">
   </article>
   <table>
     <tr>
@@ -11,7 +11,7 @@
     <th>Update</th>
     <th>Delete</th>
   </tr>
-    <tr *ngFor="let user of users">
+    <tr *ngFor="let user of users | searchUser:filterValue" >
       <td>{{user.roles.admin}}</td>
       <td>{{user.email}}</td>
       <td><i class="fa fa-edit" (click)="updateUser(user)"></i></td>
