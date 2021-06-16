@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <section>
   <article>
-    <button>Create</button>
+    <button (click)="createUser()">Create</button>
     <input type="text" placeholder="Search User">
   </article>
   <table>
@@ -14,8 +14,8 @@
     <tr *ngFor="let user of users">
       <td>{{user.roles.admin}}</td>
       <td>{{user.email}}</td>
-      <td><i class="fa fa-edit"></i></td>
-      <td><i class="fa fa-trash"></i></td>
+      <td><i class="fa fa-edit" (click)="updateUser(user)"></i></td>
+      <td><i class="fa fa-trash" (click)="deleteUser(user)"></i></td>
     </tr>
   </table>
 </section>

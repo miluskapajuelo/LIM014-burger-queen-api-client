@@ -49,12 +49,4 @@ export class ManageComponent implements OnInit {
     this.productsApiService.deleteProducts(product._id).subscribe(data => console.log(data))
   }
 
-  updatePorductById(product: any) {
-      const newProduct: any = {
-        name: 'cheescake',
-        price: 18,
-        type: 'side dishes'
-      }
-
-  }
 }

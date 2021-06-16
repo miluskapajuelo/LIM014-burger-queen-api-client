@@ -23,6 +23,8 @@ import { ManageUsersTableComponent } from './components/manageUsers-table/manage
 import { ManageProductsTableComponent } from './components/manage-products-table/manage-products-table.component';
 import { SharedModule } from './components/shared/shared.module';
 import { ProductPopComponent } from './components/product-pop/product-pop.component';
+import { UsersPopComponent } from './components/users-pop/users-pop.component';
+
 
 
 // services
@@ -41,6 +43,7 @@ import { ProductPopComponent } from './components/product-pop/product-pop.compon
     ManageUsersTableComponent,
     ManageProductsTableComponent,
     ProductPopComponent,
+    UsersPopComponent
   ],
   imports: [
     BrowserModule,
