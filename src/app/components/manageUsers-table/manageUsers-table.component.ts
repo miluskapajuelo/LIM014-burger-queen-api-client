@@ -12,7 +12,6 @@ import { UsersPopComponent } from '../users-pop/users-pop.component';
 export class ManageUsersTableComponent implements OnInit {
 
 
-
   @Input() users: Array<UserDetailModel>=[]
   constructor(private dialog: MatDialog) { }
 
@@ -36,6 +35,7 @@ export class ManageUsersTableComponent implements OnInit {
     dialogConfig.disableClose = false
     dialogConfig.autoFocus = true
     dialogConfig.width= "60%";
+    dialogConfig.data="hola"
     this.dialog.open(UsersPopComponent, dialogConfig)
   }
   handleSearch(value:string){
