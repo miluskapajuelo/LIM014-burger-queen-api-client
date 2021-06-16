@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import jwt_decode from "jwt-decode";
+import { AuthApiService } from "../../services/auth-api.service"
 
 @Component({
   selector: 'app-side-nav',
@@ -10,7 +11,7 @@ import jwt_decode from "jwt-decode";
 export class SideNavComponent implements OnInit {
   options: Array<string> = [];
   isSelect: boolean = false;
-  constructor(private router: Router) {
+  constructor(private router: Router, private authApiService: AuthApiService) {
   }
 
   ngOnInit(): void {
@@ -19,18 +20,13 @@ export class SideNavComponent implements OnInit {
   rolAcces() {
     const token: any = localStorage.getItem('token')
     const roles: any = jwt_decode(token);
-    console.log(roles.rol)
-
 
     let acces = [];
-    if (roles.rol === 'Admin') {
-      acces = ['Manag', 'History', 'Log Out']
-    }
-    else if (roles.rol === 'Waiter') {
-      acces = ['Menu', 'Orders', 'Log Out']
+    if (roles.roles.admin) {
+      acces = ['Manag', 'Menu', 'Orders', 'Log Out']
     }
     else {
-      acces = ['Orders', 'Log Out']
+      acces = ['Menu', 'Orders', 'Log Out']
     }
     return this.options = acces;
   }
@@ -39,15 +35,17 @@ export class SideNavComponent implements OnInit {
     this.isSelect = this.isSelect ? false : true;
   }
   redirect(element: string) {
-    console.log(element)
-    /*  switch (element) {
-        case 'Menu': this.router.navigate(['MenuView']);
+    switch (element) {
+      case 'Menu': this.router.navigate(['waiter']);
         break
-        case 'Orders':this.router.navigate(['Orders']);
+      case 'Orders': this.router.navigate(['statusOrders']);
         break
-      case 'Log Out':
-      }
-  */
+      case 'Log Out': this.authApiService.logOut();
+        break
+      case 'Manag': this.router.navigate(['manage'])
+        break
+    }
+
 
   }
 }
