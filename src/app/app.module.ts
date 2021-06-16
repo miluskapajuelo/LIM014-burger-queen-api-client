@@ -24,7 +24,6 @@ import { ManageProductsTableComponent } from './components/manage-products-table
 import { SharedModule } from './components/shared/shared.module';
 import { ProductPopComponent } from './components/product-pop/product-pop.component';
 import { UsersPopComponent } from './components/users-pop/users-pop.component';
-import { SearchPipe } from './pipes/search.pipe';
 import { SearchProductPipe } from './pipes/search-product.pipe';
 import { SearchUserPipe } from './pipes/search-user.pipe';
 
@@ -47,7 +46,6 @@ import { SearchUserPipe } from './pipes/search-user.pipe';
     ManageProductsTableComponent,
     ProductPopComponent,
     UsersPopComponent,
-    SearchPipe,
     SearchProductPipe,
     SearchUserPipe
   ],
