@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ProductDetailModel } from 'src/app/models/products-model';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ProductPopComponent } from '../product-pop/product-pop.component';
 
 @Component({
   selector: 'app-manage-products-table',
@@ -12,7 +14,7 @@ export class ManageProductsTableComponent implements OnInit {
   @Output() deleteProductById: EventEmitter<any> = new EventEmitter()
   @Output() updatePorductById: EventEmitter<any> = new EventEmitter()
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -21,6 +23,13 @@ export class ManageProductsTableComponent implements OnInit {
   }
   updatePorduct(product:any){
     this.updatePorductById.emit(product)
+  }
+  createProduct(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false
+    dialogConfig.autoFocus = true
+    dialogConfig.width= "60%";
+    this.dialog.open(ProductPopComponent, dialogConfig)
   }
 
 }

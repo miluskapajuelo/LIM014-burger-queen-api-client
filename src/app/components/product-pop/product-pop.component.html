@@ -1,0 +1,27 @@
+<div class='container'>
+  <form class='form-update' (submit)="savenew(product, price, type)">
+    <h1>Update products</h1>
+    <div class="input-container">
+      <input #product type="input" name="product">
+      <label>Product</label>
+      <div class="bar"></div>
+    </div>
+    <div class="input-container">
+      <input #price type="input" name="price">
+      <label>Price</label>
+      <div class="bar"></div>
+    </div>
+    <div class="input-container">
+      <input #type type="input" name="type">
+      <label>Type</label>
+      <div class="bar"></div>
+    </div>
+    <div class="input-container-element">
+      <p class="error"></p>
+      <div class="buttons">
+        <button >Cancel</button>
+        <button type="submit">create</button>
+      </div>
+    </div>
+  </form>
+</div>

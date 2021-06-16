@@ -46,7 +46,7 @@ export class ManageComponent implements OnInit {
 
   deleteProductById(product: any){
     this.products = this.products.filter(c => c._id !== product._id)
-    this.productsApiService.deleteProducts(product._id).subscribe()
+    this.productsApiService.deleteProducts(product._id).subscribe(data => console.log(data))
   }
 
   updatePorductById(product: any) {

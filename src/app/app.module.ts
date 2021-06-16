@@ -2,10 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-
-//Angular material
-import { MatCardModule } from '@angular/material/card';
-import { MatTableModule } from '@angular/material/table'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -25,7 +21,8 @@ import { OrderDishComponent } from './components/order-dish/order-dish.component
 import { OrderTableComponent } from './components/order-table/order-table.component';
 import { ManageUsersTableComponent } from './components/manageUsers-table/manageUsers-table.component';
 import { ManageProductsTableComponent } from './components/manage-products-table/manage-products-table.component';
-
+import { SharedModule } from './components/shared/shared.module';
+import { ProductPopComponent } from './components/product-pop/product-pop.component';
 
 
 // services
@@ -43,23 +40,23 @@ import { ManageProductsTableComponent } from './components/manage-products-table
     OrderTableComponent,
     ManageUsersTableComponent,
     ManageProductsTableComponent,
+    ProductPopComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatCardModule,
-    MatTableModule
+    SharedModule
 
   ],
   exports: [
-    MatCardModule,
-    MatTableModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ProductPopComponent]
+
 })
 export class AppModule { }
