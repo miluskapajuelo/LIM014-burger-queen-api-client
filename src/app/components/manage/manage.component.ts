@@ -27,13 +27,13 @@ export class ManageComponent implements OnInit {
     this.productsApiService.getAllProducts().subscribe((data: IProductsModel) => {
       console.log(data)
       this.products = data.products
-
+      console.log('antes',this.products)
     })
   }
   getUsers() {
     this.userApiService.getAllUsers().subscribe((data: IUserModel) => {
       this.users = data.user
-      console.log(this.users)
+      console.log('hola',this.users)
     })
 
   }
@@ -42,5 +42,19 @@ export class ManageComponent implements OnInit {
   }
   changeTrue() {
     this.clicked = true
+  }
+
+  deleteProductById(product: any){
+    this.products = this.products.filter(c => c._id !== product._id)
+    this.productsApiService.deleteProducts(product._id).subscribe()
+  }
+
+  updatePorductById(product: any) {
+      const newProduct: any = {
+        name: 'cheescake',
+        price: 18,
+        type: 'side dishes'
+      }
+
   }
 }

@@ -16,8 +16,8 @@
       <td>{{product.name}}</td>
       <td>${{product.price}}</td>
       <td>{{product.type}}</td>
-      <td><i class="fa fa-edit"></i></td>
-      <td><i class="fa fa-trash"></i></td>
+      <td><i class="fa fa-edit" (click)="updatePorduct(product)"></i></td>
+      <td><i class="fa fa-trash" (click)="deleteProduct(product)"></i></td>
     </tr>
   </table>
 </section>
