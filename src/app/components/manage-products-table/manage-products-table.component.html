@@ -2,7 +2,7 @@
 <section>
   <article>
     <button (click)="createProduct()">Create</button>
-    <input type="text" placeholder="Search Product">
+    <input #input type="text" placeholder="Search Product" (input)="handleSearch(input.value)">
   </article>
   <table>
     <tr>
@@ -12,7 +12,7 @@
       <th>Update</th>
       <th>Delete</th>
     </tr>
-    <tr *ngFor="let product of products">
+    <tr *ngFor="let product of products | searchProduct:filterValue">
       <td>{{product.name}}</td>
       <td>${{product.price}}</td>
       <td>{{product.type}}</td>
