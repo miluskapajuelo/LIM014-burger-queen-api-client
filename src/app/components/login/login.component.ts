@@ -23,13 +23,10 @@ export class LoginComponent implements OnInit {
       email: email.value,
       password: password.value
     }
-
     this.authApiService.loginAuth(body)
       .pipe(
         catchError((error) => {
-
           console.log('error', error);
-
           if (error.status === 400) {
             this.error = true;
             console.log('error de credenciales');
@@ -39,18 +36,13 @@ export class LoginComponent implements OnInit {
       )
       .subscribe((data: any) => {
         this.error = false;
-        window.localStorage.setItem('token', data.resp.token);
-        const token: any = jwt_decode(data.resp.token);
-        if (token.rol === 'admi') {
+        window.localStorage.setItem('token', data.token);
+        const token: any = jwt_decode(data.token);
+        if (token.roles.admi) {
           this.router.navigate(['admin']);
-        }
-        else if (token.rol === 'chef') {
-          this.router.navigate(['chef']);
         } else {
           this.router.navigate(['waiter']);
         }
-
-
       });
 
   }
