@@ -1,12 +1,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <section>
   <article>
-    <button (click)="createProduct()"  >Create</button>
+    <button (click)="createProduct()">Create</button>
     <input #input type="text" placeholder="Search Product" (input)="handleSearch(input.value)">
   </article>
-    <article *ngIf="active" >
-      <app-product-pop (closeModal)="closeModal()"></app-product-pop>
-    </article>
   <table>
     <tr>
       <th>Product </th>
@@ -22,7 +19,7 @@
       <td><i class="fa fa-edit" (click)="updatePorduct(product)" [ngClass]="{ 'clicked': clicked }"></i></td>
       <article *ngIf="clicked">
       </article>
-      <td><i class="fa fa-trash" (click)="deleteProduct(product)"[ngClass]="{ 'clicked': !clicked }"></i></td>
+      <td><i class="fa fa-trash" (click)="deleteProduct(product)" [ngClass]="{ 'clicked': !clicked }"></i></td>
       <article *ngIf="!clicked">
       </article>
     </tr>
