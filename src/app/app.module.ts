@@ -62,8 +62,7 @@ import { SearchUserPipe } from './pipes/search-user.pipe';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
   ],
-  bootstrap: [AppComponent],
-  entryComponents: [ProductPopComponent]
+  bootstrap: [AppComponent]
 
 })
 export class AppModule { }

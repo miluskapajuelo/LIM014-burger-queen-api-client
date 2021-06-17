@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ProductDetailModel } from 'src/app/models/products-model';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { ProductPopComponent } from '../product-pop/product-pop.component';
+
 
 @Component({
   selector: 'app-manage-products-table',
@@ -9,33 +8,38 @@ import { ProductPopComponent } from '../product-pop/product-pop.component';
   styleUrls: ['./manage-products-table.component.sass']
 })
 export class ManageProductsTableComponent implements OnInit {
-
-  filterValue = ''
-
+  active:boolean
+  filterValue: string
+  clicked: boolean;
   @Input() products: Array<ProductDetailModel> = []
   @Output() deleteProductById: EventEmitter<any> = new EventEmitter()
   @Output() updatePorductById: EventEmitter<any> = new EventEmitter()
 
-  constructor(private dialog: MatDialog) { }
+  constructor() {
+    this.filterValue=''
+    this.clicked=false
+    this.active=false
+   }
 
   ngOnInit(): void {
   }
   deleteProduct(product:any){
     this.deleteProductById.emit(product)
+    this.clicked = false
   }
   updatePorduct(product:any){
     this.updatePorductById.emit(product)
+    this.clicked = true
   }
   createProduct(){
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = false
-    dialogConfig.autoFocus = true
-    dialogConfig.width= "60%";
-    this.dialog.open(ProductPopComponent, dialogConfig)
+    this.active = true
   }
   handleSearch(value:string){
     this.filterValue= value
   }
-
+  closeModal(){
+    console.log("hola aqui estoy")
+    this.active = false
+  }
 
 }

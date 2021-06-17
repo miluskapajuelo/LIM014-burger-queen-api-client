@@ -10,7 +10,7 @@
         <li [ngClass]="{ 'clicked': !clicked }" (click)="changeFalse()">Products</li>
       </ul>
     </article>
-    <article *ngIf="clicked">
+    <article *ngIf="clicked" class="article">
       <app-manageUsers-table [users]="users"></app-manageUsers-table>
     </article>
     <article *ngIf="!clicked">

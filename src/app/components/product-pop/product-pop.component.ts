@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ProductsApiService } from 'src/app/services/products-api.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { ProductsApiService } from 'src/app/services/products-api.service';
   styleUrls: ['./product-pop.component.sass']
 })
 export class ProductPopComponent implements OnInit {
-
+  @Output() closeModal: EventEmitter<any> = new EventEmitter()
   constructor(private productsApiService:ProductsApiService) { }
 
   ngOnInit(): void {
@@ -16,5 +16,8 @@ export class ProductPopComponent implements OnInit {
   savenew(product:any, price:any, type:any){
     const productNew = { name: product.value, price:price.value, type:type.value}
     this.productsApiService.createProducts(productNew).subscribe(product => console.log(product ));
+  }
+  closeModalProduct() {
+    this.closeModal.emit()
   }
 }
