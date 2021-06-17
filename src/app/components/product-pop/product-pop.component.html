@@ -1,28 +1,26 @@
-<div id="open-modal" class="modal-window" >
-  <div>
-    <a title="Close" class="modal-close" (click)="closeModalProduct()" >Close</a>
-    <div class='container'>
+<section id="open-modal" class="modal-window">
+    <article class='container-form'>
+      <button title="Close" class="modal-close" (click)="closeModalProduct()">Close</button>
       <form class='form-update'>
         <h1>Update products</h1>
         <div class="input-container">
-          <input #product type="input" name="product" class="input">
+          <input #product type="text" name="product" class="input" placeholder="burger">
           <label class="label">Product</label>
         </div>
         <div class="input-container">
-          <input #price type="input" name="price" class="input">
+          <input #price type="number" name="price" class="input" min="0" placeholder="5">
           <label class="label">Price</label>
         </div>
         <div class="input-container">
-          <input #type type="input" name="type" class="input">
+          <input #type type="text" name="type" class="input" placeholder="burger">
           <label class="label">Type</label>
         </div>
         <div class="input-container-element">
           <p class="error"></p>
           <div class="buttons">
-            <button class="button"  (click)="closeModalProduct()" >create</button>
+            <button class="button" (click)="closeModalProduct()">create</button>
           </div>
         </div>
       </form>
-    </div>
-  </div>
-  </div>
+    </article>
+</section>
