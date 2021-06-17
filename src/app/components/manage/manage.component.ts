@@ -15,8 +15,10 @@ export class ManageComponent implements OnInit {
   clicked: boolean;
   products: Array<ProductDetailModel>
   users: Array<UserDetailModel>
+  activeProducts:boolean
   constructor(private productsApiService: ProductsApiService, private userApiService: UserApiService) {
     this.clicked = true;
+    this.activeProducts= false
   }
 
   ngOnInit(): void {
@@ -47,6 +49,9 @@ export class ManageComponent implements OnInit {
   deleteProductById(product: any){
     this.products = this.products.filter(c => c._id !== product._id)
     this.productsApiService.deleteProducts(product._id).subscribe(data => console.log(data))
+  }
+  createProducts(){
+    this.activeProducts =true
   }
 
 }
