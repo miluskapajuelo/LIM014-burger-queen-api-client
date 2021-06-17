@@ -9,7 +9,6 @@ import { throwError } from 'rxjs';
 export class TokenInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    console.log('interceptor');
     const token = localStorage.getItem('token');
 
     if (token) {
