@@ -1,5 +1,5 @@
 <section>
-    <app-product-pop *ngIf="activeProducts"></app-product-pop>
+    <app-product-pop *ngIf="activeProducts"  (closeModal)="closeModal()" (createtwoProducts)="createtwoProducts($event)"></app-product-pop>
   <div class="nav">
     <app-side-nav></app-side-nav>
   </div>
@@ -15,7 +15,7 @@
       <app-manageUsers-table [users]="users"></app-manageUsers-table>
     </article>
     <article *ngIf="!clicked">
-      <app-manage-products-table (deleteProductById)="deleteProductById($event)" [products]="products" (createProducts)="createProducts()"></app-manage-products-table>
+      <app-manage-products-table (deleteProductById)="deleteProductById($event)" [products]="products" (openModal)="openModal($event)" (createtwoProducts)="createtwoProducts($event)"></app-manage-products-table>
     </article>
   </section>
 </section>

@@ -1,8 +1,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <section>
   <article>
-    <button class="create-button" (click)="createProduct()">Create</button>
-
+    <button class="create-button" (click)="openModalProduct(input)">Create</button>
     <input #input type="text" placeholder="Search Product" (input)="handleSearch(input.value)">
   </article>
   <table class="container-table">
@@ -17,9 +16,8 @@
       <td class="table-body">{{product.name}}</td>
       <td class="table-body">${{product.price}}</td>
       <td class="table-body">{{product.type}}</td>
-      <td class="table-body"><i class="fa fa-edit" (click)="updatePorduct(product)" [ngClass]="{ 'clicked': clicked }"></i></td>
+      <td class="table-body"><i class="fa fa-edit" (click)="openModalProduct(product)" [ngClass]="{ 'clicked': clicked }"></i></td>
       <td class="table-body"><i class="fa fa-trash" (click)="deleteProduct(product)" [ngClass]="{ 'clicked': !clicked }"></i></td>
-
     </tr>
   </table>
 </section>

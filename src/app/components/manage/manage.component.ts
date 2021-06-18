@@ -12,10 +12,12 @@ import { UserApiService } from 'src/app/services/user-api.service';
 
 
 export class ManageComponent implements OnInit {
+  create:boolean = false
   clicked: boolean;
   products: Array<ProductDetailModel>
   users: Array<UserDetailModel>
   activeProducts:boolean
+
   constructor(private productsApiService: ProductsApiService, private userApiService: UserApiService) {
     this.clicked = true;
     this.activeProducts= false
@@ -29,13 +31,11 @@ export class ManageComponent implements OnInit {
     this.productsApiService.getAllProducts().subscribe((data: IProductsModel) => {
       console.log(data)
       this.products = data.products
-      console.log('antes',this.products)
     })
   }
   getUsers() {
     this.userApiService.getAllUsers().subscribe((data: IUserModel) => {
       this.users = data.user
-      console.log('hola',this.users)
     })
 
   }
@@ -50,8 +50,39 @@ export class ManageComponent implements OnInit {
     this.products = this.products.filter(c => c._id !== product._id)
     this.productsApiService.deleteProducts(product._id).subscribe(data => console.log(data))
   }
-  createProducts(){
-    this.activeProducts =true
+
+  closeModal(){
+    this.activeProducts =false
+  }
+
+  openModal(object:any){
+    if(object.name===''){
+      console.log('modal para crear')
+      this.activeProducts =true
+      this.create=true
+
+    }
+    else{
+      console.log('modal para update')
+      this.activeProducts =true
+      this.create=false
+    }
+  }
+
+  createtwoProducts(product:any){
+    if(this.create===false){
+      console.log('producto actualizado')
+      this.activeProducts =true
+      let productDetail = { name:product.name, price:product.price, type:product.type, image:product.image}
+      this.productsApiService.updateProducts(1,productDetail).subscribe(product => console.log(product));
+
+    }
+    else{
+      console.log('producto creado')
+      this.activeProducts =true
+      let productDetail = { name:product.name, price:product.price, type:product.type, image:product.image}
+      this.productsApiService.createProducts(productDetail).subscribe(product => console.log(product));
+    }
   }
 
 }
