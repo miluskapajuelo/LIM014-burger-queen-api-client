@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <section>
   <article>
-    <button (click)="createProduct()">Create</button>
+    <button (click)="openModalProduct(input)">Create</button>
     <input #input type="text" placeholder="Search Product" (input)="handleSearch(input.value)">
   </article>
   <table>
@@ -9,6 +9,7 @@
       <th>Product </th>
       <th>Price</th>
       <th>Type</th>
+      <th>Image</th>
       <th>Update</th>
       <th>Delete</th>
     </tr>
@@ -16,8 +17,10 @@
       <td>{{product.name}}</td>
       <td>${{product.price}}</td>
       <td>{{product.type}}</td>
-      <td><i class="fa fa-edit" (click)="updatePorduct(product)" [ngClass]="{ 'clicked': clicked }"></i></td>
+      <td>{{product.image}}</td>
+      <td><i class="fa fa-edit" (click)="openModalProduct(product)" [ngClass]="{ 'clicked': clicked }"></i></td>
       <article *ngIf="clicked">
+
       </article>
       <td><i class="fa fa-trash" (click)="deleteProduct(product)" [ngClass]="{ 'clicked': !clicked }"></i></td>
       <article *ngIf="!clicked">

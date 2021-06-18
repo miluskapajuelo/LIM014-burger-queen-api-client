@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ProductsApiService } from 'src/app/services/products-api.service';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-product-pop',
@@ -7,17 +7,25 @@ import { ProductsApiService } from 'src/app/services/products-api.service';
   styleUrls: ['./product-pop.component.sass']
 })
 export class ProductPopComponent implements OnInit {
+
   @Output() closeModal: EventEmitter<any> = new EventEmitter()
-  constructor(private productsApiService:ProductsApiService) { }
+  @Output() createtwoProducts: EventEmitter<any> = new EventEmitter()
+
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  savenew(product:any, price:any, type:any){
-    const productNew = { name: product.value, price:price.value, type:type.value}
-    this.productsApiService.createProducts(productNew).subscribe(product => console.log(product ));
-  }
   closeModalProduct() {
     this.closeModal.emit()
   }
+  createOneProduct(product:any, price:any, type:any,image:any){
+    const productNew ={ product: product.value,
+      price:price.value, type:type.value, image: image.value}
+      this.createtwoProducts.emit(productNew)
+    }
+
+
 }
+
+

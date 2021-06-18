@@ -10,10 +10,11 @@ import { ProductDetailModel } from 'src/app/models/products-model';
 export class ManageProductsTableComponent implements OnInit {
   filterValue: string
   clicked: boolean;
+  @Input() activeProducts:boolean
   @Input() products: Array<ProductDetailModel> = []
   @Output() deleteProductById: EventEmitter<any> = new EventEmitter()
-  @Output() updatePorductById: EventEmitter<any> = new EventEmitter()
-  @Output() createProducts: EventEmitter<any> = new EventEmitter()
+  @Output() openModal: EventEmitter<any> = new EventEmitter()
+
 
   constructor() {
     this.filterValue = ''
@@ -26,15 +27,13 @@ export class ManageProductsTableComponent implements OnInit {
     this.deleteProductById.emit(product)
     this.clicked = false
   }
-  updatePorduct(product: any) {
-    this.updatePorductById.emit(product)
-    this.clicked = true
-  }
-  createProduct() {
-    this.createProducts.emit()
-  }
   handleSearch(value: string) {
     this.filterValue = value
   }
+  openModalProduct(product:any) {
+      this.openModal.emit(product)
+  }
+
+
 
 }
