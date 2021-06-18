@@ -1,21 +1,21 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <section>
   <article>
-    <button (click)="createUser()">Create</button>
+    <button class="create-button"(click)="createUser()">Create</button>
     <input #input type="text" placeholder="Search User" (input)="handleSearch(input.value)">
   </article>
-  <table>
+  <table class="container-table">
     <tr>
-    <th>Admin</th>
-    <th>User Email</th>
-    <th>Update</th>
-    <th>Delete</th>
+    <th class="table-body table-header">Admin</th>
+    <th class="table-body table-header">User Email</th>
+    <th class="table-body table-header">Update</th>
+    <th class="table-body table-header">Delete</th>
   </tr>
     <tr *ngFor="let user of users | searchUser:filterValue" >
-      <td>{{user.roles.admin}}</td>
-      <td>{{user.email}}</td>
-      <td><i class="fa fa-edit" (click)="updateUser(user)"></i></td>
-      <td><i class="fa fa-trash" (click)="deleteUser(user)"></i></td>
+      <td class="table-body">{{user.roles.admin}}</td>
+      <td class="table-body">{{user.email}}</td>
+      <td class="table-body"><i class="fa fa-edit" (click)="updateUser(user)"></i></td>
+      <td class="table-body"><i class="fa fa-trash" (click)="deleteUser(user)"></i></td>
     </tr>
   </table>
 </section>

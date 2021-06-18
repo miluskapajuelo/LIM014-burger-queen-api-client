@@ -1,27 +1,25 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <section>
   <article>
-    <button (click)="createProduct()">Create</button>
+    <button class="create-button" (click)="createProduct()">Create</button>
+
     <input #input type="text" placeholder="Search Product" (input)="handleSearch(input.value)">
   </article>
-  <table>
+  <table class="container-table">
     <tr>
-      <th>Product </th>
-      <th>Price</th>
-      <th>Type</th>
-      <th>Update</th>
-      <th>Delete</th>
+      <th class="table-body table-header">Product </th>
+      <th class="table-body table-header">Price</th>
+      <th class="table-body table-header">Type</th>
+      <th class="table-body table-header">Update</th>
+      <th class="table-body table-header">Delete</th>
     </tr>
     <tr *ngFor="let product of products | searchProduct:filterValue">
-      <td>{{product.name}}</td>
-      <td>${{product.price}}</td>
-      <td>{{product.type}}</td>
-      <td><i class="fa fa-edit" (click)="updatePorduct(product)" [ngClass]="{ 'clicked': clicked }"></i></td>
-      <article *ngIf="clicked">
-      </article>
-      <td><i class="fa fa-trash" (click)="deleteProduct(product)" [ngClass]="{ 'clicked': !clicked }"></i></td>
-      <article *ngIf="!clicked">
-      </article>
+      <td class="table-body">{{product.name}}</td>
+      <td class="table-body">${{product.price}}</td>
+      <td class="table-body">{{product.type}}</td>
+      <td class="table-body"><i class="fa fa-edit" (click)="updatePorduct(product)" [ngClass]="{ 'clicked': clicked }"></i></td>
+      <td class="table-body"><i class="fa fa-trash" (click)="deleteProduct(product)" [ngClass]="{ 'clicked': !clicked }"></i></td>
+
     </tr>
   </table>
 </section>
