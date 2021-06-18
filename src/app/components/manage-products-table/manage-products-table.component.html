@@ -2,6 +2,7 @@
 <section>
   <article>
     <button class="create-button" (click)="createProduct()">Create</button>
+
     <input #input type="text" placeholder="Search Product" (input)="handleSearch(input.value)">
   </article>
   <table class="container-table">
@@ -18,6 +19,7 @@
       <td class="table-body">{{product.type}}</td>
       <td class="table-body"><i class="fa fa-edit" (click)="updatePorduct(product)" [ngClass]="{ 'clicked': clicked }"></i></td>
       <td class="table-body"><i class="fa fa-trash" (click)="deleteProduct(product)" [ngClass]="{ 'clicked': !clicked }"></i></td>
+
     </tr>
   </table>
 </section>
