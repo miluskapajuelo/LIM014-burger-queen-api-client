@@ -1,54 +1,42 @@
 
 @import '../../../assets/mixins/_form-mixin'
-
-$primary-color: #CA3A28
-$secondary-color: #ffff
-$terciary-color: #212121
-
-$box-shadow: 0 2px 10px 0 rgba(0,0,0,0.6)
-$limit: 10
-$unit: 8px
-
-$font-family: roboto
-$font-size: 25px
+@import '../../../styles'
 
 @function size($value)
   @return $value * $unit
 
 *
-  box-sizing: border-box
-  margin: 0
-  padding: 0
+  @include basic
 
 body
-  background-color: $secondary-color
+  background-color: $white
   font-family: $font-family
 
 h1
   color: $primary-color
-  margin: 25px
-  margin-bottom: 49px
+  margin: 1.5rem
+  margin-bottom: 3rem
   font-size: size(6)
   font-weight: bolder
 
 h2
   position: relative
-  border-left: 5px solid $primary-color
-  margin: 0 0 35px
-  padding: 10px 0 10px 50px
+  border-left: 0.3rem solid $primary-color
+  margin: 0 0 2rem
+  padding: .6rem 0 .6rem 3.1rem
   color: $primary-color
   font-size: size(5)
   font-weight: 600
   font-weight: lighter
 
 .container
-  background: #ffff
+  background: $white
   width: 98vw
   height: 90vh
-  padding: 50px
+  padding: 3.1rem
 
 .container-login
-  background: $secondary-color
+  background: $white
   height: 90%
   display: flex
   flex-direction: column
@@ -65,40 +53,37 @@ h2
   justify-content: space-evenly
 
 // figure img
-.login .figure-login > img
-  width: 580px
-  height: 380px
+img
+  width: 36.2rem
+  height: 20.2rem
 
 .container-login
   .figure-login
     align-items: center
     justify-content: center
-
-// form login
-.container-login
-  .form-login
-    position: relative
+    & .form-login
+      position: relative
 
 .color-login
   color: $primary-color
 
 .input-container
   position: relative
-  margin: 0 60px 25px
+  margin: 0 3.7rem 1.5rem
 
 .input-container-element
   position: relative
-  margin: 50px 60px 25px
+  margin: 3.2rem 3.7rem 1.5rem
 
 .input-container
   input
     outline: none
     position: relative
     width: 100%
-    height: 60px
+    height: 3.7rem
     border: 0
-    color: $terciary-color
-    font-size: 30px
+    color: $black
+    font-size: 1.8rem
 
 .input-container input:focus + label
   color: $primary-color
@@ -114,17 +99,17 @@ h2
     top: 0
     left: 0
     color: #757575
-    font-size: 20px
+    font-size: 1.2rem
     font-weight: 300
-    line-height: 60px
+    line-height: 3.7rem
     transition: 0.2s ease
 
 .error
   color: $primary-color
   width: 100%
   text-align: center
-  margin:10px
-  font-weight:700
+  margin: .6rem
+  font-weight: 700
 
 .input-container .bar
   position: absolute
@@ -132,27 +117,25 @@ h2
   bottom: 0
   background: $primary-color
   width: 100%
-  height: 1px
-
-//button
+  height: 0.1rem
 
 
 @media (min-width: 768px) and (max-width: 1023px)
   h1
-    font-size: 35px
-    margin: 20px
+    font-size: 2rem
+    margin: 1.8rem
 
   img
-    with: 450px
-    height: 300px
-    margin: 10px auto
+    with: 28rem
+    height: 18.7rem
+    margin: 1.8rem auto
 
   .login
     flex-direction: column
-    margin: 5px
+    margin: 0.3rem
 
   .input-container
     label
-      font-size: 30px
+      font-size: 1.8rem
   .color-login
-    margin-top: 5px
+    margin-top: 0.3rem

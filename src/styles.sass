@@ -6,6 +6,28 @@ $secundary-color: #FDC45B
 $terciary-color: #FDC45B80
 $white: #fff
 $black: #212121
+$box-shadow: 0 2px 10px 0 rgba(0,0,0,0.6)
+$unit: 0.5rem
+$font-family: roboto
+$font-size: 1.5rem
 
-*
+@mixin basic
   font-family: 'Roboto', sans-serif
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+
+@mixin nav
+  width: 15%
+  margin: 0.3rem
+
+@mixin listElem
+  padding: 1rem
+  border: solid 1px $secundary-color
+  background-color: $terciary-color
+  width: 3rem
+  height: 1.2rem
+  font-weight: bold
+
+@mixin clicked
+  background-color: $secundary-color

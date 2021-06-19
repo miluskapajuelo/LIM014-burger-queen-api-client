@@ -1,6 +1,4 @@
-$primary-color: #CA3A28
-$secundary-color: #FDC45B
-$third-color: #FDC45B80
+@import '../../../styles'
 
 section
   display: flex
@@ -19,20 +17,16 @@ h1
 ul
   list-style: none
   display: flex
-li
-  padding: 1rem
-  border: solid 1px $secundary-color
-  background-color: $third-color
-  width: 3rem
-  height: 1.2rem
+
+.list-item
+  @include listElem
 
 .clicked
-  background-color: $secundary-color
+  @include clicked
 
 .container-table
   display: flex
   flex-wrap: wrap
 
 .nav
-  width: 20%
-  margin: 20px
+  @include nav
