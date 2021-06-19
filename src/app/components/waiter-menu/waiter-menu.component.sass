@@ -1,36 +1,26 @@
-$primary-color: #CA3A28
-$secondary-color: #ffff
-$terciary-color:#212121
-
-
-$box-shadow: 0 2px 10px 0 rgba(0,0,0,0.6)
-$limit: 10
-$unit: 8px
-
-$font-family: roboto
-$font-size: 15px article
+@import '../../../styles'
+*
+  @include basic
 
 .menu
   display: flex
-  margin: 20px
 
 .dishes
-  width: 60%
-  margin-top: 20px
+  width: 40%
+  margin: 0.6rem 0.3rem
+
 .nav
-  width: 20%
-  margin: 20px
+  @include nav
 
 .order
-  width: 30%
+  width: 40%
   height: 70%
-  padding: 20px
-  border-radius: 10px
+  padding: 1rem
+  border-radius: 0.6rem
   border-style: double
-  border-color: antiquewhite
-
+  border-color: $terciary-color
+  margin: 1rem 0.3rem
 
 .subtitle
-  margin: 20px
+  margin: 1.8rem
   font-weight: bold
-

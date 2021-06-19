@@ -21,12 +21,12 @@
     <td class="width">{{product.product.price | currency}}</td>
     <td>
       <div class="cuantity-button">
-      <button class="boton" (click)="addProduct(product)"><a>+</a></button>
+      <button class="button-circle" (click)="addProduct(product)">+</button>
       <p class="cuantity">{{product.qty}}</p>
-      <button class="boton" (click)="removeProduct(product)"><a>-</a></button>
+      <button class="button-circle" (click)="removeProduct(product)">-</button>
     </div>
     </td>
-    <td class="width"><i class="fa fa-trash"  aria-hidden="true" (click)="deleteProduct(product)"></i></td>
+    <td class="width"><i class="fa fa-trash"  (click)="deleteProduct(product)"></i></td>
   </tr>
   </table>
 </div>
