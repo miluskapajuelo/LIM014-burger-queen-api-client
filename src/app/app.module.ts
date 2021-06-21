@@ -26,6 +26,7 @@ import { ProductPopComponent } from './components/product-pop/product-pop.compon
 import { UsersPopComponent } from './components/users-pop/users-pop.component';
 import { SearchProductPipe } from './pipes/search-product.pipe';
 import { SearchUserPipe } from './pipes/search-user.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -54,7 +55,8 @@ import { SearchUserPipe } from './pipes/search-user.pipe';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
 
   ],
   exports: [
