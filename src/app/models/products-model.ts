@@ -6,6 +6,6 @@ export interface ProductDetailModel {
   name?: string;
   price?: number;
   image?: URL;
-  type: string;
-  dateEntry: Date;
+  type?: string;
+  dateEntry?: Date;
 }
