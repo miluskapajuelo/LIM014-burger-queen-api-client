@@ -17,8 +17,8 @@ export interface OrderProductModel {
 }
 
 export interface OrderDetailProductModel {
-  name: string;
-  id: string;
-  price:number;
+  name?: string;
+  id?: string;
+  price?:number;
 }
 
