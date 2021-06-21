@@ -11,23 +11,23 @@
       <figure class="figure-login">
         <img src="assets/images/burgerAndMore.png" alt="Burger-logo">
       </figure>
-      <section class="form-login color-login">
+      <form class="form-login color-login" [formGroup]="form">
         <h2 class="center">Let's start</h2>
         <div class="input-container">
-          <input type="email" name="email" #email>
+          <input type="email" name="email" formControlName="email">
           <label class="email-input">Email </label>
           <div class="bar"></div>
         </div>
         <div class="input-container">
-          <input type="password" name="password" #password>
+          <input type="password" name="password" formControlName="password">
           <label class="password-input">Password</label>
           <div class="bar"></div>
         </div>
         <div class="input-container-element">
           <p *ngIf="error" class="error">{{errorMessage}}</p>
-          <button class="button" (click)="login(email, password)">Start</button>
+          <button [disabled]="form.invalid" class="button" (click)="login()">Start</button>
         </div>
-      </section>
+      </form>
     </article>
   </section>
 </main>
