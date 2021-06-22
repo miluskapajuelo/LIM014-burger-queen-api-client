@@ -1,17 +1,17 @@
 <section>
   <div class="nav">
-  <app-side-nav></app-side-nav>
+    <app-side-nav></app-side-nav>
   </div>
   <article>
     <section class="header-orders">
       <h1>ORDERS</h1>
       <ul>
-        <li [ngClass]="{ 'clicked': clicked }" (click)="changeTrue()" >Pending</li>
-        <li  [ngClass]="{ 'clicked': !clicked }" (click)="changeFalse()">Ready</li>
+        <li class="list-item" [ngClass]="{ 'clicked': clicked }" (click)="changeTrue()">Pending</li>
+        <li class="list-item" [ngClass]="{ 'clicked': !clicked }" (click)="changeFalse()">Ready</li>
       </ul>
 
     </section>
-    <article  class="container-table" *ngIf="clicked">
+    <article class="container-table" *ngIf="clicked">
       <app-order-table [item]="item" *ngFor="let item of itemPending"></app-order-table>
     </article>
     <article class="container-table" *ngIf="!clicked">

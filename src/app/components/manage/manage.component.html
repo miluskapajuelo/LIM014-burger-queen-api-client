@@ -7,9 +7,9 @@
   <section class="container">
     <article class="container-header">
       <h1>MANAGE</h1>
-      <ul>
-        <li [ngClass]="{ 'clicked': clicked }" (click)="changeTrue()">Users</li>
-        <li [ngClass]="{ 'clicked': !clicked }" (click)="changeFalse()">Products</li>
+      <ul class="container-list">
+        <li class="list-item" [ngClass]="{ 'clicked': clicked }" (click)="changeTrue()">Users</li>
+        <li class="list-item" [ngClass]="{ 'clicked': !clicked }" (click)="changeFalse()">Products</li>
       </ul>
     </article>
     <article *ngIf="clicked" class="article">

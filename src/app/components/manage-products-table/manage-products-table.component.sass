@@ -1,46 +1,16 @@
-$primary-color: #CA3A28
-$secundary-color: #FDC45B
-$third-color: #FDC45B80
+@import '../../../assets/mixins/table-mixin'
 
-table
-  width: 100%
-  border-collapse: collapse
+.container-table
+  @include table-container
 
-table td, table th
-  border: 1px solid #f2f2f2
-  padding: .5rem
-  text-align: center
+.table-body
+  @include table-body
 
-table
-  & tr:nth-child(even)
-    background-color: #f2f2f2
+.table-header
+  @include table-header
 
-table th
-  padding-top: 1rem
-  padding-bottom: 1rem
-  background-color: $primary-color
-  color: #f2f2f2
+.create-button
+  @include button
 i
   font-size: 1.5rem
-button
-  background-color: $third-color
-  border: .3rem solid $third-color
-  border-radius: .5rem
-  width: 12rem
-  height: 2.5rem
-  margin: 0.5rem
-  font-size: 1rem
-  font-weight: bold
 
-.modal-window
-  position: fixed
-  background-color: rgba(255, 255, 255, 0.25)
-  top: 0
-  right: 0
-  bottom: 0
-  left: 0
-  z-index: 999
-  visibility: hidden
-  opacity: 0
-  pointer-events: none
-  transition: all 0.3s

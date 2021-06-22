@@ -1,6 +1,6 @@
 
 @import '../../../assets/mixins/_form-mixin'
-$primary-color: #CA3A28
+@import '../../../styles'
 
 .form-update
   @include formu
@@ -11,7 +11,7 @@ $primary-color: #CA3A28
       @include button(70%, 10px)
 
 h1
-  padding: 20px
+  padding: 1.8rem
   text-align: center
   color: $primary-color
 
@@ -40,7 +40,7 @@ h1
 
 .modal-close
   background-color: $primary-color
-  color: #ffff
+  color: $white
   font-size: 80%
   position: absolute
   right: 0
@@ -58,7 +58,7 @@ h1
   height: 90%
   width: 50%
   padding: .5rem
-  background-color: white
+  background-color: $white
 .modal-window
   & > div
     border-radius: 1rem
@@ -66,14 +66,11 @@ h1
 .active
   opacity: 1
   pointer-events: auto
-  background-color: red
-
+  background-color: $primary-color
 
 .custom-file-upload
   border: 1px solid rgba(70, 66, 66, 0.25)
   display: inline-block
-  padding: 6px 12px
+  padding: .4rem .9rem
   cursor: pointer
   color: $primary-color
-input[type="file"]
-  display: none
