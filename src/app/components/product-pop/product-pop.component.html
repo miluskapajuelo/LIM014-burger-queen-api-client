@@ -1,8 +1,8 @@
 <section id="open-modal" class="modal-window">
     <article class='container-form'>
-      <button title="Close" class="modal-close" (click)="closeModalProduct()">Close</button>
+      <button title="Close" class="modal-close" (click)="closeModalProducts()">Close</button>
       <form class='form-update'>
-        <h1>Update products</h1>
+        <h1>Table Products</h1>
         <div class="input-container">
           <input #product type="text" name="product" class="input">
           <label class="label">product</label>
@@ -22,7 +22,7 @@
         <div class="input-container-element">
           <p class="error"></p>
           <div class="buttons">
-            <button class="button" (click)="createOneProduct(product, price, type, image)">create</button>
+            <button class="button" (click)="createProducts(product, price, type, image)">Save</button>
           </div>
         </div>
       </form>

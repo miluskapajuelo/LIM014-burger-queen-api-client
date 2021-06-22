@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { UserApiService } from 'src/app/services/user-api.service';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-users-pop',
@@ -8,13 +7,25 @@ import { UserApiService } from 'src/app/services/user-api.service';
 })
 export class UsersPopComponent implements OnInit {
 
-  constructor(private userApiService:UserApiService) { }
+
+  @Output() closeModalUser: EventEmitter<any> = new EventEmitter()
+  @Output() createUser: EventEmitter<{}> = new EventEmitter()
+
+
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  savenew(admin:any, email:any){
-    const userNew = { admin: admin.value, email:email.value}
-    this.userApiService.createUser(userNew).subscribe(user => console.log(user ));
+
+  closeModalUsers() {
+    this.closeModalUser.emit()
   }
+  createUsers(user:HTMLInputElement, price:HTMLInputElement){
+    const userNew ={ user: user.value,
+      price:price.value}
+      this.createUser.emit(userNew)
+    }
+
+
 }

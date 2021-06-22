@@ -8,21 +8,21 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class ProductPopComponent implements OnInit {
 
-  @Output() closeModal: EventEmitter<any> = new EventEmitter()
-  @Output() createtwoProducts: EventEmitter<any> = new EventEmitter()
+  @Output() closeModalProduct: EventEmitter<any> = new EventEmitter()
+  @Output() createtProduct: EventEmitter<any> = new EventEmitter()
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  closeModalProduct() {
-    this.closeModal.emit()
+  closeModalProducts() {
+    this.closeModalProduct.emit()
   }
-  createOneProduct(product:any, price:any, type:any,image:any){
+  createProducts(product:HTMLInputElement, price:HTMLInputElement, type:HTMLInputElement,image:HTMLInputElement){
     const productNew ={ product: product.value,
       price:price.value, type:type.value, image: image.value}
-      this.createtwoProducts.emit(productNew)
+      this.createtProduct.emit(productNew)
     }
 
 
