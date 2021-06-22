@@ -12,28 +12,30 @@ export class ManageUsersTableComponent implements OnInit {
 
 
   @Input() users: Array<UserDetailModel>=[]
-  constructor() { }
-
-  filterValue = ''
+  filterValue: string
+  clicked: boolean;
+  @Input() activeProducts:boolean
   @Input() products: Array<ProductDetailModel> = []
-  @Output() deleteUserId: EventEmitter<any> = new EventEmitter()
-  @Output() updateUserById: EventEmitter<any> = new EventEmitter()
+  @Output() deleteUserById: EventEmitter<any> = new EventEmitter()
+  @Output() openModalUser: EventEmitter<any> = new EventEmitter()
 
 
+  constructor() {
+    this.filterValue = ''
+    this.clicked = false
+  }
 
   ngOnInit(): void {
   }
-  deleteUser(user:any){
-    this.deleteUserId.emit(user)
+  deleteUser(product: any) {
+    this.deleteUserById.emit(product)
+    this.clicked = false
   }
-  updateUser(user:any){
-    this.updateUserById.emit(user)
+  handleSearch(value: string) {
+    this.filterValue = value
   }
-  createUser(){
-
-  }
-  handleSearch(value:string){
-    this.filterValue= value
+  openModalUsers(product:any) {
+      this.openModalUser.emit(product)
   }
 
 }

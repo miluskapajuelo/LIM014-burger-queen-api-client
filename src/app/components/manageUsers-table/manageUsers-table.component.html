@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <section>
   <article>
-    <button (click)="createUser()">Create</button>
+    <button (click)="openModalUsers(input)">Create</button>
     <input #input type="text" placeholder="Search User" (input)="handleSearch(input.value)">
   </article>
   <table>
@@ -14,8 +14,8 @@
     <tr *ngFor="let user of users | searchUser:filterValue" >
       <td>{{user.roles.admin}}</td>
       <td>{{user.email}}</td>
-      <td><i class="fa fa-edit" (click)="updateUser(user)"></i></td>
-      <td><i class="fa fa-trash" (click)="deleteUser(user)"></i></td>
+      <td><i class="fa fa-edit" (click)="openModalUsers(users)" [ngClass]="{ 'clicked': clicked }"></i></td>
+      <td><i class="fa fa-trash" (click)="deleteUser(users)" [ngClass]="{ 'clicked': !clicked }"></i></td>
     </tr>
   </table>
 </section>

@@ -127,7 +127,6 @@ export class WaiterMenuComponent implements OnInit {
     const OrderdateEntry=dayjs().format('YYYY-MM-DD HH:mm:ss');
     const token = localStorage.getItem('token')
     const user: any = jwt_decode(token);
-    console.log(user)
     let order: IOrderModel = {
       _id: '001',
       userId: user.id,
