@@ -1,25 +1,59 @@
 @import '../../styles'
 
-@mixin button($width, $margin)
+*
+  @include basic
+
+@mixin button($width, $margin,$color, $background)
   outline: 0
   cursor: pointer
   position: relative
   display: inline-block
   width: $width
-  background: $white
   border: 0.1rem solid $primary-color
   font-size: 1.8rem
   font-weight: 600
   line-height: 1
   overflow: hidden
   transition: 0.3s ease
-  color: $primary-color
   border-radius: 0.2rem
   padding: 1.8rem
   margin: $margin
+  color: $color
+  background-color: $background
 
-@mixin formu
+
+@mixin input
+  outline: none
+  position: relative
+  width: 100%
+  height: 3.7rem
+  border: 0
+  color: $black
+  font-size: 1.8rem
+  border-bottom: 1px solid $primary-color
+  &:focus + label
+    color: $primary-color
+    transform: translate(-12%, -57%) scale(0.75)
+  &:valid + label
+    color: $primary-color
+    transform: translate(-12%, -57%) scale(0.75)
+
+@mixin label
+  position: absolute
+  top: 0
+  left: 0
+  color: #757575
+  font-size: 1.3rem
+  font-weight: 300
+  line-height: 3.7rem
+  transition: 0.2s ease
+
+@mixin form
   margin: 1.8rem
+  height: 90%
+  display: flex
+  flex-direction: column
+  justify-content: space-evenly
   .input-container
     position: relative
     margin: 0 3.7rem 2rem
@@ -27,28 +61,64 @@
     position: relative
     margin: 3.2rem 3.7rem  2.1rem
   .input
-    outline: none
-    position: relative
-    width: 100%
-    height: 3.7rem
-    border: 0
-    color: $black
-    font-size: 2.1rem
-    &:focus + label
-      color: $primary-color
-      transform: translate(-12%, -57%) scale(0.75)
-    &:valid + label
-      color: $primary-color
-      transform: translate(-12%, -57%) scale(0.75)
+    @include input
   .label
-    position: absolute
-    top: 0
-    left: 0
-    color: #757575
-    font-size: 1.8rem
-    font-weight: 300
-    line-height: 3.7rem
-    transition: 0.2s ease
+    @include label
 
 
+@mixin modal
+  position: fixed
+  background-color: rgba(70, 66, 66, 0.25)
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 1
+  transition: all 0.3s
+  &:target
+    visibility: visible
+    opacity: 1
+  .container-form
+    position: relative
+    z-index: 2
+    margin: 1rem auto
+    height: 90%
+    width: 50%
+    padding: .5rem
+    background-color: white
+    .modal-close
+      background-color: $primary-color
+      color: #ffff
+      font-size: 80%
+      position: absolute
+      right: 0
+      text-align: center
+      top: 0
+      width: 3rem
+      height: 3rem
+      border-radius: 50%
+      margin: .5rem
+
+@mixin error
+  color: $primary-color
+  width: 100%
+  text-align: center
+  margin: .6rem
+  font-weight: 700
+
+@mixin H1($padding,$align)
+  text-align: $align
+  margin: 0
+  font-weight: bold
+  padding: $padding
+  color: $primary-color
+
+@mixin inputT($width)
+  width: $width
+  padding: 0.7rem 1.3rem
+  margin: 0.5rem 0
+  display: inline-block
+  border: 0.1rem solid #ccc
+  border-radius: 0.3rem
+  box-sizing: border-box
 

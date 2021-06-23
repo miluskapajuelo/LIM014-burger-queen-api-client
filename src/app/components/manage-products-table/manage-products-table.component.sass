@@ -1,4 +1,5 @@
 @import '../../../assets/mixins/table-mixin'
+@import '../../../assets/mixins/_form-mixin'
 
 .container-table
   @include table-container
@@ -10,7 +11,12 @@
   @include table-header
 
 .create-button
-  @include button
+  @include buttonT
+
+
 i
   font-size: 1.5rem
+
+.inputItem
+  @include inputT(40%)
 

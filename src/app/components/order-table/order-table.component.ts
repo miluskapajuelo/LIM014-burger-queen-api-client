@@ -30,16 +30,14 @@ export class OrderTableComponent implements OnInit {
         status: 'delivering',
         dateProcesed: dateProcesed.format('YYYY-MM-DD HH:mm:ss')
       }
-      console.log(order)
       this.orderApiService.updateOrder(item._id, order).pipe(
         catchError((error) => {
-          console.log('error', error);
           if (error.status === 400) {
-            console.log('error de credenciales');
+            alert('Opss something is wrong, try again!');
           }
           return throwError(error);
         })
-      ).subscribe((data: any) => {
+      ).subscribe(() => {
         console.log('pending')
       })
     }
@@ -51,13 +49,12 @@ export class OrderTableComponent implements OnInit {
       }
       this.orderApiService.updateOrder(item._id, order).pipe(
         catchError((error) => {
-          console.log('error', error);
           if (error.status === 400) {
-            console.log('error de credenciales');
+            alert('Opss something is wrong, try again!');
           }
           return throwError(error);
         })
-      ).subscribe((data: any) => {
+      ).subscribe(() => {
         console.log('delivering')
       })
     }

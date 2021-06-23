@@ -1,92 +1,74 @@
-$primary-color: #CA3A28
-$secondary-color: #ffff
-$terciary-color:#212121
-
-$box-shadow: 0 2px 10px 0 rgba(0,0,0,0.6)
-$limit: 10
-$unit: 8px
-
-$font-family: roboto
-$font-size: 15px
+@import '../../../styles'
 
 .category-cards
   display: flex
-  margin: 20px
+  margin: 0.7rem
+  .example-card
+    display: flex
+    align-items: center
+    margin: 0.5rem
+    cursor: pointer
+    h2
+      font-size: 0.8rem
+      color: #212121
+      text-transform: uppercase
+      padding: .5rem
+      border-radius:3px
+      background-color: $primary-color
+      color: $white
+      box-shadow: 0.1rem 0.1rem 0.7rem 0.1rem #b0b0b066
+      border-radius:0.6rem
 
 
 .subtitle
-  margin: 20px
-
+  margin: 1.3rem
 
 .option-cards
   display: flex
   flex-wrap: wrap
+  .example-card-product
+    width: 7.5rem
+    height: 9rem
+    display: flex
+    flex-direction: column
+    align-items: center
+    margin: 3px
+    cursor: pointer
+    transition: .4s ease-out
+    background-color: #fdc45b26
 
+  .example-header-image
+    background-size: cover
 
-.example-card
-  display: flex
-  align-items: center
-  margin: 8px
-  cursor: pointer
-  h2
-    font-size: 13px
-    color: #212121
-    text-transform: uppercase
-    padding: 8px
-    border-radius:3px
-    background-color: #ca3a28c7
-    color: #ffff
-    box-shadow: 2px 1px 12px 1px #b0b0b066
-    border-radius:10px
-
-.example-cardC
-  width: 120px
-  height: 144px
-  display: flex
-  flex-direction: column
-  align-items: center
-  margin: 3px
-  cursor: pointer
-  transition: .4s ease-out
-  background-color: #fdc45b26
-
-.example-header-image
-  background-size: cover
-
-.example-cardC
-  transition: .4s ease-out
-  &:hover
-    img
-        transform: scale(1.4,1.4)
-        transition-duration: 500ms
-        transition-timing-function: ease-out
-        height: 250px
-        opacity: .7
-  &:hover
-    Box-shadow: 2px 1px 12px 1px #bebdbd
-.imageC
-  width: 90%
-  margin: -20px
+  .example-card-product
+    transition: .4s ease-out
+    &:hover
+      img
+          transform: scale(1.4,1.4)
+          transition-duration: 500ms
+          transition-timing-function: ease-out
+          height: 250px
+          opacity: .7
+    &:hover
+      Box-shadow: 0.1rem 0.1rem 0.7rem 0.1rem #bebdbd
+    .category-card
+      top: 0
+      position: absolute
+      text-align: center
+      color: #d17d00
+      right: 0
+    .imageLogo
+      width: 90%
+      margin: -1.3rem
 
 
 p
-  margin: 8px
-  font-size: 10px
+  margin: .5rem
+  font-size: .6rem
   font-weight: 500
   align-self: center
   justify-content: center
 
-
-
-.cuantity-button
-  display: flex
-  margin-top: -12px
-
 .active
-  background-color: #ca3a28c7
-.category-card
-  top: 0
-  position: absolute
-  text-align: center
-  color: #d17d00
-  right: 0
+  background-color: $primary-color
+

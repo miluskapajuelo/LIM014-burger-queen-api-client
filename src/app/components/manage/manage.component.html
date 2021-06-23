@@ -1,5 +1,6 @@
 <section>
-    <app-product-pop *ngIf="activeProducts"  (closeModal)="closeModal()" (createtwoProducts)="createtwoProducts($event)"></app-product-pop>
+    <app-users-pop *ngIf="activeUser"  (closeModalUser)="closeModalUser()" (createUser)="createUser($event)"></app-users-pop>
+    <app-product-pop *ngIf="activeProducts"  (closeModalProduct)="closeModalProduct()" (createtProduct)="createtProduct($event)"></app-product-pop>
   <div class="nav">
     <app-side-nav></app-side-nav>
   </div>
@@ -12,10 +13,10 @@
       </ul>
     </article>
     <article *ngIf="clicked" class="article">
-      <app-manageUsers-table [users]="users"></app-manageUsers-table>
+      <app-manageUsers-table [users]="users" (openModalUser)="openModalUser($event)" (createUser)="createUser($event)" (deleteUserById)="deleteUserById($event)"></app-manageUsers-table>
     </article>
     <article *ngIf="!clicked">
-      <app-manage-products-table (deleteProductById)="deleteProductById($event)" [products]="products" (openModal)="openModal($event)" (createtwoProducts)="createtwoProducts($event)"></app-manage-products-table>
+      <app-manage-products-table (deleteProductById)="deleteProductById($event)" [products]="products" (openModalProducts)="openModalProducts($event)" (createtProduct)="createtProduct($event)"></app-manage-products-table>
     </article>
   </section>
 </section>

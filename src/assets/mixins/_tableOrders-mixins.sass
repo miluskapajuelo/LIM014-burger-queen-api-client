@@ -1,0 +1,37 @@
+@import '../../styles'
+
+@mixin table
+  margin-top: 16px
+  .container-detail
+    overflow-y: auto
+    height: 17.5rem
+    #customers
+      width: 100%
+      text-align: center
+      align-items: center
+      tr
+        padding: 0.7rem 0
+        background-color: $white
+        color: $black
+        &:nth-child(even)
+          background-color: $white
+          border: ridge
+        &:hover
+          background-color: #ece9e9
+        .quantity-button
+          display: flex
+          justify-content: center
+        .quantity
+          margin: 8px
+          font-size: 13px
+          font-weight: 500
+          align-self: center
+          justify-content: center
+        .button-circle
+          width: 1.8rem
+          height: 1.8rem
+          color: $white
+          background-color: $primary-color
+          border-color: $primary-color
+          border-radius: 50%
+          font-weight: bold

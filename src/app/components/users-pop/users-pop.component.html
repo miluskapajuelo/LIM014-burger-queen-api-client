@@ -1,22 +1,23 @@
-<div class='container'>
-  <form class='form-update' (submit)="savenew(admin, email)">
-    <h1>Update users</h1>
-    <div class="input-container">
-      <input #admin type="input" name="product" class="input">
-      <label  class="label">Admin</label>
-      <div class="bar"></div>
-    </div>
-    <div class="input-container">
-      <input #email type="input" name="price" class="input">
-      <label class="label">Email</label>
-      <div class="bar"></div>
-    </div>
-    <div class="input-container-element">
-      <p class="error"></p>
-      <div class="buttons">
-        <button class="button">Cancel</button>
-        <button class="button" type="submit">create</button>
+<section id="open-modal" class="modal-window">
+  <article class='container-form'>
+    <button title="Close" class="modal-close" (click)="closeModalUsers()">Close</button>
+    <form class='form-update'>
+      <h1>Table Users</h1>
+      <div class="input-container">
+        <input #admin type="text" name="product" class="input" autocomplete="off">
+        <label class="label">Admin</label>
       </div>
-    </div>
-  </form>
-</div>
+      <div class="input-container">
+        <input #email type="email" name="price" class="input" min="0" autocomplete="off">
+        <label class="label">Email</label>
+      </div>
+      <div class="input-container-element">
+        <p class="error"></p>
+        <div class="buttons">
+          <button class="button" (click)="createUsers(admin, email)">Save</button>
+        </div>
+      </div>
+    </form>
+  </article>
+</section>
+

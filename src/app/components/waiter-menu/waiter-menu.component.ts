@@ -21,7 +21,7 @@ export class WaiterMenuComponent implements OnInit {
   products: Array<ProductDetailModel>
   total: number;
   name: string;
-  able:boolean;
+  able: boolean;
 
 
   constructor(private productsApiService: ProductsApiService, private orderApiService: OrderApiService) {
@@ -43,7 +43,7 @@ export class WaiterMenuComponent implements OnInit {
     this.getTotal()
   }
 
-  //3 categories
+  //get categories
   filter(elem: Array<ProductDetailModel>) {
     elem.forEach((element: ProductDetailModel) => {
       this.dishCategories.add(element.type)
@@ -95,6 +95,7 @@ export class WaiterMenuComponent implements OnInit {
 
   }
 
+  //remove product depends on quantity
   removeItem(item: OrderProductModel) {
     this.productitem.forEach((elem) => {
       if (elem.product.id === item.product.id && elem.qty > 1) {
@@ -114,38 +115,33 @@ export class WaiterMenuComponent implements OnInit {
     this.getTotal()
   }
 
+  //get total price
   getTotal() {
     this.total = this.productitem
     .map(item => item.qty * item.product.price)
     .reduce((acc, item) => acc += item, 0)
     this.able = this.total > 0 ? true : false
-    console.log('total', this.able, this.total)
   }
 
+  //Create new order
   newOrder(client: any) {
-    console.log('hola')
-    const OrderdateEntry=dayjs().format('YYYY-MM-DD HH:mm:ss');
     const token = localStorage.getItem('token')
     const user: any = jwt_decode(token);
-    console.log(user)
     let order: IOrderModel = {
-      _id: '001',
       userId: user.id,
       client: client.value,
       products: this.productitem,
-      status: 'pending',
-      dateEntry: OrderdateEntry,
+      status: 'pending'
     }
 
     this.orderApiService.createOrder(order).pipe(
       catchError((error) => {
-        console.log('error', error);
         if (error.status === 400) {
-          console.log('error de credenciales');
+          alert('Opss something is wrong, try again!');
         }
         return throwError(error);
       })
-    ).subscribe((data: any) => {
+    ).subscribe(() => {
       this.productitem=[];
       client.value = '';
       this.getTotal()

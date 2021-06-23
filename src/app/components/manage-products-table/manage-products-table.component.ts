@@ -13,7 +13,7 @@ export class ManageProductsTableComponent implements OnInit {
   @Input() activeProducts:boolean
   @Input() products: Array<ProductDetailModel> = []
   @Output() deleteProductById: EventEmitter<any> = new EventEmitter()
-  @Output() openModal: EventEmitter<any> = new EventEmitter()
+  @Output() openModalProducts: EventEmitter<any> = new EventEmitter()
 
 
   constructor() {
@@ -31,7 +31,7 @@ export class ManageProductsTableComponent implements OnInit {
     this.filterValue = value
   }
   openModalProduct(product:any) {
-      this.openModal.emit(product)
+      this.openModalProducts.emit(product)
   }
 
 

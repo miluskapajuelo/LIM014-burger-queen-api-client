@@ -1,16 +1,16 @@
-
 @import '../../../assets/mixins/_form-mixin'
-$primary-color: #CA3A28
 
 .form-update
-  @include formu
+  @include form
   .buttons
     display: flex
+    justify-content: center
     .button
-      @include button(70%, 0.6rem)
-
+      @include button(70%, 0.6rem, $primary-color, $white)
 
 h1
-  padding: 1.8rem
-  text-align: center
-  color: $primary-color
+  @include H1(1.8rem, center)
+
+.modal-window
+  @include modal
+
