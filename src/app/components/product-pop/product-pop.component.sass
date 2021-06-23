@@ -1,76 +1,19 @@
-
-@import '../../../assets/mixins/_form-mixin'
 @import '../../../styles'
+@import '../../../assets/mixins/_form-mixin'
+
+*
+  @include basic
 
 .form-update
-  @include formu
+  @include form
   .buttons
     display: flex
     justify-content: center
     .button
-      @include button(70%, 10px)
+      @include button(70%, 0.6rem, $primary-color, $white)
 
 h1
-  padding: 1.8rem
-  text-align: center
-  color: $primary-color
+  @include H1(1.8rem, center)
 
 .modal-window
-  position: fixed
-  background-color: rgba(70, 66, 66, 0.25)
-  top: 0
-  right: 0
-  bottom: 0
-  left: 0
-  z-index: 1
-  transition: all 0.3s
-
-  &:target
-    visibility: visible
-    opacity: 1
-
-  & > div
-    width: 400px
-    position: absolute
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
-    padding: 2em
-    background: white
-
-.modal-close
-  background-color: $primary-color
-  color: $white
-  font-size: 80%
-  position: absolute
-  right: 0
-  text-align: center
-  top: 0
-  width: 3rem
-  height: 3rem
-  border-radius: 50%
-  margin: .5rem
-
-.container-form
-  position: relative
-  z-index: 2
-  margin: 1rem auto
-  height: 90%
-  width: 50%
-  padding: .5rem
-  background-color: $white
-.modal-window
-  & > div
-    border-radius: 1rem
-
-.active
-  opacity: 1
-  pointer-events: auto
-  background-color: $primary-color
-
-.custom-file-upload
-  border: 1px solid rgba(70, 66, 66, 0.25)
-  display: inline-block
-  padding: .4rem .9rem
-  cursor: pointer
-  color: $primary-color
+  @include modal

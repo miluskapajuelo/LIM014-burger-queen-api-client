@@ -1,15 +1,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <section>
-  <form class="additionalInfo">
+  <article class="user-info">
     <h1 >Order Menu</h1>
   <div>
     <label for="name" >Client Name</label>
-    <input type="text" #client   class="inputName">
+    <input class="inputItem" type="text" #client  >
   </div>
-  </form>
+  </article>
 </section>
-<section class="infoProduct">
-<div class="div1">
+<section class="container-selection">
+<div class="container-detail">
 <table id="customers" >
   <tr>
     <th>Name</th>
@@ -20,9 +20,9 @@
     <td class="widthMax">{{product.product.name}}</td>
     <td class="width">{{product.product.price | currency}}</td>
     <td>
-      <div class="cuantity-button">
+      <div class="quantity-button">
       <button class="button-circle" (click)="addProduct(product)">+</button>
-      <p class="cuantity">{{product.qty}}</p>
+      <p class="quantity">{{product.qty}}</p>
       <button class="button-circle" (click)="removeProduct(product)">-</button>
     </div>
     </td>
@@ -31,32 +31,32 @@
   </table>
 </div>
   </section>
-  <div class="container">
-    <div class="row">
+  <section class="container-total">
+    <article class="row">
       <span>
         Subtotal:
       </span>
       <h3>
         {{total - total *0.18 | currency}}
       </h3>
-    </div>
-    <div class="row">
+    </article>
+    <article class="row">
     <span>
       Tax:
     </span>
     <h3>
       {{total *0.18 | currency}}
     </h3>
-  </div>
-  <div class="row">
+  </article>
+  <article class="row">
     <span>
       Total:
     </span>
     <h2>
       {{total | currency}}
     </h2>
-  </div>
-  </div>
+  </article>
+  </section>
   <section>
   <div class="info">
     <button class="buttonSend" (click)="client.value ==='' || !total  || newOrderProduct(client)" [ngClass]="{'active': able}">SEND ORDER</button>

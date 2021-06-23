@@ -17,13 +17,14 @@ export class UsersPopComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
+  //close modal
   closeModalUsers() {
     this.closeModalUser.emit()
   }
+
+  //create user
   createUsers(user:HTMLInputElement, price:HTMLInputElement){
-    const userNew ={ user: user.value,
-      price:price.value}
+    const userNew ={ user: user.value, price:price.value}
       this.createUser.emit(userNew)
     }
 

@@ -9,13 +9,16 @@ import { AuthApiService } from "../../services/auth-api.service"
   styleUrls: ['./side-nav.component.sass']
 })
 export class SideNavComponent implements OnInit {
-  options: Array<string> = [];
-  isSelect: boolean = false;
+  options: Array<string>
+  isSelect: boolean
   constructor(private router: Router, private authApiService: AuthApiService) {
+    this.options = []
+    this.isSelect = false
   }
 
   ngOnInit(): void {
     this.rolAcces()
+
   }
   rolAcces() {
     const token: any = localStorage.getItem('token')
@@ -34,6 +37,7 @@ export class SideNavComponent implements OnInit {
   select() {
     this.isSelect = this.isSelect ? false : true;
   }
+  //redirect to view
   redirect(element: string) {
     switch (element) {
       case 'Menu': this.router.navigate(['waiter']);

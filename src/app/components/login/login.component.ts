@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthApiService } from 'src/app/services/auth-api.service';
 import jwt_decode from "jwt-decode";
 import { Router } from '@angular/router';
@@ -14,11 +14,11 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class LoginComponent implements OnInit {
 
   public form: FormGroup;
-  error: boolean = false;
+  error: boolean;
   errorMessage: string;
 
   constructor(private authApiService: AuthApiService, private router: Router, private fb: FormBuilder) {
-
+    this.error = false
     this.form = this.fb.group({
       email: new FormControl('', Validators.compose([Validators.required])),
       password: new FormControl('', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(20)])),
@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     console.log('form', this.form.value);
+
 
     this.form.get('password').valueChanges
     .subscribe((password) => {
@@ -49,12 +50,13 @@ export class LoginComponent implements OnInit {
 
     this.form.statusChanges
     .subscribe((state) => {
-
       console.log('state', state);
     })
   }
 
   login() {
+    const email = this.form.value.email;
+    console.log('other method', email)
 
     this.error = false;
     this.errorMessage = '';

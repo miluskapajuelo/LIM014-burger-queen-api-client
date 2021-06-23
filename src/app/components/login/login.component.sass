@@ -1,4 +1,3 @@
-
 @import '../../../assets/mixins/_form-mixin'
 @import '../../../styles'
 
@@ -7,10 +6,6 @@
 
 *
   @include basic
-
-body
-  background-color: $white
-  font-family: $font-family
 
 h1
   color: $primary-color
@@ -29,98 +24,57 @@ h2
   font-weight: 600
   font-weight: lighter
 
-.container
+.container-main
   background: $white
   width: 98vw
   height: 90vh
   padding: 3.1rem
+  .welcome
+    text-align: center
+    font-size: $font-size
+    align-self: center
+  .login
+    display: flex
+    justify-content: space-evenly
+  .container-login
+    background: $white
+    height: 90%
+    display: flex
+    flex-direction: column
+    .figure-login
+      align-items: center
+      justify-content: center
+      & .form-login
+        position: relative
 
-.container-login
-  background: $white
-  height: 90%
-  display: flex
-  flex-direction: column
-.button
-  @include button(100%, 0px)
-
-.button:disabled
-  background-color: lightgray
-
-.welcome
-  text-align: center
-  font-size: $font-size
-  align-self: center
-
-.login
-  display: flex
-  justify-content: space-evenly
-
-// figure img
 img
-  width: 36.2rem
+  width: 29.2rem
   height: 20.2rem
-
-.container-login
-  .figure-login
-    align-items: center
-    justify-content: center
-    & .form-login
-      position: relative
-
-.color-login
-  color: $primary-color
-
-.input-container
-  position: relative
-  margin: 0 3.7rem 1.5rem
 
 .input-container-element
   position: relative
   margin: 3.2rem 3.7rem 1.5rem
+  .button
+    @include button(100%, 0px, '', '')
+
 
 .input-container
+  position: relative
+  margin: 0 3.7rem 1.5rem
   input
-    outline: none
-    position: relative
-    width: 100%
-    height: 3.7rem
-    border: 0
-    color: $black
-    font-size: 1.8rem
-
-.input-container input:focus + label
-  color: $primary-color
-  transform: translate(-12%, -57%) scale(0.75)
-
-.input-container input:valid + label
-  color: $primary-color
-  transform: translate(-12%, -57%) scale(0.75)
-
-.input-container
+    @include input
   label
-    position: absolute
-    top: 0
-    left: 0
-    color: #757575
-    font-size: 1.2rem
-    font-weight: 300
-    line-height: 3.7rem
-    transition: 0.2s ease
+    @include label
 
 .error
-  color: $primary-color
-  width: 100%
-  text-align: center
-  margin: .6rem
-  font-weight: 700
+  @include error
 
-.input-container .bar
-  position: absolute
-  left: 0
-  bottom: 0
-  background: $primary-color
-  width: 100%
-  height: 0.1rem
+.button:disabled
+  background-color: $white
+  color: $primary-color
+.button:enabled
+  background-color: $primary-color
+  color: $white
 
 
 @media (min-width: 768px) and (max-width: 1023px)

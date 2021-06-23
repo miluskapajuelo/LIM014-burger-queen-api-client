@@ -21,7 +21,7 @@ export class WaiterMenuComponent implements OnInit {
   products: Array<ProductDetailModel>
   total: number;
   name: string;
-  able:boolean;
+  able: boolean;
 
 
   constructor(private productsApiService: ProductsApiService, private orderApiService: OrderApiService) {
@@ -43,7 +43,7 @@ export class WaiterMenuComponent implements OnInit {
     this.getTotal()
   }
 
-  //3 categories
+  //get categories
   filter(elem: Array<ProductDetailModel>) {
     elem.forEach((element: ProductDetailModel) => {
       this.dishCategories.add(element.type)
@@ -95,6 +95,7 @@ export class WaiterMenuComponent implements OnInit {
 
   }
 
+  //remove product depends on quantity
   removeItem(item: OrderProductModel) {
     this.productitem.forEach((elem) => {
       if (elem.product.id === item.product.id && elem.qty > 1) {
@@ -114,6 +115,7 @@ export class WaiterMenuComponent implements OnInit {
     this.getTotal()
   }
 
+  //get total price
   getTotal() {
     this.total = this.productitem
     .map(item => item.qty * item.product.price)
@@ -122,6 +124,7 @@ export class WaiterMenuComponent implements OnInit {
     console.log('total', this.able, this.total)
   }
 
+  //Create new order
   newOrder(client: any) {
     console.log('hola')
     const OrderdateEntry=dayjs().format('YYYY-MM-DD HH:mm:ss');

@@ -1,18 +1,20 @@
 @import '../../../styles'
+@import '../../../assets/mixins/_form-mixin'
+
 *
   @include basic
 
-.menu
+.container-menu
   display: flex
 
-.dishes
-  width: 40%
+.container-dishes
+  width: 60%
   margin: 0.6rem 0.3rem
 
-.nav
+.container-side
   @include nav
 
-.order
+.container-order
   width: 40%
   height: 70%
   padding: 1rem
@@ -24,3 +26,5 @@
 .subtitle
   margin: 1.8rem
   font-weight: bold
+
+

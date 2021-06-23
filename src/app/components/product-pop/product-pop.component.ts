@@ -16,9 +16,11 @@ export class ProductPopComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //close modal
   closeModalProducts() {
     this.closeModalProduct.emit()
   }
+  //create product
   createProducts(product:HTMLInputElement, price:HTMLInputElement, type:HTMLInputElement,image:HTMLInputElement){
     const productNew ={ product: product.value,
       price:price.value, type:type.value, image: image.value}

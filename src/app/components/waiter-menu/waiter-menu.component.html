@@ -1,8 +1,8 @@
-<section class="menu">
-  <div class="nav">
+<section class="container-menu">
+  <div class="container-side">
     <app-side-nav></app-side-nav>
   </div>
-  <div class="dishes">
+  <div class="container-dishes">
     <h1 class="subtitle">CHOOSE MENU</h1>
   <app-dishes
   [items]="items"
@@ -11,7 +11,7 @@
   (getProduct)="getProduct($event)"
   (filterType)="filterType($event)"></app-dishes>
 </div>
-  <div class="order">
+  <div class="container-order">
     <app-order-dish
     [productitem]="productitem"
     [total]="total"

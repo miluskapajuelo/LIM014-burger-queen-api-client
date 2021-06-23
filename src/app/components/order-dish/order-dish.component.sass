@@ -1,122 +1,42 @@
 @import '../../../styles'
+@import '../../../assets/mixins/_form-mixin'
+@import '../../../assets/mixins/_tableOrders-mixins'
 
 *
   @include basic
 
-.additionalInfo
+.user-info
   display: flex
   flex-direction: column
-label
-  margin-right: 4%
-.inputName
-  width: 100%
-  padding: 12px 20px
-  margin: 8px 0
-  display: inline-block
-  border: 1px solid #ccc
-  border-radius: 4px
-  box-sizing: border-box
+  .inputItem
+    @include inputT(100%)
 
-.infoProduct
-  margin-top: 16px
+.container-selection
+  @include table
 
-//Quantity boton
-.cuantity-button
-  display: flex
-  justify-content: center
-p
-  margin: 8px
-  font-size: 13px
-  font-weight: 500
-  align-self: center
-  justify-content: center
-
-.button-circle
-  width: 1.8rem
-  height: 1.8rem
-  color: $white
-  background-color: $primary-color
-  border-color: $primary-color
-  border-radius: 50%
-  font-weight: bold
-
-//table order menu
-
-#customers
-  width: 98%
-  text-align: center
-  align-items: center
-
-#customers
-  tr
-    &:nth-child(even)
-      background-color: $white
-      border: ridge
-
-#customers
-  tr
-    &:hover
-      background-color: #ece9e9
-
-#customers
-  th
-    padding-top: 12px
-    padding-bottom: 12px
-    background-color: $white
-    color: $black
-
-// div Table
-
-.div1
-  overflow-y: auto
-  height: 280px
-
-#div1 table
-  width: 100%
 
 .buttonSend
-  outline: 0
-  cursor: pointer
-  position: relative
-  display: inline-block
-  width: 100%
-  background: $white
-  border: 2px solid $primary-color
-  padding: 20px 0
-  font-size: 20px
-  font-weight: 600
-  line-height: 1
-  overflow: hidden
-  transition: 0.3s ease
-  color: $primary-color
-  border-radius: 3px
-  &:hover
-    background: $primary-color
-    color: $white
+  @include button(100%, 0rem, $primary-color, $white)
 
-.container
+.container-total
   display: flex
   text-align: center
-  padding: 10px 0
+  padding: 0.6rem 0
   flex-direction: column
+  .row
+    display: flex
+    align-items: center
+    justify-content: space-between
 
-h2
-  margin: 0
+.width
+  width: 10%
+  i
+    font-size: 1.5rem
+.widthMax
+  width: 30%
 
-.row
-  display: flex
-  align-items: center
-  justify-content: space-between
-
+.info
+  margin-top: 30px
 .active
   background: $primary-color
   color: $white
-
-i
-  font-size: 1.5rem
-.width
-  width: 10%
-.widthMax
-  width: 30%
-.info
-  margin-top: 30px
