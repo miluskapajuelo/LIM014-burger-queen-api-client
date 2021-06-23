@@ -24,7 +24,7 @@ export class TokenInterceptor implements HttpInterceptor {
         catchError((error) => {
 
           if (error.status >= 500) {
-            console.log('error de servidor');
+            alert('Opss something is wrong, try again!');
           }
 
           return throwError(error);

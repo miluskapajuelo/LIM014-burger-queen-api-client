@@ -121,33 +121,27 @@ export class WaiterMenuComponent implements OnInit {
     .map(item => item.qty * item.product.price)
     .reduce((acc, item) => acc += item, 0)
     this.able = this.total > 0 ? true : false
-    console.log('total', this.able, this.total)
   }
 
   //Create new order
   newOrder(client: any) {
-    console.log('hola')
-    const OrderdateEntry=dayjs().format('YYYY-MM-DD HH:mm:ss');
     const token = localStorage.getItem('token')
     const user: any = jwt_decode(token);
     let order: IOrderModel = {
-      _id: '001',
       userId: user.id,
       client: client.value,
       products: this.productitem,
-      status: 'pending',
-      dateEntry: OrderdateEntry,
+      status: 'pending'
     }
 
     this.orderApiService.createOrder(order).pipe(
       catchError((error) => {
-        console.log('error', error);
         if (error.status === 400) {
-          console.log('error de credenciales');
+          alert('Opss something is wrong, try again!');
         }
         return throwError(error);
       })
-    ).subscribe((data: any) => {
+    ).subscribe(() => {
       this.productitem=[];
       client.value = '';
       this.getTotal()

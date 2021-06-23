@@ -48,11 +48,11 @@ export class ManageComponent implements OnInit {
   }
 
   deleteProductById(product: ProductDetailModel){
-    this.productsApiService.deleteProducts(product._id).subscribe(data => console.log(data))
+    this.productsApiService.deleteProducts(product._id).subscribe(() => this.getProducts)
     this.getProducts()
   }
   deleteUserById(user:UserDetailModel){
-    this.userApiService.deleteUser(user).subscribe(data => console.log(data))
+    this.userApiService.deleteUser(user).subscribe(() => this.getUsers())
     this.getUsers()
   }
 
@@ -91,13 +91,13 @@ export class ManageComponent implements OnInit {
     if(this.create===false){
       this.activeProducts =true
       let productDetail = { name:product.name, price:product.price, type:product.type, image:product.image}
-      this.productsApiService.updateProducts(1,productDetail).subscribe(product => console.log(product));
+      this.productsApiService.updateProducts(1,productDetail).subscribe(() => this.getProducts);
 
     }
     else{
       this.activeProducts =true
       let productDetail = { name:product.name, price:product.price, type:product.type, image:product.image}
-      this.productsApiService.createProducts(productDetail).subscribe(product => console.log(product));
+      this.productsApiService.createProducts(productDetail).subscribe(() => this.getProducts);
     }
   }
 
@@ -106,13 +106,13 @@ export class ManageComponent implements OnInit {
     if(this.create===false){
       this.activeUser =true
       let productDetail = { name:user.admin, price:user.email}
-      this.userApiService.updateUser(1,productDetail).subscribe(product => console.log(product));
+      this.userApiService.updateUser(1,productDetail).subscribe(() => this.getUsers());
 
     }
     else{
       this.activeUser =true
       let productDetail = { name:user.admin, price:user.email}
-      this.userApiService.createUser(productDetail).subscribe(product => console.log(product));
+      this.userApiService.createUser(productDetail).subscribe(() => this.getUsers());
     }
   }
 
