@@ -22,6 +22,7 @@ export class SideNavComponent implements OnInit {
   }
   rolAcces() {
     const token: any = localStorage.getItem('token')
+    console.log('token', token);
     const roles: any = jwt_decode(token);
 
     let acces = [];
