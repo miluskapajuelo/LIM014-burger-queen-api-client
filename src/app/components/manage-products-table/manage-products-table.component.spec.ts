@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SearchProductPipe } from 'src/app/pipes/search-product.pipe';
 
 import { ManageProductsTableComponent } from './manage-products-table.component';
 
@@ -8,7 +9,7 @@ describe('ManageProductsTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ManageProductsTableComponent ]
+      declarations: [ ManageProductsTableComponent, SearchProductPipe ]
     })
     .compileComponents();
   });

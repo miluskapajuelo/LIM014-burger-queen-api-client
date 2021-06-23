@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { OrderTableComponent } from './order-table.component';
@@ -8,7 +9,12 @@ describe('OrderTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OrderTableComponent ]
+      declarations: [ 
+        OrderTableComponent
+      ], 
+      imports: [
+        HttpClientTestingModule
+      ]
     })
     .compileComponents();
   });
