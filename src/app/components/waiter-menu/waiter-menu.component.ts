@@ -6,7 +6,6 @@ import { OrderApiService } from 'src/app/services/order-api.service';
 import jwt_decode from 'jwt-decode';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import dayjs from 'dayjs';
 
 @Component({
   selector: 'app-waiterMenu',
