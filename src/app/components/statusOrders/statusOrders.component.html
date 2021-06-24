@@ -12,10 +12,10 @@
 
     </section>
     <article class="container-table" *ngIf="clicked">
-      <app-order-table [item]="item" *ngFor="let item of itemPending"></app-order-table>
+      <app-order-table [item]="item" *ngFor="let item of itemPending"  (updateOrders)="updateOrders($event)"></app-order-table>
     </article>
-    <article class="container-table" *ngIf="!clicked">
-      <app-order-table [item]="item" *ngFor="let item of itemDelivering"></app-order-table>
+    <article class="container-table" *ngIf="!clicked" >
+      <app-order-table [item]="item" *ngFor="let item of itemDelivering" (updateOrders)="updateOrders($event)"></app-order-table>
     </article>
   </article>
 
