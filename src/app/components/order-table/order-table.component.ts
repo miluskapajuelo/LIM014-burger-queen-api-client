@@ -1,13 +1,9 @@
 import {
-  Component, OnInit, Input
+  Component, OnInit, Input, Output, EventEmitter
 } from '@angular/core';
 import {
   IOrderModel
 } from 'src/app/models/orders-model';
-import { OrderApiService } from '../../services/order-api.service'
-import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
-import dayjs from 'dayjs';
 
 
 @Component({
@@ -18,47 +14,11 @@ import dayjs from 'dayjs';
 })
 export class OrderTableComponent implements OnInit {
   @Input() item: IOrderModel = {} as IOrderModel;
-  constructor(private orderApiService: OrderApiService) { }
+  @Output() updateOrders: EventEmitter<any> = new EventEmitter()
+  constructor() { }
 
   ngOnInit(): void { }
-
   update(item: any) {
-    const dateProcesed = dayjs();
-    if (item.status === 'pending') {
-      const order: IOrderModel = {
-        ...item,
-        status: 'delivering',
-        dateProcesed: dateProcesed.format('YYYY-MM-DD HH:mm:ss')
-      }
-      this.orderApiService.updateOrder(item._id, order).pipe(
-        catchError((error) => {
-          if (error.status === 400) {
-            alert('Opss something is wrong, try again!');
-          }
-          return throwError(error);
-        })
-      ).subscribe(() => {
-        console.log('pending')
-      })
-    }
-    else if (item.status === 'delivering') {
-      const order: IOrderModel = {
-        ...item,
-        status: 'ready',
-        dateProcesed: dateProcesed.format('YYYY-MM-DD HH:mm:ss')
-      }
-      this.orderApiService.updateOrder(item._id, order).pipe(
-        catchError((error) => {
-          if (error.status === 400) {
-            alert('Opss something is wrong, try again!');
-          }
-          return throwError(error);
-        })
-      ).subscribe(() => {
-        console.log('delivering')
-      })
-    }
-
+    this.updateOrders.emit(item)
   }
-
 }
