@@ -27,6 +27,7 @@ import { UsersPopComponent } from './components/users-pop/users-pop.component';
 import { SearchProductPipe } from './pipes/search-product.pipe';
 import { SearchUserPipe } from './pipes/search-user.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CalculateTimePipe } from './pipes/calculate-time.pipe';
 
 
 
@@ -48,7 +49,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProductPopComponent,
     UsersPopComponent,
     SearchProductPipe,
-    SearchUserPipe
+    SearchUserPipe,
+    CalculateTimePipe
   ],
   imports: [
     BrowserModule,

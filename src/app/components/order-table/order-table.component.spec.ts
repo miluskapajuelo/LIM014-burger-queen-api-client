@@ -1,6 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CalculateTimePipe } from 'src/app/pipes/calculate-time.pipe';
 import { OrderTableComponent } from './order-table.component';
 
 describe('OrderTableComponent', () => {
@@ -9,9 +9,10 @@ describe('OrderTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ 
-        OrderTableComponent
-      ], 
+      declarations: [
+        OrderTableComponent,
+        CalculateTimePipe
+      ],
       imports: [
         HttpClientTestingModule
       ]
