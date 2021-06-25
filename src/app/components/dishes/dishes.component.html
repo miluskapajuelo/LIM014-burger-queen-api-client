@@ -15,7 +15,7 @@
       <p class="category-card">{{product.type}}</p>
       <p>{{product.name}}</p>
     </div>
-    <img class="imageLogo" src='../assets/images/burger.png' alt="Burger">
+    <img class="imageLogo" src={{product.image}} alt={{product.name}}>
     <p class="card-price">
       {{product.price | currency}}
     </p>
