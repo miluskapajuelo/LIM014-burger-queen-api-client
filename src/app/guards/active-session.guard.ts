@@ -13,7 +13,8 @@ export class ActiveSessionGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const token = localStorage.getItem('token');
       if(!token){
-          return this.router.navigate(['login']).then(() => false);
+          this.router.navigate(['login']);
+          return false
         }
     return true;
   }
