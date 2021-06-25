@@ -1,5 +1,5 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ComponentFixture, inject, TestBed, async } from '@angular/core/testing';
+import { ComponentFixture, inject, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AuthApiService } from 'src/app/services/auth-api.service';
@@ -60,9 +60,10 @@ describe('LoginComponent', () => {
     spyOn(authApiService, 'loginAuth').and.returnValue(of(response))
     component.login()
     fixture.detectChanges();
-    fixture.whenStable().then(() => {
-      expect(mockRouter.navigate).toHaveBeenCalled()
+    fixture.whenStable().then((data:any) => {
+      console.log(data)
     });
+    expect(mockRouter.navigate).toHaveBeenCalled()
     expect(authApiService.loginAuth).toHaveBeenCalled()
 
   })
