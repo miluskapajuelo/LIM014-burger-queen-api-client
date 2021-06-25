@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
           window.localStorage.setItem('token', data.token);
           const token: any = jwt_decode(data.token);
           if (token.roles.admi) {
-            this.router.navigate(['admin']);
+            this.router.navigate(['manage']);
           } else {
             this.router.navigate(['waiter']);
           }
