@@ -22,7 +22,7 @@ export class ProductPopComponent implements OnInit {
   }
   //create product
   createProducts(product:HTMLInputElement, price:HTMLInputElement, type:HTMLInputElement,image:HTMLInputElement){
-    const productNew ={ product: product.value,
+    const productNew ={ name: product.value,
       price:price.value, type:type.value, image: image.value}
       this.createtProduct.emit(productNew)
     }

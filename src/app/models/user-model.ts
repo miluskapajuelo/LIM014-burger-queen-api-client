@@ -9,3 +9,4 @@ export interface UserDetailModel {
 export interface RolModel {
   admin: boolean;
 }
+/* enumerables type options = 1 | 2 | 3 | 4 ; */

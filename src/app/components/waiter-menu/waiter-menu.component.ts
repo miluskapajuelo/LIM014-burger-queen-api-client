@@ -39,7 +39,7 @@ export class WaiterMenuComponent implements OnInit {
   getAllProducts() {
     this.productsApiService.getAllProducts()
       .subscribe((products: any) => {
-        this.items = products.products
+        this.items = products
         this.items.forEach((element: ProductDetailModel) => {
           this.dishCategories.add(element.type)
         });

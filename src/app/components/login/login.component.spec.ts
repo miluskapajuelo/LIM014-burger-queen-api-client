@@ -12,9 +12,6 @@ import { of } from 'rxjs';
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
-  /*   let mockAuth = {
-      loginAuth: jasmine.createSpy('loginAuth')
-    } */
   let authApiService: any;
   let mockRouter = {
     navigate: jasmine.createSpy('navigate')
@@ -60,8 +57,7 @@ describe('LoginComponent', () => {
     spyOn(authApiService, 'loginAuth').and.returnValue(of(response))
     component.login()
     fixture.detectChanges();
-    fixture.whenStable().then((data:any) => {
-      console.log(data)
+    fixture.whenStable().then(() => {
     });
     expect(mockRouter.navigate).toHaveBeenCalled()
     expect(authApiService.loginAuth).toHaveBeenCalled()
