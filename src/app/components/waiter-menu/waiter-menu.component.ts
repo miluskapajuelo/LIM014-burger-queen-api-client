@@ -28,26 +28,24 @@ export class WaiterMenuComponent implements OnInit {
     this.items = []
     this.products = []
     this.total = 0;
-    this.able=false
+    this.able = false
   }
 
   ngOnInit(): void {
-    this.productsApiService.getAllProducts()
-      .subscribe((products: any) => {
-        this.items = products.products
-        this.filter(this.items)
-        this.filterType('burger')
-
-      })
+    this.getAllProducts()
     this.getTotal()
   }
 
-  //get categories
-  filter(elem: Array<ProductDetailModel>) {
-    elem.forEach((element: ProductDetailModel) => {
-      this.dishCategories.add(element.type)
-    });
+  getAllProducts() {
+    this.productsApiService.getAllProducts()
+      .subscribe((products: any) => {
+        this.items = products.products
+        this.items.forEach((element: ProductDetailModel) => {
+          this.dishCategories.add(element.type)
+        });
+        this.filterType('burger')
 
+      })
   }
 
   //get object to menu order
@@ -61,9 +59,7 @@ export class WaiterMenuComponent implements OnInit {
       }
     }
     if (this.productitem) {
-      let productSelec = this.productitem.find(product => {
-        return item._id === product.product.id
-      })
+      let productSelec = this.productitem.find(product => item._id === product.product.id)
       if (productSelec === undefined) {
         this.productitem.push(modelProduct)
       }
@@ -72,13 +68,9 @@ export class WaiterMenuComponent implements OnInit {
 
   }
 
-
-
   //filter by category
   filterType(category: any) {
-    this.products = this.items.filter((elem: ProductDetailModel) => {
-      return elem.type === category;
-    })
+    this.products = this.items.filter((elem: ProductDetailModel) => elem.type === category)
   }
 
   //add +1 in quantity product
@@ -117,8 +109,8 @@ export class WaiterMenuComponent implements OnInit {
   //get total price
   getTotal() {
     this.total = this.productitem
-    .map(item => item.qty * item.product.price)
-    .reduce((acc, item) => acc += item, 0)
+      .map(item => item.qty * item.product.price)
+      .reduce((acc, item) => acc += item, 0)
     this.able = this.total > 0 ? true : false
   }
 
@@ -132,7 +124,7 @@ export class WaiterMenuComponent implements OnInit {
       products: this.productitem,
       status: 'pending'
     }
-
+    console.log(order)
     this.orderApiService.createOrder(order).pipe(
       catchError((error) => {
         if (error.status === 400) {
@@ -141,7 +133,7 @@ export class WaiterMenuComponent implements OnInit {
         return throwError(error);
       })
     ).subscribe(() => {
-      this.productitem=[];
+      this.productitem = [];
       client.value = '';
       this.getTotal()
     }
