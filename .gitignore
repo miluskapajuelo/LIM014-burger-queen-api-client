@@ -7,6 +7,11 @@
 /docs
 # Only exists if Bazel was run
 /bazel-out
+#firebase
+.firebase
+queen-58726.web.app_2021-06-28_10-00-57.report.html
+firebase.json
+.firebaserc
 
 # dependencies
 /node_modules
