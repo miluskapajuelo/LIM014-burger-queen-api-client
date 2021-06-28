@@ -9,15 +9,19 @@
 </section>
 <h2 class="subtitle">OPTIONS</h2>
 <section class="option-cards">
-  <mat-card class="example-card-product"  *ngFor="let product of products"
+  <article class="container-card"  *ngFor="let product of products"
   (click)="GetProduct(product)">
-    <div>
-      <p class="category-card">{{product.type}}</p>
-      <p>{{product.name}}</p>
+  <div class="divElement">
+    <div class="typeElement">
+      <p>{{product.type}}</p>
     </div>
+      <p class="p">{{product.name}}</p>
     <img class="imageLogo" src={{product.image}} alt={{product.name}}>
-    <p class="card-price">
+  </div>
+  <div class="card-price">
+    <p >
       {{product.price | currency}}
     </p>
-  </mat-card>
+  </div>
+  </article>
 </section>

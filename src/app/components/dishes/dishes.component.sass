@@ -19,35 +19,43 @@
       box-shadow: 0.1rem 0.1rem 0.7rem 0.1rem #b0b0b066
       border-radius:0.6rem
 
+.divElement
+  display: flex
+  flex-direction: column
+  align-items: center
 
-.subtitle
-  margin: 1.3rem
+.typeElement
+  width: 100%
+  height: 20px
+  text-align: end
+  margin-right: 20px
+  font-size: 9px
+  color: #ca3a28
 
 .option-cards
   display: flex
   flex-wrap: wrap
-  .example-card-product
-    width: 7.5rem
-    height: 9rem
+  .container-card
+    width: 8.5rem
+    height: 10rem
     display: flex
     flex-direction: column
     align-items: center
     margin: 3px
-    cursor: pointer
-    transition: .4s ease-out
-    background-color: #fdc45b26
+    background-color: #ffefaa
+    justify-content: space-around
 
   .example-header-image
     background-size: cover
 
-  .example-card-product
+  .container-card
     transition: .4s ease-out
     &:hover
       img
-          transform: scale(1.4,1.4)
+          transform: scale(1.1,1.1)
           transition-duration: 500ms
           transition-timing-function: ease-out
-          height: 250px
+          height: 55px
           opacity: .7
     &:hover
       Box-shadow: 0.1rem 0.1rem 0.7rem 0.1rem #bebdbd
@@ -59,16 +67,25 @@
       right: 0
     .imageLogo
       width: 90%
-      margin: -1.3rem
+    .card-price
+      height: 25px
+      display: flex
+      align-content: center
+      justify-content: center
+      align-items: center
+      p
+        margin: 0
+        color: #d17d00
 
-
-p
-  margin: .5rem
-  font-size: .6rem
+.p
+  margin: 0.5rem
   font-weight: 500
-  align-self: center
-  justify-content: center
+  font-size: 10px
+  color: #d17d00
+  text-align: -webkit-center
 
 .active
   background-color: $primary-color
 
+.container-card
+  height: 30px
