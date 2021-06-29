@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -15,19 +16,26 @@ export class ProductPopComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  myForm = new FormGroup({
+    product: new FormControl('',Validators.required),
+    Price: new FormControl('',Validators.required),
+    Type: new FormControl('',Validators.required),
+    image: new FormControl('',Validators.required),
+  })
 
   //close modal
   closeModalProducts() {
     this.closeModalProduct.emit()
   }
-  //create product
-  createProducts(product:HTMLInputElement, price:HTMLInputElement, type:HTMLInputElement,image:HTMLInputElement){
-    const productNew ={ name: product.value,
-      price:price.value, type:type.value, image: image.value}
-      this.createtProduct.emit(productNew)
-    }
 
-
+  //submit form
+  onSubmit() {
+    const userNew=this.myForm.value;
+    this.createtProduct.emit(userNew)
+    this.myForm.reset()
+    this.closeModalProducts()
+    console.log(userNew)
+  }
 }
 
 

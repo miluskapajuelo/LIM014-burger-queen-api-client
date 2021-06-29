@@ -1,19 +1,36 @@
-@import '../../../styles'
 @import '../../../assets/mixins/_form-mixin'
 
-*
-  @include basic
 
 .form-update
   @include form
+  display: flex
   .buttons
     display: flex
     justify-content: center
     .button
-      @include button(70%, 0.6rem, $primary-color, $white)
+      @include button(90%, 0px, '', '')
 
 h1
   @include H1(1.8rem, center)
 
 .modal-window
   @include modal
+
+
+.is-invalid
+  background-color: #f1d6d6be
+.icon
+  display: none
+.is-invalidIcon
+  color: $primary-color
+  display: block
+  position: absolute
+  right: 15px
+  top: 30px
+
+.button:disabled
+  background-color: $white
+  color: $primary-color
+.button:enabled
+  background-color: $primary-color
+  color: $white
