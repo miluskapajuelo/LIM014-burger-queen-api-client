@@ -2,11 +2,12 @@
 
 .form-update
   @include form
+  display: flex
   .buttons
     display: flex
     justify-content: center
     .button
-      @include button(70%, 0.6rem, $primary-color, $white)
+      @include button(90%, 0px, '', '')
 
 h1
   @include H1(1.8rem, center)
@@ -14,3 +15,38 @@ h1
 .modal-window
   @include modal
 
+.is-invalid
+  background-color: #f1d6d6be
+.icon
+  display: none
+.is-invalidIcon
+  color: $primary-color
+  display: block
+  position: absolute
+  right: 15px
+  top: 30px
+
+.button:disabled
+  background-color: $white
+  color: $primary-color
+.button:enabled
+  background-color: $primary-color
+  color: $white
+
+.container-select
+  width: 100%
+.selectItem
+  background: transparent
+  border: none
+  font-size: 14px
+  padding: 15px
+  width: 100%
+  &:focus
+    outline: none
+
+.caja
+  margin: 20px
+  border: 1px solid $primary-color
+  overflow: hidden
+  width: 500px
+  position: relative

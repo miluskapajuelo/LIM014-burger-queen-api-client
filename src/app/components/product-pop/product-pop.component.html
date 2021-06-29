@@ -1,28 +1,55 @@
 <section id="open-modal" class="modal-window">
     <article class='container-form'>
       <button title="Close" class="modal-close" (click)="closeModalProducts()">Close</button>
-      <form class='form-update'>
+      <form class='form-update' [formGroup]="myForm" (ngSubmit)="onSubmit()">
         <h1>Table Products</h1>
         <div class="input-container">
-          <input #product type="text" name="product" class="input" autocomplete="off">
+          <input
+          [class.is-invalid]="myForm.get('product').touched && myForm.get('product').invalid"
+          type="text"
+          class="input"
+          min="0"
+          autocomplete="off"
+          formControlName="product">
           <label class="label">product</label>
+          <i class="fa fa-times icon" [class.is-invalidIcon]="myForm.controls['product'].invalid && myForm.controls['product'].touched"></i>
         </div>
         <div class="input-container">
-          <input #price type="number" name="price" class="input" min="0" autocomplete="off">
+          <input
+          [class.is-invalid]="myForm.get('Price').touched && myForm.get('Price').invalid"
+          type="number"
+          class="input"
+          min="0"
+          autocomplete="off"
+          formControlName="Price">
           <label class="label">Price ($)</label>
+          <i class="fa fa-times icon" [class.is-invalidIcon]="myForm.controls['Price'].invalid && myForm.controls['Price'].touched"></i>
         </div>
         <div class="input-container">
-          <input #type type="text" name="type" class="input" autocomplete="off" >
+          <input
+          [class.is-invalid]="myForm.get('Type').touched && myForm.get('Type').invalid"
+          type="text"
+          class="input"
+          min="0"
+          autocomplete="off"
+          formControlName="Type">
           <label class="label">Type</label>
+          <i class="fa fa-times icon" [class.is-invalidIcon]="myForm.controls['Type'].invalid && myForm.controls['Type'].touched"></i>
         </div>
         <div class="input-container">
-          <input #image type="text" name="type" class="input" autocomplete="off" >
+          <input
+          [class.is-invalid]="myForm.get('image').touched && myForm.get('image').invalid"
+          type="text"
+          class="input"
+          min="0"
+          autocomplete="off"
+          formControlName="image">>
           <label class="label">URL image</label>
+          <i class="fa fa-times icon" [class.is-invalidIcon]="myForm.controls['image'].invalid && myForm.controls['image'].touched"></i>
         </div>
         <div class="input-container-element">
-          <p class="error"></p>
           <div class="buttons">
-            <button class="button" (click)="createProducts(product, price, type, image)">Save</button>
+            <button type="submit" [disabled]="myForm.invalid" class="button">Save</button>
           </div>
         </div>
       </form>
