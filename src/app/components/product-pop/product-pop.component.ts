@@ -34,7 +34,6 @@ export class ProductPopComponent implements OnInit {
     this.createtProduct.emit(userNew)
     this.myForm.reset()
     this.closeModalProducts()
-    console.log(userNew)
   }
 }
 
