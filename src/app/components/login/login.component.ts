@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       this.authApiService.loginAuth(body)
         .pipe(
           catchError((error) => {
-            if (error.status === 400) {
+            if (error) {
               this.error = true;
               this.errorMessage = 'Incorret Email or Password';
             }
