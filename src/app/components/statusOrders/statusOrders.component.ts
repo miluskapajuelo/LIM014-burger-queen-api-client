@@ -18,7 +18,6 @@ import {
 })
 export class StatusOrdersComponent implements OnInit {
   clicked: boolean;
-  items: Array<IOrderModel>;
   itemPending: Array<IOrderModel>;
   itemDelivering: Array<IOrderModel>;
 
@@ -34,13 +33,20 @@ export class StatusOrdersComponent implements OnInit {
   }
 
   getOrders() {
-    this.OrderApiService.getAllOrders().subscribe((data) => {
-      this.itemPending = data.orders.filter((elem) => elem.status === 'pending').sort((a: IOrderModel, b: IOrderModel) => {
+    this.OrderApiService.getAllOrders().pipe(
+      catchError((error) => {
+        if (error) {
+          alert('Opss something is wrong, try again!');
+        }
+        return throwError(error);
+      })
+    ).subscribe((data) => {
+      this.itemPending = data.filter((elem: any) => elem.status === 'pending').sort((a: IOrderModel, b: IOrderModel) => {
         let formatA: any = dayjs(a.dateEntry).format('HHmmss')
         let formatB: any = dayjs(b.dateEntry).format('HHmmss')
         return formatA - formatB;
       })
-      this.itemDelivering = data.orders.filter((elem) => elem.status === 'delivering').sort((a: IOrderModel, b: IOrderModel) => {
+      this.itemDelivering = data.filter((elem: any) => elem.status === 'delivering').sort((a: IOrderModel, b: IOrderModel) => {
         let formatA: any = dayjs(a.dateEntry).format('HHmmss')
         let formatB: any = dayjs(b.dateEntry).format('HHmmss')
         return formatA - formatB;
@@ -63,7 +69,7 @@ export class StatusOrdersComponent implements OnInit {
       }
       this.OrderApiService.updateOrder(item._id, order).pipe(
         catchError((error) => {
-          if (error.status === 400) {
+          if (error) {
             alert('Opss something is wrong, try again!');
           }
           return throwError(error);
@@ -75,12 +81,12 @@ export class StatusOrdersComponent implements OnInit {
     else if (item.status === 'delivering') {
       const order: IOrderModel = {
         ...item,
-        status: 'ready',
+        status: 'delivered',
         dateProcesed: dateProcesed.format('YYYY-MM-DD HH:mm:ss')
       }
       this.OrderApiService.updateOrder(item._id, order).pipe(
         catchError((error) => {
-          if (error.status === 400) {
+          if (error) {
             alert('Opss something is wrong, try again!');
           }
           return throwError(error);
