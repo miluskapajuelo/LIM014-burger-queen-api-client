@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { environment } from '../../environments/environment';
-import { IProductsModel, ProductDetailModel } from '../models/products-model'
+import { ProductDetailModel } from '../models/products-model'
 
 
 @Injectable({
@@ -15,7 +15,7 @@ export class ProductsApiService {
     this.endpoint = '/products';
   }
   getAllProducts() {
-    return this.httpClient.get<IProductsModel>(`${this.domain}${this.endpoint}`);
+    return this.httpClient.get<Array<ProductDetailModel>>(`${this.domain}${this.endpoint}`);
   }
   getProductsById(uid: any) {
     return this.httpClient.get<ProductDetailModel>(`${this.domain}${this.endpoint}/${uid}`);
