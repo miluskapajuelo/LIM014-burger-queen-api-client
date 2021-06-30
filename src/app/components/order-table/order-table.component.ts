@@ -1,10 +1,6 @@
 import {
   Component, OnInit, Input, Output, EventEmitter
 } from '@angular/core';
-import {
-  IOrderModel
-} from 'src/app/models/orders-model';
-
 
 @Component({
   selector: 'app-order-table',
@@ -13,11 +9,14 @@ import {
   ]
 })
 export class OrderTableComponent implements OnInit {
-  @Input() item: IOrderModel = {} as IOrderModel;
+  @Input() item: any;
   @Output() updateOrders: EventEmitter<any> = new EventEmitter()
-  constructor() { }
+  constructor() {
+    this.item = {}
+  }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
   update(item: any) {
     this.updateOrders.emit(item)
   }

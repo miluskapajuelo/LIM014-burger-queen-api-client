@@ -40,105 +40,103 @@ describe('StatusOrdersComponentt', () => {
     expect(component.clicked).toBeTrue()
   })
   it('Should be getAllOrders', () => {
-    const response = {
-      "orders": [
-        {
-          "_id": "001",
-          "userId": "M01",
-          "client": "juana",
-          "products": [
-            {
-              "qty": 1,
-              "product": {
-                "name": "hamburguesa",
-                "id": "123"
-              }
-            },
-            {
-              "qty": 1,
-              "product": {
-                "name": "sprite",
-                "id": "111"
-              }
+    const response = [
+      {
+        "_id": "001",
+        "userId": "M01",
+        "client": "juana",
+        "products": [
+          {
+            "qty": 1,
+            "product": {
+              "name": "hamburguesa",
+              "id": "123"
             }
-          ],
-          "status": "delivering",
-          "dateEntry": "2021-06-13 23:00:00",
-          "dateProcesed": "2021-06-13 23:57:30"
-        },
-        {
-          "_id": "002",
-          "userId": "M01",
-          "client": "petrica",
-          "products": [
-            {
-              "qty": 1,
-              "product": {
-                "name": "hamburguesa",
-                "id": "123"
-              }
-            },
-            {
-              "qty": 1,
-              "product": {
-                "name": "sprite",
-                "id": "111"
-              }
+          },
+          {
+            "qty": 1,
+            "product": {
+              "name": "sprite",
+              "id": "111"
             }
-          ],
-          "status": "pending",
-          "dateEntry": "2021-06-13 23:00:00",
-          "dateProcesed": "2021-06-13 23:36:00"
-        },
-        {
-          "_id": "002",
-          "userId": "M01",
-          "client": "petrica",
-          "products": [
-            {
-              "qty": 1,
-              "product": {
-                "name": "hamburguesa",
-                "id": "123"
-              }
-            },
-            {
-              "qty": 1,
-              "product": {
-                "name": "sprite",
-                "id": "111"
-              }
+          }
+        ],
+        "status": "delivering",
+        "dateEntry": "2021-06-13 23:00:00",
+        "dateProcesed": "2021-06-13 23:57:30"
+      },
+      {
+        "_id": "002",
+        "userId": "M01",
+        "client": "petrica",
+        "products": [
+          {
+            "qty": 1,
+            "product": {
+              "name": "hamburguesa",
+              "id": "123"
             }
-          ],
-          "status": "pending",
-          "dateEntry": "2021-06-13 24:00:00",
-          "dateProcesed": "2021-06-13 23:36:00"
-        },
-        {
-          "_id": "002",
-          "userId": "M01",
-          "client": "petrica",
-          "products": [
-            {
-              "qty": 1,
-              "product": {
-                "name": "hamburguesa",
-                "id": "123"
-              }
-            },
-            {
-              "qty": 1,
-              "product": {
-                "name": "sprite",
-                "id": "111"
-              }
+          },
+          {
+            "qty": 1,
+            "product": {
+              "name": "sprite",
+              "id": "111"
             }
-          ],
-          "status": "delivering",
-          "dateEntry": "2021-06-13 24:00:00",
-          "dateProcesed": "2021-06-13 23:36:00"
-        }]
-    };
+          }
+        ],
+        "status": "pending",
+        "dateEntry": "2021-06-13 23:00:00",
+        "dateProcesed": "2021-06-13 23:36:00"
+      },
+      {
+        "_id": "002",
+        "userId": "M01",
+        "client": "petrica",
+        "products": [
+          {
+            "qty": 1,
+            "product": {
+              "name": "hamburguesa",
+              "id": "123"
+            }
+          },
+          {
+            "qty": 1,
+            "product": {
+              "name": "sprite",
+              "id": "111"
+            }
+          }
+        ],
+        "status": "pending",
+        "dateEntry": "2021-06-13 24:00:00",
+        "dateProcesed": "2021-06-13 23:36:00"
+      },
+      {
+        "_id": "002",
+        "userId": "M01",
+        "client": "petrica",
+        "products": [
+          {
+            "qty": 1,
+            "product": {
+              "name": "hamburguesa",
+              "id": "123"
+            }
+          },
+          {
+            "qty": 1,
+            "product": {
+              "name": "sprite",
+              "id": "111"
+            }
+          }
+        ],
+        "status": "delivering",
+        "dateEntry": "2021-06-13 24:00:00",
+        "dateProcesed": "2021-06-13 23:36:00"
+      }];
     spyOn(orderApiService, 'getAllOrders').and.returnValue(of(response))
     component.getOrders()
     fixture.detectChanges();
