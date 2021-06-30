@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 import { ProductsApiService } from './products-api.service';
-import { IProductsModel, ProductDetailModel } from '../models/products-model';
+import { ProductDetailModel } from '../models/products-model';
 
 describe('ProductsApiService', () => {
   let service: ProductsApiService;
@@ -26,22 +26,21 @@ describe('ProductsApiService', () => {
     expect(service).toBeTruthy();
   });
   it('should be getProducts', () => {
-    const data: IProductsModel = {
-      "products": [
-        {
-          "_id": "001",
-          "name": "Ham and-cheese sandwich",
-          "price": 14,
-          "type": "burger",
-        },
-        {
-          "_id": "002",
-          "name": "Simple burger",
-          "price": 14,
-          "type": "burger",
-        }
-      ]
-    }
+    const data: Array<ProductDetailModel> = [
+      {
+        "_id": "001",
+        "name": "Ham and-cheese sandwich",
+        "price": 14,
+        "type": "burger",
+      },
+      {
+        "_id": "002",
+        "name": "Simple burger",
+        "price": 14,
+        "type": "burger",
+      }
+    ]
+
 
     service.getAllProducts().subscribe((resp) => {
       expect(resp).toBe(data);

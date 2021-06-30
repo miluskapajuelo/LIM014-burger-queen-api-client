@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { environment } from '../../environments/environment';
 import { IAllOrderModel, IOrderModel } from '../models/orders-model';
+import { ProductDetailModel } from '../models/products-model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class OrderApiService {
     this.endpoint = '/orders';
   }
   getAllOrders() {
-    return this.httpClient.get<IAllOrderModel>(`${this.domain}${this.endpoint}`);
+    return this.httpClient.get<any>(`${this.domain}${this.endpoint}`);
   }
   getOrderById(uid: any) {
     return this.httpClient.get<IOrderModel>(`${this.domain}${this.endpoint}/${uid}`);
@@ -27,6 +28,6 @@ export class OrderApiService {
     return this.httpClient.put<IOrderModel>(`${this.domain}${this.endpoint}/${uid}`, body)
   }
   createOrder(body: any) {
-    return this.httpClient.post<IOrderModel>(`${this.domain}${this.endpoint}`, body,)
+    return this.httpClient.post<Array<ProductDetailModel>>(`${this.domain}${this.endpoint}`, body,)
   }
 }

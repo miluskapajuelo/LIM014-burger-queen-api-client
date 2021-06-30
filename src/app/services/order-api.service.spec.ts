@@ -26,8 +26,8 @@ describe('OrderApiService', () => {
     expect(service).toBeTruthy();
   });
   it('should be getAllOrders', () => {
-    const data: IAllOrderModel = {
-      "orders": [
+    const data: Array<IOrderModel> =
+      [
         {
           "_id": "001",
           "userId": "M01",
@@ -76,8 +76,7 @@ describe('OrderApiService', () => {
           "dateEntry": "2021-06-13 23:00:00",
           "dateProcesed": "2021-06-13 23:36:00"
         },
-      ]
-    };
+      ];
 
     service.getAllOrders().subscribe((resp) => {
       expect(resp).toBe(data);
@@ -202,10 +201,9 @@ describe('OrderApiService', () => {
     httpTestingController.verify();
   });
 
-  it('should Be updateOrder', () => {
+  it('should Be create', () => {
 
-    const data: IOrderModel = {
-      "_id": "001",
+    const data: any = {
       "userId": "M01",
       "client": "petrica",
       "products": [
@@ -222,16 +220,12 @@ describe('OrderApiService', () => {
             "name": "sprite",
             "id": "111",
           }
-        }],
-      "status": "pending",
-      "dateEntry": "10/11/2021",
-      "dateProcesed": "10/11/2021"
+        }]
     };
-
     service.createOrder(data)
       .subscribe(
         (resp) => {
-          expect(resp).toBe(data);
+          expect(resp).toEqual(data);
         }
       )
     const req = httpTestingController.expectOne(`${environment.domain}/orders`);
