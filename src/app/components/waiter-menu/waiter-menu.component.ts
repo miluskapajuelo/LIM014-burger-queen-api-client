@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductDetailModel } from 'src/app/models/products-model';
-import { IOrderModel, OrderProductModel } from 'src/app/models/orders-model';
+import { OrderProductModel } from 'src/app/models/orders-model';
 import { ProductsApiService } from 'src/app/services/products-api.service';
 import { OrderApiService } from 'src/app/services/order-api.service';
 import jwt_decode from 'jwt-decode';
@@ -16,7 +16,7 @@ export class WaiterMenuComponent implements OnInit {
 
   items: Array<ProductDetailModel>
   productitem: Array<OrderProductModel>
-  dishCategories = new Set()
+  dishCategories: Set<string> = new Set()
   products: Array<ProductDetailModel>
   total: number;
   name: string;
@@ -38,7 +38,7 @@ export class WaiterMenuComponent implements OnInit {
 
   getAllProducts() {
     this.productsApiService.getAllProducts()
-      .subscribe((products: any) => {
+      .subscribe((products: Array<ProductDetailModel>) => {
         this.items = products
         this.items.forEach((element: ProductDetailModel) => {
           this.dishCategories.add(element.type)
@@ -118,16 +118,17 @@ export class WaiterMenuComponent implements OnInit {
   newOrder(client: any) {
     const token = localStorage.getItem('token')
     const user: any = jwt_decode(token);
-    let order: IOrderModel = {
-      userId: user.id,
+    let order = {
+      userId: user.uid,
       client: client.value,
-      products: this.productitem,
-      status: 'pending'
+      products: this.productitem.map((item) => ({
+        productId: item.product.id,
+        qty: item.qty,
+      })),
     }
-    console.log(order)
     this.orderApiService.createOrder(order).pipe(
       catchError((error) => {
-        if (error.status === 400) {
+        if (error) {
           alert('Opss something is wrong, try again!');
         }
         return throwError(error);
