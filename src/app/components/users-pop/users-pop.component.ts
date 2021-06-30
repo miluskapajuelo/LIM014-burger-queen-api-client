@@ -11,19 +11,19 @@ export class UsersPopComponent implements OnInit {
 
   @Output() closeModalUser: EventEmitter<any> = new EventEmitter()
   @Output() createUser: EventEmitter<{}> = new EventEmitter()
-  admin:Array<String>
+  admin: Array<String>
 
 
   constructor() {
 
-  this.admin = ['yes', 'no'];
+    this.admin = ['yes', 'no'];
   }
 
 
   myForm = new FormGroup({
-    email: new FormControl('',Validators.required),
-    password: new FormControl('',Validators.required),
-    rol: new FormControl('',Validators.required),
+    email: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+    rol: new FormControl('', Validators.required),
   })
 
 
@@ -37,8 +37,8 @@ export class UsersPopComponent implements OnInit {
   }
 
   //submit form
-   onSubmit() {
-    const userNew=this.myForm.value;
+  onSubmit() {
+    const userNew = this.myForm.value;
     this.createUser.emit(userNew)
     this.myForm.reset()
     this.closeModalUsers()
