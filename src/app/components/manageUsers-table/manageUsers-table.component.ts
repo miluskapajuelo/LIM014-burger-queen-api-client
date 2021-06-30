@@ -27,15 +27,15 @@ export class ManageUsersTableComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  deleteUser(product: any) {
-    this.deleteUserById.emit(product)
+  deleteUser(user: any) {
+    this.deleteUserById.emit(user)
     this.clicked = false
   }
   handleSearch(value: string) {
     this.filterValue = value
   }
-  openModalUsers(product:any) {
-      this.openModalUser.emit(product)
+  openModalUsers(user:any) {
+      this.openModalUser.emit(user)
   }
 
 }

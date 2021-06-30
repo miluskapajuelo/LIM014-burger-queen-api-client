@@ -14,8 +14,8 @@
     <tr *ngFor="let user of users | searchUser:filterValue" >
       <td class="table-body">{{user.roles.admin}}</td>
       <td class="table-body">{{user.email}}</td>
-      <td class="table-body"><i class="fa fa-edit" (click)="openModalUsers(users)" [ngClass]="{ 'clicked': clicked }"></i></td>
-      <td class="table-body"><i class="fa fa-trash" (click)="deleteUser(users)" [ngClass]="{ 'clicked': !clicked }"></i></td>
+      <td class="table-body"><i class="fa fa-edit" (click)="openModalUsers(user)" [ngClass]="{ 'clicked': clicked }"></i></td>
+      <td class="table-body"><i class="fa fa-trash" (click)="deleteUser(user)" [ngClass]="{ 'clicked': !clicked }"></i></td>
     </tr>
   </table>
 </section>
