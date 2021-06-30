@@ -14,12 +14,12 @@
       <form class="form-login" [formGroup]="form" (ngSubmit)="login()">
         <h2 class="center">Let's start</h2>
         <div class="input-container">
-          <input type="email" name="email" formControlName="email" autocomplete="off">
-          <label class="email-input">Email </label>
+          <input  id="email" type="email" name="email" formControlName="email" autocomplete="off">
+          <label class="email-input" for="email">Email </label>
         </div>
         <div class="input-container">
-          <input type="password" name="password" formControlName="password" autocomplete="off">
-          <label class="password-input">Password</label>
+          <input id="password" type="password" name="password" formControlName="password" autocomplete="off">
+          <label class="password-input" for="password">Password</label>
         </div>
         <div class="input-container-element">
           <p *ngIf="error" class="error">{{errorMessage}}</p>

@@ -10,8 +10,8 @@
           class="input"
           min="0"
           autocomplete="off"
-          formControlName="product">
-          <label class="label">product</label>
+          formControlName="product" #nameProduct>
+          <label for="nameProduct" class="label">product</label>
           <i class="fa fa-times icon" [class.is-invalidIcon]="myForm.controls['product'].invalid && myForm.controls['product'].touched"></i>
         </div>
         <div class="input-container">
@@ -21,8 +21,8 @@
           class="input"
           min="0"
           autocomplete="off"
-          formControlName="Price">
-          <label class="label">Price ($)</label>
+          formControlName="Price" #priceProduct>
+          <label for="priceProduct" class="label">Price ($)</label>
           <i class="fa fa-times icon" [class.is-invalidIcon]="myForm.controls['Price'].invalid && myForm.controls['Price'].touched"></i>
         </div>
         <div class="input-container">
@@ -32,8 +32,8 @@
           class="input"
           min="0"
           autocomplete="off"
-          formControlName="Type">
-          <label class="label">Type</label>
+          formControlName="Type" #typeProduct>
+          <label for="typeProduct" class="label">Type</label>
           <i class="fa fa-times icon" [class.is-invalidIcon]="myForm.controls['Type'].invalid && myForm.controls['Type'].touched"></i>
         </div>
         <div class="input-container">
@@ -43,8 +43,8 @@
           class="input"
           min="0"
           autocomplete="off"
-          formControlName="image">>
-          <label class="label">URL image</label>
+          formControlName="image" #urlProductImg>
+          <label for="urlProductImg" class="label">URL image</label>
           <i class="fa fa-times icon" [class.is-invalidIcon]="myForm.controls['image'].invalid && myForm.controls['image'].touched"></i>
         </div>
         <div class="input-container-element">
