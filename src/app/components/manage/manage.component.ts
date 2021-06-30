@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { IProductsModel, ProductDetailModel } from 'src/app/models/products-model';
-import { IUserModel, UserDetailModel } from 'src/app/models/user-model';
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { ProductDetailModel } from 'src/app/models/products-model';
+import { UserDetailModel } from 'src/app/models/user-model';
 import { ProductsApiService } from 'src/app/services/products-api.service';
 import { UserApiService } from 'src/app/services/user-api.service';
 
@@ -18,12 +20,13 @@ export class ManageComponent implements OnInit {
   users: Array<UserDetailModel>
   activeProducts: boolean
   activeUser: boolean
+  currentUser: any;
+  currentProduct: any;
 
   constructor(private productsApiService: ProductsApiService, private userApiService: UserApiService) {
     this.clicked = true;
     this.activeProducts = false;
     this.activeUser = false;
-
   }
 
   ngOnInit(): void {
@@ -31,12 +34,26 @@ export class ManageComponent implements OnInit {
     this.getUsers()
   }
   getProducts() {
-    this.productsApiService.getAllProducts().subscribe((data: any) => {
+    this.productsApiService.getAllProducts().pipe(
+      catchError((error) => {
+        if (error) {
+          alert('Opss something is wrong, try again!');
+        }
+        return throwError(error);
+      })
+    ).subscribe((data: any) => {
       this.products = data
     })
   }
   getUsers() {
-    this.userApiService.getAllUsers().subscribe((data: any) => {
+    this.userApiService.getAllUsers().pipe(
+      catchError((error) => {
+        if (error) {
+          alert('Opss something is wrong, try again!');
+        }
+        return throwError(error);
+      })
+    ).subscribe((data: any) => {
       this.users = data
     })
   }
@@ -48,11 +65,25 @@ export class ManageComponent implements OnInit {
   }
 
   deleteProductById(product: ProductDetailModel) {
-    this.productsApiService.deleteProducts(product._id).subscribe(() => this.getProducts)
+    this.productsApiService.deleteProducts(product._id).pipe(
+      catchError((error) => {
+        if (error) {
+          alert('Opss something is wrong, try again!');
+        }
+        return throwError(error);
+      })
+    ).subscribe(() => this.getProducts())
     this.getProducts()
   }
   deleteUserById(user: UserDetailModel) {
-    this.userApiService.deleteUser(user).subscribe(() => this.getUsers())
+    this.userApiService.deleteUser(user._id).pipe(
+      catchError((error) => {
+        if (error) {
+          alert('Opss something is wrong, try again!');
+        }
+        return throwError(error);
+      })
+    ).subscribe(() => this.getUsers())
     this.getUsers()
   }
 
@@ -64,8 +95,8 @@ export class ManageComponent implements OnInit {
     this.activeUser = false
   }
 
-  openModalProducts(object: any) {
-    if (object.name === '') {
+  openModalProducts(product: any) {
+    if (product.name === '') {
       this.activeProducts = true
       this.create = true
 
@@ -73,11 +104,12 @@ export class ManageComponent implements OnInit {
     else {
       this.activeProducts = true
       this.create = false
+      this.currentProduct = product;
     }
   }
 
-  openModalUser(object: any) {
-    if (object.name === '') {
+  openModalUser(user: any) {
+    if (user.name === '') {
       this.activeUser = true
       this.create = true
 
@@ -85,34 +117,76 @@ export class ManageComponent implements OnInit {
     else {
       this.activeUser = true
       this.create = false
+      this.currentUser = user;
     }
   }
   createtProduct(product: any) {
+    let productDetail = {
+      name: product.product,
+      price: product.Price,
+      type: product.Type,
+      image: product.image
+    }
     if (this.create === false) {
       this.activeProducts = true
-      let productDetail = { name: product.name, price: product.price, type: product.type, image: product.image }
-      this.productsApiService.updateProducts(1, productDetail).subscribe(() => this.getProducts);
-
+      this.productsApiService.updateProducts(this.currentProduct._id, productDetail).pipe(
+        catchError((error) => {
+          if (error) {
+            alert('Opss something is wrong, try again!');
+          }
+          return throwError(error);
+        })
+      ).subscribe(() => {
+        this.getProducts()
+        this.currentProduct = ''
+      });
     }
     else {
       this.activeProducts = true
-      let productDetail = { name: product.name, price: product.price, type: product.type, image: product.image }
-      this.productsApiService.createProducts(productDetail).subscribe(() => this.getProducts);
+      this.productsApiService.createProducts(productDetail).pipe(
+        catchError((error) => {
+          if (error) {
+            alert('Opss something is wrong, try again!');
+          }
+          return throwError(error);
+        })
+      ).subscribe(() => this.getProducts());
     }
   }
 
 
   createUser(user: any) {
+    let userDetail = {
+      email: user.email,
+      password: user.password,
+      roles: {
+        admin: user.rol === 'yes' ? true : false
+      }
+    }
     if (this.create === false) {
       this.activeUser = true
-      let productDetail = { name: user.admin, price: user.email }
-      this.userApiService.updateUser(1, productDetail).subscribe(() => this.getUsers());
-
+      this.userApiService.updateUser(this.currentUser._id, userDetail).pipe(
+        catchError((error) => {
+          if (error) {
+            alert('Opss something is wrong, try again!');
+          }
+          return throwError(error);
+        })
+      ).subscribe(() => {
+        this.getUsers()
+        this.currentUser = ''
+      });
     }
     else {
       this.activeUser = true
-      let productDetail = { name: user.admin, price: user.email }
-      this.userApiService.createUser(productDetail).subscribe(() => this.getUsers());
+      this.userApiService.createUser(userDetail).pipe(
+        catchError((error) => {
+          if (error) {
+            alert('Opss something is wrong, try again!');
+          }
+          return throwError(error);
+        })
+      ).subscribe(() => this.getUsers());
     }
   }
 
