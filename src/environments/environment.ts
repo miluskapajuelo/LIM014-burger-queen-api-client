@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  domain: 'http://localhost:3200'
+  domain: 'https://nodejs-bq-api.herokuapp.com'
 };
 
 /*
