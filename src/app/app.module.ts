@@ -28,6 +28,8 @@ import { SearchProductPipe } from './pipes/search-product.pipe';
 import { SearchUserPipe } from './pipes/search-user.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CalculateTimePipe } from './pipes/calculate-time.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 
@@ -58,7 +60,13 @@ import { CalculateTimePipe } from './pipes/calculate-time.pipe';
     HttpClientModule,
     BrowserAnimationsModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
 
   ],
   exports: [
