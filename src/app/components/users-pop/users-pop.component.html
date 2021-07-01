@@ -6,15 +6,18 @@
       <h1>Table Users</h1>
       <div class="input-container">
         <input [class.is-invalid]="myForm.get('email').touched && myForm.get('email').invalid" type="email"
-          class="input" min="0" autocomplete="off" formControlName="email" #emailUser>
+          class="input" min="0" autocomplete="off" formControlName="email" id="emailUser">
         <label for="emailUser" class="label">Email</label>
+
         <i class="fa fa-times icon"
           [class.is-invalidIcon]="myForm.controls['email'].invalid && myForm.controls['email'].touched"></i>
       </div>
       <div class="input-container">
         <input [class.is-invalid]="myForm.get('password').touched && myForm.get('password').invalid" type="password"
-          class="input" min="0" autocomplete="off" formControlName="password" #passwordUser>
+
+          class="input" min="0" autocomplete="off" formControlName="password" id="passwordUser">
         <label for="passwordUser" class="label">Password</label>
+
         <i class="fa fa-times icon"
           [class.is-invalidIcon]="myForm.controls['password'].invalid && myForm.controls['password'].touched"></i>
       </div>
