@@ -2,22 +2,23 @@
 
 .category-cards
   display: flex
+  flex-wrap: wrap
   margin: 0.7rem
-  .example-card
+  .button-categories
     display: flex
     align-items: center
     margin: 0.5rem
     cursor: pointer
     h2
       font-size: 0.8rem
-      color: #212121
+      color: $black
       text-transform: uppercase
       padding: .5rem
-      border-radius:3px
+      border-radius: 3px
       background-color: $primary-color
       color: $white
       box-shadow: 0.1rem 0.1rem 0.7rem 0.1rem #b0b0b066
-      border-radius:0.6rem
+      border-radius: 0.6rem
 
 .divElement
   display: flex
@@ -30,33 +31,30 @@
   text-align: end
   margin-right: 20px
   font-size: 9px
-  color: #ca3a28
+  color: $primary-color
 
 .option-cards
   display: flex
   flex-wrap: wrap
   .container-card
-    width: 8.5rem
-    height: 10rem
+    width: 9rem
     display: flex
+    border-radius: 1rem
     flex-direction: column
     align-items: center
     margin: 3px
     background-color: #ffefaa
     justify-content: space-around
 
-  .example-header-image
-    background-size: cover
-
   .container-card
     transition: .4s ease-out
     &:hover
       img
-          transform: scale(1.1,1.1)
-          transition-duration: 500ms
-          transition-timing-function: ease-out
-          height: 55px
-          opacity: .7
+        transform: scale(1.1,1.1)
+        transition-duration: 500ms
+        transition-timing-function: ease-out
+        height: 55px
+        opacity: .7
     &:hover
       Box-shadow: 0.1rem 0.1rem 0.7rem 0.1rem #bebdbd
     .category-card
@@ -66,7 +64,7 @@
       color: #d17d00
       right: 0
     .imageLogo
-      width: 90%
+      width: 85%
     .card-price
       height: 25px
       display: flex
@@ -82,10 +80,5 @@
   font-weight: 500
   font-size: 10px
   color: #d17d00
-  text-align: -webkit-center
+  text-align: center
 
-.active
-  background-color: $primary-color
-
-.container-card
-  height: 30px

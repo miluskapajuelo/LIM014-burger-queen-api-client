@@ -1,9 +1,5 @@
-<head>
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
-</head>
 <section class="category-cards">
-  <div *ngFor="let category of dishCategories"  (click)="filterbyCateg(category)"  class="example-card">
+  <div *ngFor="let category of dishCategories"  (click)="filterbyCateg(category)"  class="button-categories">
     <h2 >{{category}}</h2>
 </div>
 </section>
