@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { environment } from '../../environments/environment';
-import { IUserModel, UserDetailModel } from '../models/user-model'
+import { UserDetailModel } from '../models/user-model'
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class UserApiService {
     this.endpoint = '/users';
   }
   getAllUsers() {
-    return this.httpClient.get<IUserModel>(`${this.domain}${this.endpoint}`);
+    return this.httpClient.get<Array<UserDetailModel>>(`${this.domain}${this.endpoint}`);
   }
   getUserById(uid: any) {
     return this.httpClient.get<UserDetailModel>(`${this.domain}${this.endpoint}/${uid}`);
