@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { UserApiService } from './user-api.service';
-import { IUserModel, UserDetailModel } from '../models/user-model';
+import { UserDetailModel } from '../models/user-model';
 
 describe('UserApiService', () => {
   let service: UserApiService;
@@ -25,24 +25,22 @@ describe('UserApiService', () => {
     expect(service).toBeTruthy();
   });
   it('should be getAllUsers', () => {
-    const data: IUserModel = {
-      "user": [
-        {
-          "_id": "01",
-          "email": "Admi@gmail.com",
-          "roles": {
-            "admin": true
-          }
-        },
-        {
-          "_id": "02",
-          "email": "chef@gmail.com",
-          "roles": {
-            "admin": false
-          }
+    const data: Array< UserDetailModel > =[
+      {
+        "_id": "01",
+        "email": "Admi@gmail.com",
+        "roles": {
+          "admin": true
         }
-      ]
-    }
+      },
+      {
+        "_id": "02",
+        "email": "chef@gmail.com",
+        "roles": {
+          "admin": false
+        }
+      }
+    ]
     service.getAllUsers().subscribe((resp) => {
       expect(resp).toBe(data);
     })
@@ -52,7 +50,7 @@ describe('UserApiService', () => {
     httpTestingController.verify();
 
   })
-  it('should be getAllUsers', () => {
+  it('should be get user by id', () => {
     const data: UserDetailModel = {
       "_id": "01",
       "email": "Admi@gmail.com",
