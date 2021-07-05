@@ -83,11 +83,13 @@ Technologies used to test: Karma, Jasmine
 
 | File      | % Stmts   |  % Branch  | % Funcs  | % Lines  |    
 |-----------|-----------|------------|----------|----------|
-| All files |   65.03   |    43.42   |   59.85  |   62.84  |  
+| All files |   88.19   |    72.37   |   82.48  |   87.31  |  
 
+
+<a href="https://ibb.co/VM7rCGL"><img src="https://i.ibb.co/bNSqvV6/test.png" alt="test" border="0"></a>
 ## Performance
 
-<a href="https://ibb.co/8NfZxw3"><img src="https://i.ibb.co/6rTCtSh/performance-App.png" alt="performance-App" border="0"></a>
+<a href="https://ibb.co/X8xX2GQ"><img src="https://i.ibb.co/SrwNsZj/performance-App.png" alt="performance-App" border="0"></a>
 
 ## Offline performance
 
