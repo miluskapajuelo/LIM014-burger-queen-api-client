@@ -41,7 +41,7 @@ export class ManageComponent implements OnInit {
         }
         return throwError(error);
       })
-    ).subscribe((data: any) => {
+    ).subscribe((data: Array<ProductDetailModel>) => {
       this.products = data
     })
   }
@@ -53,7 +53,7 @@ export class ManageComponent implements OnInit {
         }
         return throwError(error);
       })
-    ).subscribe((data: any) => {
+    ).subscribe((data: Array<UserDetailModel>) => {
       this.users = data
     })
   }
@@ -95,7 +95,7 @@ export class ManageComponent implements OnInit {
     this.activeUser = false
   }
 
-  openModalProducts(product: any) {
+  openModalProducts(product: ProductDetailModel) {
     if (product.name === '') {
       this.activeProducts = true
       this.create = true
@@ -108,8 +108,8 @@ export class ManageComponent implements OnInit {
     }
   }
 
-  openModalUser(user: any) {
-    if (user.name === '') {
+  openModalUser(user: UserDetailModel) {
+    if (user.email === '') {
       this.activeUser = true
       this.create = true
 

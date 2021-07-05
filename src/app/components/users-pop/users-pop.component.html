@@ -22,7 +22,7 @@
           [class.is-invalidIcon]="myForm.controls['password'].invalid && myForm.controls['password'].touched"></i>
       </div>
       <div class="input-container">
-        <div class="caja">
+        <div class="container-selec">
           <select formControlName="rol" class="selectItem">
             <option value="" disabled>Manager rol</option>
             <option *ngFor="let rol of admin">{{rol}}</option>
