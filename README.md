@@ -36,8 +36,9 @@ Roles: ["manager", "chef", "waiter"]
   
   Credentials:
   
-  rol admin   email: admin@bq.com password: admin001 
-  rol chef/waiter   email: server@bq.com password: server001 
+  **rol: admin   email: admin@bq.com password: admin001 **
+  
+  **rol: chef/waiter   email: server@bq.com password: server001 **
 
 Vertical view:
 
