@@ -33,6 +33,11 @@ Roles: ["manager", "chef", "waiter"]
   In this section, the user must log in to enter the application, this part is very important because   according to the role he has,  he will have **access** to certain views and functionalities.
 
   And receive understandable error messages, depending on what the error is with the information entered.
+  
+  Credentials:
+  
+  rol admin   email: admin@bq.com password: admin001 
+  rol chef/waiter   email: server@bq.com password: server001 
 
 Vertical view:
 
